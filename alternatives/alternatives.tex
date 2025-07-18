@@ -1,0 +1,114 @@
+\section{Evaluación de Alternativas}
+\label{alternatives}
+
+Existen distintas alternativas para la visualización de datos que se analizaron en este trabajo. A continuación, se describen en detalle y se justifica la selección de las herramientas ocupadas.
+
+\subsection{Técnicas de Downsampling}
+
+Una vez introducido el concepto de downsampling como solución al problema de visualización de series de tiempo muy densas, es necesario revisar y comparar las principales alternativas existentes.
+
+Diversos autores han propuesto algoritmos que permiten seleccionar los puntos más representativos de una serie para facilitar su visualización. A continuación, se presenta un resumen de los métodos más relevantes:
+
+\begin{enumerate}
+    \item \textbf{Mode-Median-Bucket (MMB)}: 
+    Divide los datos en bloques y selecciona un punto por bloque usando la moda o la mediana de los valores. Es simple y fácil de entender, pero tiende a omitir picos y valles locales relevantes~\cite{steinarsson2013downsampling}.
+
+    \item \textbf{Min-Std-Error-Bucket (MSEB)}: 
+    Utiliza regresión lineal para calcular el error estándar entre pares de puntos, eligiendo aquellos que minimizan la suma de errores. Produce resultados estadísticamente coherentes, pero suaviza demasiado la serie y elimina detalles visuales importantes~\cite{steinarsson2013downsampling}.
+
+    \item \textbf{Longest-Line-Bucket (LLB)}: 
+    Similar a MSEB, pero en lugar de minimizar el error, maximiza la longitud total de las líneas entre puntos seleccionados. Tiene mejor capacidad para conservar picos extremos y fluctuaciones relevantes~\cite{steinarsson2013downsampling}.
+
+    \item \textbf{Largest-Triangle-Three-Buckets (LTTB)}: 
+    Divide los datos en tres bloques consecutivos y selecciona el punto que forma el triángulo de mayor área con los puntos de los bloques adyacentes. Esta técnica preserva bien la forma general del gráfico y es eficiente computacionalmente~\cite{steinarsson2013downsampling}.
+
+    \item \textbf{Largest-Triangle-Dynamic (LTD)}: 
+    Variante del LTTB que adapta dinámicamente el tamaño de los bloques según la variación local de los datos. Mejora la representación visual en series con regiones muy fluctuantes y otras más estables~\cite{steinarsson2013downsampling}.
+
+    \item \textbf{MinMaxLTTB}: 
+    Propuesto por Van Der Donckt et al.~\cite{vanderdonckt2023minmaxlttb}, este algoritmo mejora la escalabilidad de LTTB al aplicar una preselección eficiente de puntos mínimos y máximos verticales mediante el algoritmo MinMax, para luego aplicar LTTB solo sobre esos puntos seleccionados. De esta manera, reduce significativamente el tiempo de cómputo sin sacrificar calidad visual.
+\end{enumerate}
+
+Dado el enfoque de este trabajo, se seleccionó principalmente el uso del algoritmo \textbf{MinMaxLTTB}. Esta decisión se fundamenta en varios factores: en primer lugar, el algoritmo ha sido propuesto por los mismos autores que desarrollaron la biblioteca \texttt{tsdownsample}, lo que garantiza una implementación de referencia optimizada y bien documentada. Además, MinMaxLTTB presenta un excelente equilibrio entre rendimiento y fidelidad visual, al combinar una reducción sustancial en el tiempo de cómputo con una buena preservación de la forma general de la serie de tiempo.
+
+Como complemento para el análisis comparativo, también se utilizará el algoritmo \textbf{LTTB}, ya que es ampliamente citado en la literatura como una opción base eficiente, y su comparación directa con MinMaxLTTB permite observar el impacto de la estrategia de preselección aplicada por los autores.
+
+\subsection{Estructuras de Datos Compactas}
+
+El uso de estructuras de datos compactas permite representar secuencias numéricas en memoria utilizando una menor cantidad de bits por elemento, manteniendo acceso eficiente y sin pérdida de información. Estas estructuras son especialmente útiles en contextos donde la cantidad de datos es alta y la eficiencia espacial se vuelve un factor relevante, como ocurre en la visualización de series de tiempo a gran escala.
+
+En este trabajo se utiliza la biblioteca \texttt{sdsl4py}, un conjunto de bindings en Python para la Succinct Data Structure Library (SDSL), que permite acceder a múltiples representaciones comprimidas desde entornos de análisis como Python. A continuación se presentan las principales estructuras disponibles en \texttt{sdsl4py} utilizadas en esta memoria:
+
+\begin{enumerate}
+    \item \textbf{enc\_vector\_elias\_gamma}:
+    Utiliza codificación de enteros Elias-Gamma. Es eficiente para valores pequeños, ya que su tamaño codificado crece logarítmicamente con el valor. No puede representar ceros.
+
+    \item \textbf{enc\_vector\_elias\_delta}:
+    Variante de Elias-Gamma que mejora la compresión para valores grandes, manteniendo eficiencia en lectura. También requiere que todos los valores sean mayores que cero.
+
+    \item \textbf{enc\_vector\_fibonacci}:
+    Usa codificación basada en la sucesión de Fibonacci. Esta técnica es compacta y libre de prefijos, pero tiene limitaciones para valores cero y una complejidad levemente mayor en decodificación.
+
+    \item \textbf{enc\_vector\_comma\_2}:
+    Codificación por comas binarias (comma-2), una forma simple y eficiente de codificar enteros con separación de bits mediante una secuencia especial. Ofrece buena compresión para secuencias no muy dispersas.
+
+    \item \textbf{vlc\_vector\_elias\_delta}:
+    Variante del enc\_vector\_elias\_delta que permite acceso más rápido a los elementos gracias a una estructura de lectura optimizada (Variable-Length Codes con índice de acceso directo).
+
+    \item \textbf{vlc\_vector\_elias\_gamma}:
+    Equivalente a la anterior, pero usando codificación Elias-Gamma. Útil cuando se prioriza el acceso sobre la compresión máxima.
+
+    \item \textbf{vlc\_vector\_fibonacci}:
+    Combina las ventajas de codificación Fibonacci con accesos más eficientes mediante índices auxiliares.
+
+    \item \textbf{vlc\_vector\_comma\_2}:
+    Aplica codificación comma-2 con estructura de acceso rápido. Es útil cuando se necesita acceder a datos comprimidos con latencias bajas.
+
+    \item \textbf{dac\_vector}:
+    Utiliza Directly Addressable Codes (DAC), una estructura escalonada que permite un buen balance entre compresión y velocidad de acceso. Es especialmente útil para secuencias de enteros donde los valores tienen alta varianza.
+
+\end{enumerate}
+
+Como podemos apreciar en el Anexo~\ref{anexo_sdsl4py}, al evaluar la velocidad de acceso, el tiempo de construcción y el espacio utilizado por las distintas alternativas de estructuras de datos compactas, no se observa una diferencia significativa en cuanto a su curva de complejidad teórica. No obstante, para determinar cuál estructura resulta más adecuada en la práctica, se define una \textbf{relación compuesta} que pondera las tres métricas principales.
+
+Esta relación se formula como:
+
+\begin{equation}
+\text{Score}(E) = \alpha \cdot \text{AccessTime}(E) + \beta \cdot \text{BuildTime}(E) + \gamma \cdot \text{SpaceUsed}(E)
+\end{equation}
+
+donde:
+\begin{itemize}
+    \item $E$ representa una estructura evaluada,
+    \item $\text{AccessTime}(E)$, $\text{BuildTime}(E)$ y $\text{SpaceUsed}(E)$ corresponden a los valores empíricos medidos para dicha estructura,
+    \item y $\alpha$, $\beta$, y $\gamma$ son coeficientes de ponderación tales que $\alpha + \beta + \gamma = 1$.
+\end{itemize}
+
+Estos coeficientes pueden ser ajustados en función de los objetivos específicos del sistema o aplicación. Por ejemplo, en un entorno donde el rendimiento en lectura sea prioritario, se puede asignar un valor mayor a $\alpha$; en cambio, si se trabaja con recursos de almacenamiento limitados, se puede incrementar el peso de $\gamma$. 
+
+En esta ocasión, se consideran los valores:
+
+\begin{itemize}
+    \item $\alpha = 0.6$
+	\item $\beta = 0.4$
+	\item $\gamma = 0.3$
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Puntaje promedio por estructura (menor es mejor)}
+\label{tab:score_promedio_estructuras}
+\begin{tabular}{l r}
+\toprule
+\textbf{Estructura} & \textbf{Score promedio} \\
+\midrule
+vlc\_vector\_elias\_delta - 8 & 204.200 \\
+vlc\_vector\_elias\_gamma - 8 & 218.200 \\
+vlc\_vector\_comma\_2 - 8     & 231.800 \\
+dac\_vector - 8              & 232.600 \\
+No Compression - 8           & 1776.000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A partir de la puntuación resultante, se seleccionan las estructuras de datos \textit{vlc\_vector\_elias\_delta} por ser la de mejor puntuación, y \textit{dac\_vector} por ser la siguiente estructura con buen rendimiento, pero que además representa una técnica de compresión distinta, basada en \textit{Directly Addressable Codes}. Esta elección permite contrastar dos enfoques diferentes de compresión (códigos de longitud variable vs. esquemas direccionables) y evaluar su impacto práctico en la visualización de datos comprimidos.

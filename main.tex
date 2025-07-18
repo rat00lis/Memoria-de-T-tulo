@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx, float}
+\usepackage{subcaption}
+\usepackage{booktabs}
+% images path
+\graphicspath{{images/}}
+\usepackage{hyperref}
+\usepackage{adjustbox}
+\usepackage{makecell}
+\usepackage{enumitem}
+
+% Title and author
+
+\title{Pending Title}
+\author{Oliver Diego Antonio Alarcón}
+
+\begin{document}
+
+\maketitle
+	
+\tableofcontents
+\listoftables	
+\listoffigures
+    
+\include{introduction/introduction}
+\include{objectives/objectives}
+\include{alternatives/alternatives}
+\include{development/development}
+\include{testing/testing}
+\include{anexo/anexo}
+
+\bibliographystyle{plain} % or alpha, ieeetr, apa, etc.
+\bibliography{references}    
+
+\end{document}
