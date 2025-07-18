@@ -1,0 +1,203 @@
+\subsubsection{Resumen de Experimentos}
+\label{anexo_resumen-experimentos}
+
+\begin{table}[H]
+\centering
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|p{3.8cm}|p{3.8cm}|p{4.2cm}|p{3.8cm}|p{2cm}|}
+\hline
+\textbf{Título (Español)} & \textbf{Título (Inglés)} & \textbf{Parámetros de entrada} & \textbf{Métrica evaluada} & \textbf{Unidad} \\
+\hline
+
+\hyperref[exp:cvd-access-decimals]{Acceso en CompressedVector con Diferentes Decimales} 
+& CVD Decimal Places Access Time Comparison 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Número de decimales
+  \item Método de compresión
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tiempo de acceso promedio por índice 
+& segundos \\
+\hline
+
+\hyperref[exp:altair-mem]{Asignación de Memoria con Vega-Altair} 
+& Vega-Altair Memory Allocation 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Tipo de entrada
+  \item Método de compresión y reducción
+  \item $n_{out}$
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Memoria alocada al renderizar 
+& kilobytes \\
+\hline
+
+\hyperref[exp:all-libs-mem]{Asignación de Memoria en Todas las Librerías} 
+& All Libraries Memory Allocation 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Librería
+  \item Datos procesados por \texttt{CompressedVectorDownsampler}
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Memoria alocada al graficar 
+& kilobytes \\
+\hline
+
+\hyperref[exp:pygal-mem]{Asignación de Memoria con Pygal} 
+& Pygal Memory Allocation 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Tipo de entrada
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Memoria alocada al renderizar 
+& kilobytes \\
+\hline
+
+\hyperref[exp:altair-total-time]{Tiempo Total de Construcción y Graficado con Altair} 
+& Vega-Altair Plotting + Building Comparison 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Tipo de entrada
+  \item Método de compresión
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tiempo total (preparación + renderizado) 
+& segundos \\
+\hline
+
+\hyperref[exp:altair-time]{Tiempos de Graficado con Vega-Altair} 
+& Vega-Altair Plot Time Comparison 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Tipo de entrada
+  \item Método de compresión y reducción
+  \item $n_{out}$
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tiempo de renderizado 
+& segundos \\
+\hline
+
+\hyperref[exp:all-libs-time]{Comparación de Tiempos de Graficado en Todas las Librerías} 
+& All Libraries Time Comparison 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Librería
+  \item Datos procesados por \texttt{CompressedVectorDownsampler}
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tiempo de renderizado 
+& segundos \\
+\hline
+
+\hyperref[exp:compression-time]{Comparación de Tiempo de Compresión} 
+& Compression Time Comparison 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Tipo de entrada
+  \item Método de compresión
+  \item Método de reducción
+  \item $n_{out}$
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tiempo de procesamiento previo a la visualización 
+& segundos \\
+\hline
+
+\hyperref[exp:space-comparison]{Comparación de Espacio Usado por Representación} 
+& Comparison of Space Used 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Tipo de estructura de representación
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tamaño en memoria 
+& bytes \\
+\hline
+
+\hyperref[exp:build-cv-sdsl]{Construcción de CompressedVector vs Vector SDSL4PY} 
+& Time for Building Compressed Vector and SDSL4PY Vector 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Tipo de vector
+  \item Método de compresión
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tiempo de construcción 
+& segundos \\
+\hline
+
+\hyperref[exp:cvd-build-decimals]{Construcción de CompressedVector con Diferentes Decimales} 
+& CVD Decimal Places Build Time Comparison 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Número de decimales
+  \item Método de compresión
+  \item Método de reducción
+  \item $n_{out}$
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tiempo de construcción 
+& segundos \\
+\hline
+
+\hyperref[exp:build-cvd-sdsl]{Construcción de Vector desde Downsampling vs Vector SDSL4PY} 
+& Time for Building Compressed Vector Downsampler and SDSL4PY Vector 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Método de compresión
+  \item Método de reducción
+  \item $n_{out}$
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tiempo de construcción 
+& segundos \\
+\hline
+
+\hyperref[exp:cvd-size-decimals]{Tamaño en Memoria de CompressedVector con Diferentes Decimales} 
+& CVD Decimal Places Size Comparison 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Número de decimales
+  \item Método de compresión
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tamaño en memoria 
+& bytes \\
+\hline
+
+\hyperref[exp:pygal-time]{Tiempos de Graficado con Pygal} 
+& Pygal Plot Time Comparison 
+& \begin{minipage}[t]{\linewidth}\vspace{0.2em}
+\begin{itemize}[leftmargin=*, noitemsep]
+  \item Tipo de entrada
+\end{itemize}
+\vspace{-0.2em}
+\end{minipage}
+& Tiempo de renderizado 
+& segundos \\
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\caption{Resumen de los experimentos ejecutados en el sistema (ordenados alfabéticamente)}
+\label{tab:resumen-experimentos}
+\end{table}
+
