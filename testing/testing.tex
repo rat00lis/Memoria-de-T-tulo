@@ -3,15 +3,20 @@
 
 Usando el framework descrito en la Sección~\ref{benchmarking}, se declararon distintos experimentos a partir de la plantilla base del repositorio. Cada uno de ellos evalúa distintos aspectos del sistema como el uso de memoria, tiempos de ejecución o el tamaño ocupado por diferentes representaciones de datos. La descripción de cada experimento, así como sus valores de entrada y salida se encuentran en el Anexo~\ref{anexo_resumen-experimentos}.
 
-\subsection{Acceso en CompressedVector con Diferentes Decimales}
-%consulta el anexo para ver todos los resultados...
-\label{exp:cvd-access-decimals}
+\input{testing/decimal_places_access.tex}
+\input{testing/altair_mem.tex}
+\input{testing/all_libs_mem.tex}
+\input{testing/space_comparison.tex}
+\input{testing/compression_time.tex}
+\input{testing/all_libs_time.tex}
+\input{testing/cvd_build_decimals.tex}
+\input{testing/cvd_sdsl_build.tex}
+\input{testing/cvd_size_decimals.tex}
+\input{testing/altair_total_time.tex}
+\input{testing/pygal_time.tex}
+\input{testing/altair_time.tex}
 
-\subsection{Asignación de Memoria con Pygal}
-\label{exp:pygal-mem}
 
-\subsection{Asignación de Memoria con Vega-Altair}
-\label{exp:altair-mem}
 
 \subsection{Asignación de Memoria en Todas las Librerías}
 \label{exp:all-libs-mem}
