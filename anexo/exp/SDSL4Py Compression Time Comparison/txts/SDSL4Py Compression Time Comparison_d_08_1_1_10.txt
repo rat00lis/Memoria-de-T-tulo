@@ -1,11 +1,20 @@
-\begin{tabular}{lrrrrrr}
-\toprule
-option & Original Data & dac_vector - 8 & vlc_vector_comma_2 - 8 & vlc_vector_elias_delta - 8 & vlc_vector_elias_gamma - 8 & vlc_vector_fibonacci - 8 \\
-n_size &  &  &  &  &  &  \\
-\midrule
-1001 & 3.67e-07 [sec] & 6.20e-04 [sec] & 6.47e-04 [sec] & 6.36e-04 [sec] & 6.30e-04 [sec] & 6.44e-04 [sec] \\
-10000 & 5.51e-07 [sec] & 6.06e-03 [sec] & 6.38e-03 [sec] & 6.32e-03 [sec] & 6.15e-03 [sec] & 6.34e-03 [sec] \\
-100000 & 1.29e-06 [sec] & 6.35e-02 [sec] & 6.76e-02 [sec] & 6.70e-02 [sec] & 6.44e-02 [sec] & 6.60e-02 [sec] \\
-300000 & 1.23e-06 [sec] & 1.97e-01 [sec] & 2.03e-01 [sec] & 1.99e-01 [sec] & 1.97e-01 [sec] & 2.02e-01 [sec] \\
-\bottomrule
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{4}{c|}{\textbf{Number of data points}} \\
+\cline{2-5}
+ & \textbf{1001} & \textbf{10000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Original Data & 3.67e-07 [s] & 5.51e-07 [s] & 1.29e-06 [s] & 1.23e-06 [s] \\
+dac_vector - 8 & 6.20e-04 [s] & 6.06e-03 [s] & 6.35e-02 [s] & 1.97e-01 [s] \\
+vlc_vector_comma_2 - 8 & 6.47e-04 [s] & 6.38e-03 [s] & 6.76e-02 [s] & 2.03e-01 [s] \\
+vlc_vector_elias_delta - 8 & 6.36e-04 [s] & 6.32e-03 [s] & 6.70e-02 [s] & 1.99e-01 [s] \\
+vlc_vector_elias_gamma - 8 & 6.30e-04 [s] & 6.15e-03 [s] & 6.44e-02 [s] & 1.97e-01 [s] \\
+vlc_vector_fibonacci - 8 & 6.44e-04 [s] & 6.34e-03 [s] & 6.60e-02 [s] & 2.02e-01 [s] \\
+\hline
 \end{tabular}
+}
+\caption{Sdsl4Py Compression Time Comparison D 08 1 1 10}
+\label{tab:sdsl4py compression time comparison-d-08-1-1-10}
+\end{table}

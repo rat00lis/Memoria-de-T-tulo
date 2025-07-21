@@ -1,11 +1,20 @@
-\begin{tabular}{lrrrrrr}
-\toprule
-option & Original Data & dac_vector - 8 & vlc_vector_comma_2 - 8 & vlc_vector_elias_delta - 8 & vlc_vector_elias_gamma - 8 & vlc_vector_fibonacci - 8 \\
-n_size &  &  &  &  &  &  \\
-\midrule
-1001 & 1.60e+04 [B] & 1.79e+03 [B] & 2.29e+03 [B] & 1.96e+03 [B] & 2.09e+03 [B] & 1.97e+03 [B] \\
-10000 & 1.60e+05 [B] & 1.65e+04 [B] & 1.97e+04 [B] & 1.66e+04 [B] & 1.83e+04 [B] & 1.65e+04 [B] \\
-100000 & 1.60e+06 [B] & 1.60e+05 [B] & 1.94e+05 [B] & 1.65e+05 [B] & 1.79e+05 [B] & 1.62e+05 [B] \\
-300000 & 4.80e+06 [B] & 4.81e+05 [B] & 5.84e+05 [B] & 5.04e+05 [B] & 5.44e+05 [B] & 4.90e+05 [B] \\
-\bottomrule
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{4}{c|}{\textbf{Number of data points}} \\
+\cline{2-5}
+ & \textbf{1001} & \textbf{10000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Original Data & 1.60e+04 [B] & 1.60e+05 [B] & 1.60e+06 [B] & 4.80e+06 [B] \\
+dac_vector - 8 & 1.79e+03 [B] & 1.65e+04 [B] & 1.60e+05 [B] & 4.81e+05 [B] \\
+vlc_vector_comma_2 - 8 & 2.29e+03 [B] & 1.97e+04 [B] & 1.94e+05 [B] & 5.84e+05 [B] \\
+vlc_vector_elias_delta - 8 & 1.96e+03 [B] & 1.66e+04 [B] & 1.65e+05 [B] & 5.04e+05 [B] \\
+vlc_vector_elias_gamma - 8 & 2.09e+03 [B] & 1.83e+04 [B] & 1.79e+05 [B] & 5.44e+05 [B] \\
+vlc_vector_fibonacci - 8 & 1.97e+03 [B] & 1.65e+04 [B] & 1.62e+05 [B] & 4.90e+05 [B] \\
+\hline
 \end{tabular}
+}
+\caption{Sdsl4Py Compression Space Comparison D 08 1 1 2}
+\label{tab:sdsl4py compression space comparison-d-08-1-1-2}
+\end{table}

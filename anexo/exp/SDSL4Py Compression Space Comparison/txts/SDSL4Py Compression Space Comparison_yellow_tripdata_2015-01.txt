@@ -1,11 +1,20 @@
-\begin{tabular}{lrrrrrr}
-\toprule
-option & Original Data & dac_vector - 8 & vlc_vector_comma_2 - 8 & vlc_vector_elias_delta - 8 & vlc_vector_elias_gamma - 8 & vlc_vector_fibonacci - 8 \\
-n_size &  &  &  &  &  &  \\
-\midrule
-1001 & 1.60e+04 [B] & 1.75e+03 [B] & 2.05e+03 [B] & 2.08e+03 [B] & 2.11e+03 [B] & 1.83e+03 [B] \\
-10000 & 1.60e+05 [B] & 1.62e+04 [B] & 2.02e+04 [B] & 2.06e+04 [B] & 2.09e+04 [B] & 1.80e+04 [B] \\
-100000 & 1.60e+06 [B] & 1.60e+05 [B] & 2.01e+05 [B] & 2.05e+05 [B] & 2.08e+05 [B] & 1.79e+05 [B] \\
-300000 & 4.80e+06 [B] & 4.81e+05 [B] & 6.05e+05 [B] & 6.17e+05 [B] & 6.26e+05 [B] & 5.40e+05 [B] \\
-\bottomrule
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{4}{c|}{\textbf{Number of data points}} \\
+\cline{2-5}
+ & \textbf{1001} & \textbf{10000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Original Data & 1.60e+04 [B] & 1.60e+05 [B] & 1.60e+06 [B] & 4.80e+06 [B] \\
+dac_vector - 8 & 1.75e+03 [B] & 1.62e+04 [B] & 1.60e+05 [B] & 4.81e+05 [B] \\
+vlc_vector_comma_2 - 8 & 2.05e+03 [B] & 2.02e+04 [B] & 2.01e+05 [B] & 6.05e+05 [B] \\
+vlc_vector_elias_delta - 8 & 2.08e+03 [B] & 2.06e+04 [B] & 2.05e+05 [B] & 6.17e+05 [B] \\
+vlc_vector_elias_gamma - 8 & 2.11e+03 [B] & 2.09e+04 [B] & 2.08e+05 [B] & 6.26e+05 [B] \\
+vlc_vector_fibonacci - 8 & 1.83e+03 [B] & 1.80e+04 [B] & 1.79e+05 [B] & 5.40e+05 [B] \\
+\hline
 \end{tabular}
+}
+\caption{Sdsl4Py Compression Space Comparison Yellow Tripdata 2015-01}
+\label{tab:sdsl4py compression space comparison-yellow-tripdata-2015-01}
+\end{table}

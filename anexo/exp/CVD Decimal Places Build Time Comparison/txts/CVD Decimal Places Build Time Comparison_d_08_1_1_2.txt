@@ -1,11 +1,64 @@
-\begin{tabular}{lrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr}
-\toprule
-option & dac_vector - 0 - LTTBDownsampler & dac_vector - 0 - MinMaxLTTBDownsampler & dac_vector - 1 - LTTBDownsampler & dac_vector - 1 - MinMaxLTTBDownsampler & dac_vector - 10 - LTTBDownsampler & dac_vector - 10 - MinMaxLTTBDownsampler & dac_vector - 2 - LTTBDownsampler & dac_vector - 2 - MinMaxLTTBDownsampler & dac_vector - 5 - LTTBDownsampler & dac_vector - 5 - MinMaxLTTBDownsampler & vlc_vector_comma_2 - 0 - LTTBDownsampler & vlc_vector_comma_2 - 0 - MinMaxLTTBDownsampler & vlc_vector_comma_2 - 1 - LTTBDownsampler & vlc_vector_comma_2 - 1 - MinMaxLTTBDownsampler & vlc_vector_comma_2 - 10 - LTTBDownsampler & vlc_vector_comma_2 - 10 - MinMaxLTTBDownsampler & vlc_vector_comma_2 - 2 - LTTBDownsampler & vlc_vector_comma_2 - 2 - MinMaxLTTBDownsampler & vlc_vector_comma_2 - 5 - LTTBDownsampler & vlc_vector_comma_2 - 5 - MinMaxLTTBDownsampler & vlc_vector_elias_delta - 0 - LTTBDownsampler & vlc_vector_elias_delta - 0 - MinMaxLTTBDownsampler & vlc_vector_elias_delta - 1 - LTTBDownsampler & vlc_vector_elias_delta - 1 - MinMaxLTTBDownsampler & vlc_vector_elias_delta - 10 - LTTBDownsampler & vlc_vector_elias_delta - 10 - MinMaxLTTBDownsampler & vlc_vector_elias_delta - 2 - LTTBDownsampler & vlc_vector_elias_delta - 2 - MinMaxLTTBDownsampler & vlc_vector_elias_delta - 5 - LTTBDownsampler & vlc_vector_elias_delta - 5 - MinMaxLTTBDownsampler & vlc_vector_elias_gamma - 0 - LTTBDownsampler & vlc_vector_elias_gamma - 0 - MinMaxLTTBDownsampler & vlc_vector_elias_gamma - 1 - LTTBDownsampler & vlc_vector_elias_gamma - 1 - MinMaxLTTBDownsampler & vlc_vector_elias_gamma - 10 - LTTBDownsampler & vlc_vector_elias_gamma - 10 - MinMaxLTTBDownsampler & vlc_vector_elias_gamma - 2 - LTTBDownsampler & vlc_vector_elias_gamma - 2 - MinMaxLTTBDownsampler & vlc_vector_elias_gamma - 5 - LTTBDownsampler & vlc_vector_elias_gamma - 5 - MinMaxLTTBDownsampler & vlc_vector_fibonacci - 0 - LTTBDownsampler & vlc_vector_fibonacci - 0 - MinMaxLTTBDownsampler & vlc_vector_fibonacci - 1 - LTTBDownsampler & vlc_vector_fibonacci - 1 - MinMaxLTTBDownsampler & vlc_vector_fibonacci - 10 - LTTBDownsampler & vlc_vector_fibonacci - 10 - MinMaxLTTBDownsampler & vlc_vector_fibonacci - 2 - LTTBDownsampler & vlc_vector_fibonacci - 2 - MinMaxLTTBDownsampler & vlc_vector_fibonacci - 5 - LTTBDownsampler & vlc_vector_fibonacci - 5 - MinMaxLTTBDownsampler \\
-n_size &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
-\midrule
-1001 & 4.50e-03 [sec] & 4.52e-03 [sec] & 6.56e-03 [sec] & 6.59e-03 [sec] & 6.78e-03 [sec] & 6.81e-03 [sec] & 6.64e-03 [sec] & 6.62e-03 [sec] & 6.69e-03 [sec] & 6.68e-03 [sec] & 4.58e-03 [sec] & 4.62e-03 [sec] & 6.74e-03 [sec] & 6.77e-03 [sec] & 6.99e-03 [sec] & 7.03e-03 [sec] & 6.81e-03 [sec] & 6.84e-03 [sec] & 6.85e-03 [sec] & 6.84e-03 [sec] & 4.54e-03 [sec] & 4.91e-03 [sec] & 6.72e-03 [sec] & 6.74e-03 [sec] & 6.88e-03 [sec] & 6.88e-03 [sec] & 6.69e-03 [sec] & 6.81e-03 [sec] & 6.80e-03 [sec] & 7.29e-03 [sec] & 4.49e-03 [sec] & 4.50e-03 [sec] & 6.63e-03 [sec] & 6.63e-03 [sec] & 6.84e-03 [sec] & 6.83e-03 [sec] & 6.73e-03 [sec] & 6.67e-03 [sec] & 6.76e-03 [sec] & 6.80e-03 [sec] & 4.71e-03 [sec] & 4.60e-03 [sec] & 6.98e-03 [sec] & 6.69e-03 [sec] & 6.97e-03 [sec] & 7.00e-03 [sec] & 6.89e-03 [sec] & 6.73e-03 [sec] & 6.81e-03 [sec] & 6.85e-03 [sec] \\
-10000 & 5.44e-03 [sec] & 2.06e-03 [sec] & 7.56e-03 [sec] & 2.50e-03 [sec] & 7.71e-03 [sec] & 2.54e-03 [sec] & 7.55e-03 [sec] & 2.53e-03 [sec] & 7.65e-03 [sec] & 2.55e-03 [sec] & 5.56e-03 [sec] & 2.10e-03 [sec] & 7.64e-03 [sec] & 2.58e-03 [sec] & 7.93e-03 [sec] & 2.61e-03 [sec] & 7.71e-03 [sec] & 2.56e-03 [sec] & 7.82e-03 [sec] & 2.64e-03 [sec] & 5.52e-03 [sec] & 2.12e-03 [sec] & 7.61e-03 [sec] & 2.56e-03 [sec] & 7.77e-03 [sec] & 2.59e-03 [sec] & 7.63e-03 [sec] & 2.56e-03 [sec] & 7.69e-03 [sec] & 2.62e-03 [sec] & 5.46e-03 [sec] & 2.06e-03 [sec] & 7.59e-03 [sec] & 2.54e-03 [sec] & 7.82e-03 [sec] & 2.57e-03 [sec] & 7.62e-03 [sec] & 2.54e-03 [sec] & 7.71e-03 [sec] & 2.54e-03 [sec] & 5.56e-03 [sec] & 2.10e-03 [sec] & 7.64e-03 [sec] & 2.58e-03 [sec] & 7.92e-03 [sec] & 2.62e-03 [sec] & 7.72e-03 [sec] & 2.57e-03 [sec] & 7.80e-03 [sec] & 2.58e-03 [sec] \\
-100000 & 1.65e-02 [sec] & 1.70e-02 [sec] & 1.81e-02 [sec] & 1.96e-02 [sec] & 1.85e-02 [sec] & 1.93e-02 [sec] & 1.87e-02 [sec] & 2.01e-02 [sec] & 1.86e-02 [sec] & 1.88e-02 [sec] & 1.71e-02 [sec] & 1.63e-02 [sec] & 1.86e-02 [sec] & 1.92e-02 [sec] & 1.93e-02 [sec] & 1.99e-02 [sec] & 1.89e-02 [sec] & 1.96e-02 [sec] & 1.92e-02 [sec] & 1.96e-02 [sec] & 1.66e-02 [sec] & 1.51e-02 [sec] & 1.90e-02 [sec] & 1.82e-02 [sec] & 1.75e-02 [sec] & 1.97e-02 [sec] & 1.87e-02 [sec] & 1.90e-02 [sec] & 1.81e-02 [sec] & 1.96e-02 [sec] & 1.74e-02 [sec] & 1.60e-02 [sec] & 1.88e-02 [sec] & 1.93e-02 [sec] & 1.88e-02 [sec] & 2.01e-02 [sec] & 1.90e-02 [sec] & 1.94e-02 [sec] & 1.89e-02 [sec] & 1.98e-02 [sec] & 1.65e-02 [sec] & 1.65e-02 [sec] & 1.83e-02 [sec] & 1.89e-02 [sec] & 1.81e-02 [sec] & 1.90e-02 [sec] & 1.88e-02 [sec] & 1.91e-02 [sec] & 1.84e-02 [sec] & 1.90e-02 [sec] \\
-300000 & 4.40e-02 [sec] & 4.32e-02 [sec] & 4.38e-02 [sec] & 4.85e-02 [sec] & 4.80e-02 [sec] & 4.86e-02 [sec] & 4.51e-02 [sec] & 4.94e-02 [sec] & 4.58e-02 [sec] & 4.93e-02 [sec] & 4.36e-02 [sec] & 4.55e-02 [sec] & 4.70e-02 [sec] & 5.33e-02 [sec] & 4.63e-02 [sec] & 4.70e-02 [sec] & 4.46e-02 [sec] & 4.83e-02 [sec] & 4.90e-02 [sec] & 4.85e-02 [sec] & 4.45e-02 [sec] & 3.84e-02 [sec] & 4.68e-02 [sec] & 4.21e-02 [sec] & 4.78e-02 [sec] & 4.85e-02 [sec] & 4.55e-02 [sec] & 4.26e-02 [sec] & 4.50e-02 [sec] & 4.52e-02 [sec] & 4.54e-02 [sec] & 4.33e-02 [sec] & 4.69e-02 [sec] & 4.75e-02 [sec] & 4.60e-02 [sec] & 5.36e-02 [sec] & 5.13e-02 [sec] & 4.96e-02 [sec] & 4.59e-02 [sec] & 4.93e-02 [sec] & 4.37e-02 [sec] & 4.48e-02 [sec] & 4.50e-02 [sec] & 4.84e-02 [sec] & 4.64e-02 [sec] & 4.75e-02 [sec] & 4.62e-02 [sec] & 4.91e-02 [sec] & 4.67e-02 [sec] & 4.10e-02 [sec] \\
-\bottomrule
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{4}{c|}{\textbf{Number of data points}} \\
+\cline{2-5}
+ & \textbf{1001} & \textbf{10000} & \textbf{100000} & \textbf{300000} \\
+\hline
+dac_vector - 0 - LTTBDownsampler & 4.50e-03 [s] & 5.44e-03 [s] & 1.65e-02 [s] & 4.40e-02 [s] \\
+dac_vector - 0 - MinMaxLTTBDownsampler & 4.52e-03 [s] & 2.06e-03 [s] & 1.70e-02 [s] & 4.32e-02 [s] \\
+dac_vector - 1 - LTTBDownsampler & 6.56e-03 [s] & 7.56e-03 [s] & 1.81e-02 [s] & 4.38e-02 [s] \\
+dac_vector - 1 - MinMaxLTTBDownsampler & 6.59e-03 [s] & 2.50e-03 [s] & 1.96e-02 [s] & 4.85e-02 [s] \\
+dac_vector - 10 - LTTBDownsampler & 6.78e-03 [s] & 7.71e-03 [s] & 1.85e-02 [s] & 4.80e-02 [s] \\
+dac_vector - 10 - MinMaxLTTBDownsampler & 6.81e-03 [s] & 2.54e-03 [s] & 1.93e-02 [s] & 4.86e-02 [s] \\
+dac_vector - 2 - LTTBDownsampler & 6.64e-03 [s] & 7.55e-03 [s] & 1.87e-02 [s] & 4.51e-02 [s] \\
+dac_vector - 2 - MinMaxLTTBDownsampler & 6.62e-03 [s] & 2.53e-03 [s] & 2.01e-02 [s] & 4.94e-02 [s] \\
+dac_vector - 5 - LTTBDownsampler & 6.69e-03 [s] & 7.65e-03 [s] & 1.86e-02 [s] & 4.58e-02 [s] \\
+dac_vector - 5 - MinMaxLTTBDownsampler & 6.68e-03 [s] & 2.55e-03 [s] & 1.88e-02 [s] & 4.93e-02 [s] \\
+vlc_vector_comma_2 - 0 - LTTBDownsampler & 4.58e-03 [s] & 5.56e-03 [s] & 1.71e-02 [s] & 4.36e-02 [s] \\
+vlc_vector_comma_2 - 0 - MinMaxLTTBDownsampler & 4.62e-03 [s] & 2.10e-03 [s] & 1.63e-02 [s] & 4.55e-02 [s] \\
+vlc_vector_comma_2 - 1 - LTTBDownsampler & 6.74e-03 [s] & 7.64e-03 [s] & 1.86e-02 [s] & 4.70e-02 [s] \\
+vlc_vector_comma_2 - 1 - MinMaxLTTBDownsampler & 6.77e-03 [s] & 2.58e-03 [s] & 1.92e-02 [s] & 5.33e-02 [s] \\
+vlc_vector_comma_2 - 10 - LTTBDownsampler & 6.99e-03 [s] & 7.93e-03 [s] & 1.93e-02 [s] & 4.63e-02 [s] \\
+vlc_vector_comma_2 - 10 - MinMaxLTTBDownsampler & 7.03e-03 [s] & 2.61e-03 [s] & 1.99e-02 [s] & 4.70e-02 [s] \\
+vlc_vector_comma_2 - 2 - LTTBDownsampler & 6.81e-03 [s] & 7.71e-03 [s] & 1.89e-02 [s] & 4.46e-02 [s] \\
+vlc_vector_comma_2 - 2 - MinMaxLTTBDownsampler & 6.84e-03 [s] & 2.56e-03 [s] & 1.96e-02 [s] & 4.83e-02 [s] \\
+vlc_vector_comma_2 - 5 - LTTBDownsampler & 6.85e-03 [s] & 7.82e-03 [s] & 1.92e-02 [s] & 4.90e-02 [s] \\
+vlc_vector_comma_2 - 5 - MinMaxLTTBDownsampler & 6.84e-03 [s] & 2.64e-03 [s] & 1.96e-02 [s] & 4.85e-02 [s] \\
+vlc_vector_elias_delta - 0 - LTTBDownsampler & 4.54e-03 [s] & 5.52e-03 [s] & 1.66e-02 [s] & 4.45e-02 [s] \\
+vlc_vector_elias_delta - 0 - MinMaxLTTBDownsampler & 4.91e-03 [s] & 2.12e-03 [s] & 1.51e-02 [s] & 3.84e-02 [s] \\
+vlc_vector_elias_delta - 1 - LTTBDownsampler & 6.72e-03 [s] & 7.61e-03 [s] & 1.90e-02 [s] & 4.68e-02 [s] \\
+vlc_vector_elias_delta - 1 - MinMaxLTTBDownsampler & 6.74e-03 [s] & 2.56e-03 [s] & 1.82e-02 [s] & 4.21e-02 [s] \\
+vlc_vector_elias_delta - 10 - LTTBDownsampler & 6.88e-03 [s] & 7.77e-03 [s] & 1.75e-02 [s] & 4.78e-02 [s] \\
+vlc_vector_elias_delta - 10 - MinMaxLTTBDownsampler & 6.88e-03 [s] & 2.59e-03 [s] & 1.97e-02 [s] & 4.85e-02 [s] \\
+vlc_vector_elias_delta - 2 - LTTBDownsampler & 6.69e-03 [s] & 7.63e-03 [s] & 1.87e-02 [s] & 4.55e-02 [s] \\
+vlc_vector_elias_delta - 2 - MinMaxLTTBDownsampler & 6.81e-03 [s] & 2.56e-03 [s] & 1.90e-02 [s] & 4.26e-02 [s] \\
+vlc_vector_elias_delta - 5 - LTTBDownsampler & 6.80e-03 [s] & 7.69e-03 [s] & 1.81e-02 [s] & 4.50e-02 [s] \\
+vlc_vector_elias_delta - 5 - MinMaxLTTBDownsampler & 7.29e-03 [s] & 2.62e-03 [s] & 1.96e-02 [s] & 4.52e-02 [s] \\
+vlc_vector_elias_gamma - 0 - LTTBDownsampler & 4.49e-03 [s] & 5.46e-03 [s] & 1.74e-02 [s] & 4.54e-02 [s] \\
+vlc_vector_elias_gamma - 0 - MinMaxLTTBDownsampler & 4.50e-03 [s] & 2.06e-03 [s] & 1.60e-02 [s] & 4.33e-02 [s] \\
+vlc_vector_elias_gamma - 1 - LTTBDownsampler & 6.63e-03 [s] & 7.59e-03 [s] & 1.88e-02 [s] & 4.69e-02 [s] \\
+vlc_vector_elias_gamma - 1 - MinMaxLTTBDownsampler & 6.63e-03 [s] & 2.54e-03 [s] & 1.93e-02 [s] & 4.75e-02 [s] \\
+vlc_vector_elias_gamma - 10 - LTTBDownsampler & 6.84e-03 [s] & 7.82e-03 [s] & 1.88e-02 [s] & 4.60e-02 [s] \\
+vlc_vector_elias_gamma - 10 - MinMaxLTTBDownsampler & 6.83e-03 [s] & 2.57e-03 [s] & 2.01e-02 [s] & 5.36e-02 [s] \\
+vlc_vector_elias_gamma - 2 - LTTBDownsampler & 6.73e-03 [s] & 7.62e-03 [s] & 1.90e-02 [s] & 5.13e-02 [s] \\
+vlc_vector_elias_gamma - 2 - MinMaxLTTBDownsampler & 6.67e-03 [s] & 2.54e-03 [s] & 1.94e-02 [s] & 4.96e-02 [s] \\
+vlc_vector_elias_gamma - 5 - LTTBDownsampler & 6.76e-03 [s] & 7.71e-03 [s] & 1.89e-02 [s] & 4.59e-02 [s] \\
+vlc_vector_elias_gamma - 5 - MinMaxLTTBDownsampler & 6.80e-03 [s] & 2.54e-03 [s] & 1.98e-02 [s] & 4.93e-02 [s] \\
+vlc_vector_fibonacci - 0 - LTTBDownsampler & 4.71e-03 [s] & 5.56e-03 [s] & 1.65e-02 [s] & 4.37e-02 [s] \\
+vlc_vector_fibonacci - 0 - MinMaxLTTBDownsampler & 4.60e-03 [s] & 2.10e-03 [s] & 1.65e-02 [s] & 4.48e-02 [s] \\
+vlc_vector_fibonacci - 1 - LTTBDownsampler & 6.98e-03 [s] & 7.64e-03 [s] & 1.83e-02 [s] & 4.50e-02 [s] \\
+vlc_vector_fibonacci - 1 - MinMaxLTTBDownsampler & 6.69e-03 [s] & 2.58e-03 [s] & 1.89e-02 [s] & 4.84e-02 [s] \\
+vlc_vector_fibonacci - 10 - LTTBDownsampler & 6.97e-03 [s] & 7.92e-03 [s] & 1.81e-02 [s] & 4.64e-02 [s] \\
+vlc_vector_fibonacci - 10 - MinMaxLTTBDownsampler & 7.00e-03 [s] & 2.62e-03 [s] & 1.90e-02 [s] & 4.75e-02 [s] \\
+vlc_vector_fibonacci - 2 - LTTBDownsampler & 6.89e-03 [s] & 7.72e-03 [s] & 1.88e-02 [s] & 4.62e-02 [s] \\
+vlc_vector_fibonacci - 2 - MinMaxLTTBDownsampler & 6.73e-03 [s] & 2.57e-03 [s] & 1.91e-02 [s] & 4.91e-02 [s] \\
+vlc_vector_fibonacci - 5 - LTTBDownsampler & 6.81e-03 [s] & 7.80e-03 [s] & 1.84e-02 [s] & 4.67e-02 [s] \\
+vlc_vector_fibonacci - 5 - MinMaxLTTBDownsampler & 6.85e-03 [s] & 2.58e-03 [s] & 1.90e-02 [s] & 4.10e-02 [s] \\
+\hline
 \end{tabular}
+}
+\caption{Cvd Decimal Places Build Time Comparison D 08 1 1 2}
+\label{tab:cvd decimal places build time comparison-d-08-1-1-2}
+\end{table}

@@ -1,11 +1,32 @@
-\begin{tabular}{lrrrrrrrrrrrrrrrrrr}
-\toprule
-option & Compressed Vector - dac_vector & Compressed Vector - vlc_vector_comma_2 & Compressed Vector - vlc_vector_elias_delta & Compressed Vector - vlc_vector_elias_gamma & Compressed Vector - vlc_vector_fibonacci & Compressed Vector Downsampler - LTTBDownsampler - dac_vector & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2 & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_elias_delta & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_elias_gamma & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci & Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2 & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_elias_delta & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_elias_gamma & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci & Original Data & TS Downsample - LTTBDownsampler & TS Downsample - MinMaxLTTBDownsampler \\
-n_size &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
-\midrule
-1001 & 1.18e+04 [B] & 1.14e+04 [B] & 1.02e+04 [B] & 1.46e+04 [B] & 1.14e+04 [B] & 6.25e+03 [B] & 5.79e+03 [B] & 5.20e+03 [B] & 7.41e+03 [B] & 5.81e+03 [B] & 6.25e+03 [B] & 5.79e+03 [B] & 5.20e+03 [B] & 7.41e+03 [B] & 5.81e+03 [B] & 4.80e+04 [B] & 8.00e+03 [B] & 8.00e+03 [B] \\
-10000 & 1.12e+05 [B] & 1.11e+05 [B] & 9.95e+04 [B] & 1.43e+05 [B] & 1.11e+05 [B] & 1.18e+04 [B] & 1.13e+04 [B] & 1.01e+04 [B] & 1.45e+04 [B] & 1.14e+04 [B] & 2.95e+03 [B] & 2.49e+03 [B] & 2.25e+03 [B] & 3.18e+03 [B] & 2.52e+03 [B] & 4.80e+05 [B] & 1.60e+04 [B] & 3.23e+03 [B] \\
-100000 & 1.13e+06 [B] & 1.12e+06 [B] & 1.00e+06 [B] & 1.45e+06 [B] & 1.13e+06 [B] & 1.21e+04 [B] & 1.16e+04 [B] & 1.04e+04 [B] & 1.50e+04 [B] & 1.17e+04 [B] & 1.21e+04 [B] & 1.17e+04 [B] & 1.05e+04 [B] & 1.51e+04 [B] & 1.18e+04 [B] & 4.80e+06 [B] & 1.60e+04 [B] & 1.60e+04 [B] \\
-300000 & 3.38e+06 [B] & 3.37e+06 [B] & 3.01e+06 [B] & 4.34e+06 [B] & 3.38e+06 [B] & 1.21e+04 [B] & 1.17e+04 [B] & 1.05e+04 [B] & 1.51e+04 [B] & 1.18e+04 [B] & 1.22e+04 [B] & 1.17e+04 [B] & 1.05e+04 [B] & 1.51e+04 [B] & 1.18e+04 [B] & 1.44e+07 [B] & 1.60e+04 [B] & 1.60e+04 [B] \\
-\bottomrule
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{4}{c|}{\textbf{Number of data points}} \\
+\cline{2-5}
+ & \textbf{1001} & \textbf{10000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Compressed Vector - dac_vector & 1.18e+04 [B] & 1.12e+05 [B] & 1.13e+06 [B] & 3.38e+06 [B] \\
+Compressed Vector - vlc_vector_comma_2 & 1.14e+04 [B] & 1.11e+05 [B] & 1.12e+06 [B] & 3.37e+06 [B] \\
+Compressed Vector - vlc_vector_elias_delta & 1.02e+04 [B] & 9.95e+04 [B] & 1.00e+06 [B] & 3.01e+06 [B] \\
+Compressed Vector - vlc_vector_elias_gamma & 1.46e+04 [B] & 1.43e+05 [B] & 1.45e+06 [B] & 4.34e+06 [B] \\
+Compressed Vector - vlc_vector_fibonacci & 1.14e+04 [B] & 1.11e+05 [B] & 1.13e+06 [B] & 3.38e+06 [B] \\
+Compressed Vector Downsampler - LTTBDownsampler - dac_vector & 6.25e+03 [B] & 1.18e+04 [B] & 1.21e+04 [B] & 1.21e+04 [B] \\
+Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2 & 5.79e+03 [B] & 1.13e+04 [B] & 1.16e+04 [B] & 1.17e+04 [B] \\
+Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_elias_delta & 5.20e+03 [B] & 1.01e+04 [B] & 1.04e+04 [B] & 1.05e+04 [B] \\
+Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_elias_gamma & 7.41e+03 [B] & 1.45e+04 [B] & 1.50e+04 [B] & 1.51e+04 [B] \\
+Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci & 5.81e+03 [B] & 1.14e+04 [B] & 1.17e+04 [B] & 1.18e+04 [B] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector & 6.25e+03 [B] & 2.95e+03 [B] & 1.21e+04 [B] & 1.22e+04 [B] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2 & 5.79e+03 [B] & 2.49e+03 [B] & 1.17e+04 [B] & 1.17e+04 [B] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_elias_delta & 5.20e+03 [B] & 2.25e+03 [B] & 1.05e+04 [B] & 1.05e+04 [B] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_elias_gamma & 7.41e+03 [B] & 3.18e+03 [B] & 1.51e+04 [B] & 1.51e+04 [B] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci & 5.81e+03 [B] & 2.52e+03 [B] & 1.18e+04 [B] & 1.18e+04 [B] \\
+Original Data & 4.80e+04 [B] & 4.80e+05 [B] & 4.80e+06 [B] & 1.44e+07 [B] \\
+TS Downsample - LTTBDownsampler & 8.00e+03 [B] & 1.60e+04 [B] & 1.60e+04 [B] & 1.60e+04 [B] \\
+TS Downsample - MinMaxLTTBDownsampler & 8.00e+03 [B] & 3.23e+03 [B] & 1.60e+04 [B] & 1.60e+04 [B] \\
+\hline
 \end{tabular}
+}
+\caption{Comparison Of Space Used D 08 1 1 10}
+\label{tab:comparison of space used-d-08-1-1-10}
+\end{table}

@@ -1,11 +1,18 @@
-\begin{tabular}{lrrrr}
-\toprule
-option & Altair Line Plot & MatPlotlib Line Plot & Plotly Line Plot & Pygal Line Plot \\
-n_size &  &  &  &  \\
-\midrule
-1001 & 7.35e-03 [sec] & 8.85e-03 [sec] & 3.11e-03 [sec] & 6.58e-04 [sec] \\
-10000 & 6.63e-03 [sec] & 8.13e-03 [sec] & 2.19e-03 [sec] & 2.44e-04 [sec] \\
-100000 & 7.20e-03 [sec] & 8.58e-03 [sec] & 2.41e-03 [sec] & 2.62e-04 [sec] \\
-300000 & 9.50e-03 [sec] & 1.05e-02 [sec] & 3.44e-03 [sec] & 6.26e-04 [sec] \\
-\bottomrule
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{4}{c|}{\textbf{Number of data points}} \\
+\cline{2-5}
+ & \textbf{1001} & \textbf{10000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Altair Line Plot & 7.35e-03 [s] & 6.63e-03 [s] & 7.20e-03 [s] & 9.50e-03 [s] \\
+MatPlotlib Line Plot & 8.85e-03 [s] & 8.13e-03 [s] & 8.58e-03 [s] & 1.05e-02 [s] \\
+Plotly Line Plot & 3.11e-03 [s] & 2.19e-03 [s] & 2.41e-03 [s] & 3.44e-03 [s] \\
+Pygal Line Plot & 6.58e-04 [s] & 2.44e-04 [s] & 2.62e-04 [s] & 6.26e-04 [s] \\
+\hline
 \end{tabular}
+}
+\caption{All Libraries Time Comparison Yellow Tripdata 2015-01}
+\label{tab:all libraries time comparison-yellow-tripdata-2015-01}
+\end{table}

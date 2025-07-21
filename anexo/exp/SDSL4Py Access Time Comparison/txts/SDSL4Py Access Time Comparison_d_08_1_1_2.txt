@@ -1,11 +1,20 @@
-\begin{tabular}{lrrrrrr}
-\toprule
-option & Original Data & dac_vector - 8 & vlc_vector_comma_2 - 8 & vlc_vector_elias_delta - 8 & vlc_vector_elias_gamma - 8 & vlc_vector_fibonacci - 8 \\
-n_size &  &  &  &  &  &  \\
-\midrule
-1001 & 1.09e-07 [sec] & 1.18e-06 [sec] & 1.23e-06 [sec] & 1.49e-06 [sec] & 1.23e-06 [sec] & 1.16e-06 [sec] \\
-10000 & 9.66e-08 [sec] & 1.34e-06 [sec] & 1.44e-06 [sec] & 1.48e-06 [sec] & 1.52e-06 [sec] & 1.36e-06 [sec] \\
-100000 & 9.70e-08 [sec] & 4.71e-06 [sec] & 5.53e-06 [sec] & 4.96e-06 [sec] & 5.22e-06 [sec] & 4.82e-06 [sec] \\
-300000 & 9.76e-08 [sec] & 1.17e-05 [sec] & 1.74e-05 [sec] & 1.36e-05 [sec] & 1.50e-05 [sec] & 1.29e-05 [sec] \\
-\bottomrule
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{4}{c|}{\textbf{Number of data points}} \\
+\cline{2-5}
+ & \textbf{1001} & \textbf{10000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Original Data & 1.09e-07 [s] & 9.66e-08 [s] & 9.70e-08 [s] & 9.76e-08 [s] \\
+dac_vector - 8 & 1.18e-06 [s] & 1.34e-06 [s] & 4.71e-06 [s] & 1.17e-05 [s] \\
+vlc_vector_comma_2 - 8 & 1.23e-06 [s] & 1.44e-06 [s] & 5.53e-06 [s] & 1.74e-05 [s] \\
+vlc_vector_elias_delta - 8 & 1.49e-06 [s] & 1.48e-06 [s] & 4.96e-06 [s] & 1.36e-05 [s] \\
+vlc_vector_elias_gamma - 8 & 1.23e-06 [s] & 1.52e-06 [s] & 5.22e-06 [s] & 1.50e-05 [s] \\
+vlc_vector_fibonacci - 8 & 1.16e-06 [s] & 1.36e-06 [s] & 4.82e-06 [s] & 1.29e-05 [s] \\
+\hline
 \end{tabular}
+}
+\caption{Sdsl4Py Access Time Comparison D 08 1 1 2}
+\label{tab:sdsl4py access time comparison-d-08-1-1-2}
+\end{table}

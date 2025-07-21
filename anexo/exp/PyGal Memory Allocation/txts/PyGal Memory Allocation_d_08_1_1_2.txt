@@ -1,11 +1,32 @@
-\begin{tabular}{lrrrrrrrrrrrrrrrrrr}
-\toprule
-option & Compressed Vector - dac_vector & Compressed Vector - vlc_vector_comma_2 & Compressed Vector - vlc_vector_elias_delta & Compressed Vector - vlc_vector_elias_gamma & Compressed Vector - vlc_vector_fibonacci & Compressed Vector Downsampler - LTTBDownsampler - dac_vector & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2 & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_elias_delta & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_elias_gamma & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci & Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2 & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_elias_delta & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_elias_gamma & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci & Original Data & TS Downsample - LTTBDownsampler & TS Downsample - MinMaxLTTBDownsampler \\
-n_size &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
-\midrule
-1001 & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.12e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 1.55e+01 [kb] & 1.55e+01 [kb] & 1.55e+01 [kb] & 1.55e+01 [kb] & 1.55e+01 [kb] & 1.55e+01 [kb] & 1.55e+01 [kb] & 1.55e+01 [kb] & 1.55e+01 [kb] & 1.55e+01 [kb] & 1.32e+01 [kb] & 1.75e+01 [kb] & 1.75e+01 [kb] \\
-10000 & 3.12e+02 [kb] & 3.12e+02 [kb] & 3.12e+02 [kb] & 3.12e+02 [kb] & 3.12e+02 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 1.25e+01 [kb] & 1.25e+01 [kb] & 1.25e+01 [kb] & 1.25e+01 [kb] & 1.25e+01 [kb] & 7.99e+01 [kb] & 3.32e+01 [kb] & 1.25e+01 [kb] \\
-100000 & 3.13e+03 [kb] & 3.12e+03 [kb] & 3.13e+03 [kb] & 3.13e+03 [kb] & 3.13e+03 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.12e+01 [kb] & 3.15e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 7.83e+02 [kb] & 3.32e+01 [kb] & 3.32e+01 [kb] \\
-300000 & 9.40e+03 [kb] & 9.40e+03 [kb] & 9.39e+03 [kb] & 9.39e+03 [kb] & 9.39e+03 [kb] & 3.23e+01 [kb] & 3.23e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 2.35e+03 [kb] & 3.31e+01 [kb] & 3.33e+01 [kb] \\
-\bottomrule
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{4}{c|}{\textbf{Number of data points}} \\
+\cline{2-5}
+ & \textbf{1001} & \textbf{10000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Compressed Vector - dac_vector & 3.11e+01 [kb] & 3.12e+02 [kb] & 3.13e+03 [kb] & 9.40e+03 [kb] \\
+Compressed Vector - vlc_vector_comma_2 & 3.11e+01 [kb] & 3.12e+02 [kb] & 3.12e+03 [kb] & 9.40e+03 [kb] \\
+Compressed Vector - vlc_vector_elias_delta & 3.12e+01 [kb] & 3.12e+02 [kb] & 3.13e+03 [kb] & 9.39e+03 [kb] \\
+Compressed Vector - vlc_vector_elias_gamma & 3.11e+01 [kb] & 3.12e+02 [kb] & 3.13e+03 [kb] & 9.39e+03 [kb] \\
+Compressed Vector - vlc_vector_fibonacci & 3.11e+01 [kb] & 3.12e+02 [kb] & 3.13e+03 [kb] & 9.39e+03 [kb] \\
+Compressed Vector Downsampler - LTTBDownsampler - dac_vector & 1.55e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.23e+01 [kb] \\
+Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2 & 1.55e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.23e+01 [kb] \\
+Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_elias_delta & 1.55e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] \\
+Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_elias_gamma & 1.55e+01 [kb] & 3.11e+01 [kb] & 3.12e+01 [kb] & 3.11e+01 [kb] \\
+Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci & 1.55e+01 [kb] & 3.11e+01 [kb] & 3.15e+01 [kb] & 3.11e+01 [kb] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector & 1.55e+01 [kb] & 1.25e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2 & 1.55e+01 [kb] & 1.25e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_elias_delta & 1.55e+01 [kb] & 1.25e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_elias_gamma & 1.55e+01 [kb] & 1.25e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci & 1.55e+01 [kb] & 1.25e+01 [kb] & 3.11e+01 [kb] & 3.11e+01 [kb] \\
+Original Data & 1.32e+01 [kb] & 7.99e+01 [kb] & 7.83e+02 [kb] & 2.35e+03 [kb] \\
+TS Downsample - LTTBDownsampler & 1.75e+01 [kb] & 3.32e+01 [kb] & 3.32e+01 [kb] & 3.31e+01 [kb] \\
+TS Downsample - MinMaxLTTBDownsampler & 1.75e+01 [kb] & 1.25e+01 [kb] & 3.32e+01 [kb] & 3.33e+01 [kb] \\
+\hline
 \end{tabular}
+}
+\caption{Pygal Memory Allocation D 08 1 1 2}
+\label{tab:pygal memory allocation-d-08-1-1-2}
+\end{table}
