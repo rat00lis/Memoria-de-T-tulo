@@ -1,0 +1,11 @@
+\begin{tabular}{lrrrrrrrrrrrrrrrrr}
+\toprule
+option & Compressed Vector - dac_vector & Compressed Vector - vlc_vector_comma_2 & Compressed Vector - vlc_vector_elias_delta & Compressed Vector - vlc_vector_elias_gamma & Compressed Vector - vlc_vector_fibonacci & Compressed Vector Downsample - dac_vector & Compressed Vector Downsample - vlc_vector_comma_2 & Compressed Vector Downsample - vlc_vector_elias_delta & Compressed Vector Downsample - vlc_vector_elias_gamma & Compressed Vector Downsample - vlc_vector_fibonacci & Original Data & SDSL4PY Vector - dac_vector & SDSL4PY Vector - vlc_vector_comma_2 & SDSL4PY Vector - vlc_vector_elias_delta & SDSL4PY Vector - vlc_vector_elias_gamma & SDSL4PY Vector - vlc_vector_fibonacci & TS Downsample \\
+n_size &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\midrule
+1001 & 1.72e+02 [sec] & 1.72e+02 [sec] & 1.72e+02 [sec] & 1.72e+02 [sec] & 1.72e+02 [sec] & 1.54e+02 [sec] & 1.54e+02 [sec] & 1.54e+02 [sec] & 1.54e+02 [sec] & 1.54e+02 [sec] & 1.68e+02 [sec] & 1.69e+02 [sec] & 1.69e+02 [sec] & 1.69e+02 [sec] & 1.69e+02 [sec] & 1.69e+02 [sec] & 1.53e+02 [sec] \\
+10000 & 8.84e+02 [sec] & 8.84e+02 [sec] & 8.84e+02 [sec] & 8.84e+02 [sec] & 8.86e+02 [sec] & 1.62e+02 [sec] & 1.62e+02 [sec] & 1.62e+02 [sec] & 1.62e+02 [sec] & 1.62e+02 [sec] & 6.47e+02 [sec] & 8.82e+02 [sec] & 8.83e+02 [sec] & 8.82e+02 [sec] & 8.82e+02 [sec] & 8.82e+02 [sec] & 1.59e+02 [sec] \\
+100000 & 8.80e+03 [sec] & 8.81e+03 [sec] & 8.80e+03 [sec] & 8.81e+03 [sec] & 8.80e+03 [sec] & 1.57e+03 [sec] & 1.57e+03 [sec] & 1.57e+03 [sec] & 1.57e+03 [sec] & 1.57e+03 [sec] & 6.45e+03 [sec] & 8.79e+03 [sec] & 8.80e+03 [sec] & 8.79e+03 [sec] & 8.79e+03 [sec] & 8.80e+03 [sec] & 1.56e+03 [sec] \\
+300000 & 2.64e+04 [sec] & 2.64e+04 [sec] & 2.64e+04 [sec] & 2.64e+04 [sec] & 2.64e+04 [sec] & 4.69e+03 [sec] & 4.69e+03 [sec] & 4.69e+03 [sec] & 4.69e+03 [sec] & 4.69e+03 [sec] & 1.93e+04 [sec] & 2.64e+04 [sec] & 2.64e+04 [sec] & 2.64e+04 [sec] & 2.64e+04 [sec] & 2.64e+04 [sec] & 4.69e+03 [sec] \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,17 @@
+n_size,option,measurement_unit,mean
+100000,Altair Line Plot,seconds,0.01289102490991354
+100000,MatPlotlib Line Plot,seconds,0.014376982860267163
+100000,Plotly Line Plot,seconds,0.008171077258884907
+100000,Pygal Line Plot,seconds,0.0030992559622973204
+10000,Altair Line Plot,seconds,0.007963757589459419
+10000,MatPlotlib Line Plot,seconds,0.010135400854051114
+10000,Plotly Line Plot,seconds,0.003317053895443678
+10000,Pygal Line Plot,seconds,0.000755221676081419
+1001,Altair Line Plot,seconds,0.009656123025342822
+1001,MatPlotlib Line Plot,seconds,0.016659884294494987
+1001,Plotly Line Plot,seconds,0.020595270209014416
+1001,Pygal Line Plot,seconds,0.0015438096597790718
+300000,Altair Line Plot,seconds,0.012678492441773414
+300000,MatPlotlib Line Plot,seconds,0.014035132713615894
+300000,Plotly Line Plot,seconds,0.008124776929616929
+300000,Pygal Line Plot,seconds,0.003087787702679634

@@ -1,0 +1,11 @@
+\begin{tabular}{lrrrrr}
+\toprule
+option & Altair Line Plot & Altair Line Plot - No CV & MatPlotlib Line Plot & Plotly Line Plot & Pygal Line Plot \\
+n_size &  &  &  &  &  \\
+\midrule
+1001 & 1.63e+02 [kb] & 1.60e+02 [kb] & 4.48e+02 [kb] & 5.92e+02 [kb] & 3.40e+01 [kb] \\
+10000 & 1.52e+02 [kb] & 1.52e+02 [kb] & 3.87e+02 [kb] & 3.66e+02 [kb] & 1.25e+01 [kb] \\
+100000 & 1.52e+02 [kb] & 1.52e+02 [kb] & 3.86e+02 [kb] & 3.81e+02 [kb] & 1.54e+01 [kb] \\
+300000 & 1.52e+02 [kb] & 1.54e+02 [kb] & 3.85e+02 [kb] & 3.76e+02 [kb] & 1.25e+01 [kb] \\
+\bottomrule
+\end{tabular}

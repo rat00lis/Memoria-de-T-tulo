@@ -1,0 +1,11 @@
+\begin{tabular}{lrrrr}
+\toprule
+option & Altair Line Plot & MatPlotlib Line Plot & Plotly Line Plot & Pygal Line Plot \\
+n_size &  &  &  &  \\
+\midrule
+1001 & 7.35e-03 [sec] & 8.85e-03 [sec] & 3.11e-03 [sec] & 6.58e-04 [sec] \\
+10000 & 6.63e-03 [sec] & 8.13e-03 [sec] & 2.19e-03 [sec] & 2.44e-04 [sec] \\
+100000 & 7.20e-03 [sec] & 8.58e-03 [sec] & 2.41e-03 [sec] & 2.62e-04 [sec] \\
+300000 & 9.50e-03 [sec] & 1.05e-02 [sec] & 3.44e-03 [sec] & 6.26e-04 [sec] \\
+\bottomrule
+\end{tabular}

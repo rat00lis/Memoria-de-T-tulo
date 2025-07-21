@@ -1,0 +1,21 @@
+n_size,option,measurement_unit,mean
+100000,Altair Line Plot,kilobytes,152.4494140625
+100000,Altair Line Plot - No CV,kilobytes,152.337890625
+100000,MatPlotlib Line Plot,kilobytes,386.0830078125
+100000,Plotly Line Plot,kilobytes,381.0677734375
+100000,Pygal Line Plot,kilobytes,15.4396484375
+10000,Altair Line Plot,kilobytes,152.3998046875
+10000,Altair Line Plot - No CV,kilobytes,152.3443359375
+10000,MatPlotlib Line Plot,kilobytes,387.1552734375
+10000,Plotly Line Plot,kilobytes,365.6431640625
+10000,Pygal Line Plot,kilobytes,12.5078125
+1001,Altair Line Plot,kilobytes,162.5404296875
+1001,Altair Line Plot - No CV,kilobytes,160.21376953125
+1001,MatPlotlib Line Plot,kilobytes,448.49345703125
+1001,Plotly Line Plot,kilobytes,591.77001953125
+1001,Pygal Line Plot,kilobytes,33.99267578125
+300000,Altair Line Plot,kilobytes,152.45966796875
+300000,Altair Line Plot - No CV,kilobytes,154.06513671875
+300000,MatPlotlib Line Plot,kilobytes,385.081640625
+300000,Plotly Line Plot,kilobytes,376.34404296875
+300000,Pygal Line Plot,kilobytes,12.5078125

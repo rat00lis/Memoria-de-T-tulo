@@ -100,13 +100,14 @@ En esta ocasión, se consideran los valores:
 \toprule
 \textbf{Estructura} & \textbf{Score promedio} \\
 \midrule
-vlc\_vector\_elias\_delta - 8 & 204.200 \\
-vlc\_vector\_elias\_gamma - 8 & 218.200 \\
-vlc\_vector\_comma\_2 - 8     & 231.800 \\
-dac\_vector - 8              & 232.600 \\
-No Compression - 8           & 1776.000 \\
+dac\_vector - 8              & 65899.74 \\
+vlc\_vector\_fibonacci - 8   & 69255.21 \\
+vlc\_vector\_elias\_delta - 8 & 73931.74 \\
+vlc\_vector\_elias\_gamma - 8 & 78023.47 \\
+vlc\_vector\_comma\_2 - 8     & 80850.67 \\
+Original Data                & 657595.20 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-A partir de la puntuación resultante, se seleccionan las estructuras de datos \textit{vlc\_vector\_elias\_delta} por ser la de mejor puntuación, y \textit{dac\_vector} por ser la siguiente estructura con buen rendimiento, pero que además representa una técnica de compresión distinta, basada en \textit{Directly Addressable Codes}. Esta elección permite contrastar dos enfoques diferentes de compresión (códigos de longitud variable vs. esquemas direccionables) y evaluar su impacto práctico en la visualización de datos comprimidos.
+A partir de la puntuación resultante, se seleccionan las estructuras de datos \textit{dac\_vector} y \textit{vlc\_vector\_fibonacci} como las más adecuadas para el sistema, ya que son las que obtuvieron los puntajes más bajos en la evaluación.

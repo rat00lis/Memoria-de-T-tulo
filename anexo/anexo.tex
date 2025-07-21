@@ -2,6 +2,60 @@
 
 \subsection{Experimentos}
 \label{sec:experimentos}
+\input(anexo/plots.tex)
+En esta sección se describen los experimentos realizados para evaluar el rendimiento de las diferentes bibliotecas de visualización de datos. Cada experimento incluye una breve descripción, los datos de entrada utilizados y los resultados obtenidos.
+
+\subsubsection{Información General}
+\label{general_info}
+
+\paragraph{Equipo de Pruebas}
+Los experimentos fueron ejecutados en el siguiente entorno de pruebas:
+
+Todos los experimentos se realizaron en el servidor \texttt{chome} de la Universidad de Concepción, el cual fue proporcionado específicamente para el desarrollo de esta memoria de título. 
+
+\begin{itemize}
+    \item \textbf{Hostname:} chome
+    \item \textbf{CPU:} Intel(R) Xeon(R) Gold 5320T CPU @ 2.30GHz
+    \item \textbf{Sistema Operativo:} Linux 5.10.0-13-amd64-x86\_64-with-glibc2.31
+    \item \textbf{Versión de Python:} 3.9.2
+    \item \textbf{Dependencias principales para el framework de experimentos:}
+    \begin{itemize}
+        \item numpy==2.0.2
+            % explicar para que se usa
+            Usada para calcular promedio, desviación estándar, entre otros.
+        \item sacred==0.8.7
+            % explicar para que se usa
+            Usada para definir y ejecutar los experimentos.
+    \end{itemize}
+    \item \textbf{Directorio base:} /home/obrito2020/oliver/cv\_visualization/benchmarking
+    \item \textbf{Repositorio:} git@github.com:rat00lis/cv\_visualization.git
+    \item \textbf{Commit:} 8bf12c009fc991b9eeb2cb655b4d5cc3b5030a44
+\end{itemize}
+
+
+\subsubsection{All Libraries Memory Allocation}
+\label{all_libraries_memory_allocation}
+
+%descripcion
+Experimento que mide la memoria asignada por las diferentes bibliotecas al momento de crear un gráfico. Se incluye la memoria asignada al descomprimir los datos de entrada si la biblioteca no es compatible con \texttt{CompressedVector}.
+
+\paragraph{Entrada}
+%lista
+\begin{itemize}
+    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+    \item Biblioteca a utilizar: Vega-Altair, Plotly, Pygal o Matplotlib.
+\end{itemize}
+
+\paragraph{Salida}
+%lista
+\begin{itemize}
+    \item Memoria asignada en el proceso de creación del gráfico.
+\end{itemize}
+
+\paragraph{Resultados}
+
+\all_libraries_memory_allocation_plot_1
+
 
 \subsubsection{Placeholder 1}
 \label{vega_altair_plot_time}

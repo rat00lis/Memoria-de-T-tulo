@@ -1,0 +1,69 @@
+n_size,option,measurement_unit,mean
+100000,Compressed Vector - dac_vector,seconds,8803.1849609375
+100000,Compressed Vector - vlc_vector_comma_2,seconds,8805.36552734375
+100000,Compressed Vector - vlc_vector_elias_delta,seconds,8803.2904296875
+100000,Compressed Vector - vlc_vector_elias_gamma,seconds,8808.42666015625
+100000,Compressed Vector - vlc_vector_fibonacci,seconds,8803.7376953125
+100000,Compressed Vector Downsample - dac_vector,seconds,1567.91552734375
+100000,Compressed Vector Downsample - vlc_vector_comma_2,seconds,1567.9177734375
+100000,Compressed Vector Downsample - vlc_vector_elias_delta,seconds,1567.98505859375
+100000,Compressed Vector Downsample - vlc_vector_elias_gamma,seconds,1567.98623046875
+100000,Compressed Vector Downsample - vlc_vector_fibonacci,seconds,1567.89375
+100000,Original Data,seconds,6452.18173828125
+100000,SDSL4PY Vector - dac_vector,seconds,8793.9927734375
+100000,SDSL4PY Vector - vlc_vector_comma_2,seconds,8796.4046875
+100000,SDSL4PY Vector - vlc_vector_elias_delta,seconds,8794.1642578125
+100000,SDSL4PY Vector - vlc_vector_elias_gamma,seconds,8793.9564453125
+100000,SDSL4PY Vector - vlc_vector_fibonacci,seconds,8795.20224609375
+100000,TS Downsample,seconds,1564.64150390625
+10000,Compressed Vector - dac_vector,seconds,883.53984375
+10000,Compressed Vector - vlc_vector_comma_2,seconds,883.54765625
+10000,Compressed Vector - vlc_vector_elias_delta,seconds,883.5515625
+10000,Compressed Vector - vlc_vector_elias_gamma,seconds,883.5515625
+10000,Compressed Vector - vlc_vector_fibonacci,seconds,885.60283203125
+10000,Compressed Vector Downsample - dac_vector,seconds,161.656640625
+10000,Compressed Vector Downsample - vlc_vector_comma_2,seconds,161.664453125
+10000,Compressed Vector Downsample - vlc_vector_elias_delta,seconds,162.10068359375
+10000,Compressed Vector Downsample - vlc_vector_elias_gamma,seconds,161.668359375
+10000,Compressed Vector Downsample - vlc_vector_fibonacci,seconds,161.66640625
+10000,Original Data,seconds,647.3466796875
+10000,SDSL4PY Vector - dac_vector,seconds,882.033203125
+10000,SDSL4PY Vector - vlc_vector_comma_2,seconds,883.2689453125
+10000,SDSL4PY Vector - vlc_vector_elias_delta,seconds,882.044921875
+10000,SDSL4PY Vector - vlc_vector_elias_gamma,seconds,882.044921875
+10000,SDSL4PY Vector - vlc_vector_fibonacci,seconds,882.04296875
+10000,TS Downsample,seconds,159.1111328125
+1001,Compressed Vector - dac_vector,seconds,172.2578125
+1001,Compressed Vector - vlc_vector_comma_2,seconds,172.265625
+1001,Compressed Vector - vlc_vector_elias_delta,seconds,172.26953125
+1001,Compressed Vector - vlc_vector_elias_gamma,seconds,172.26953125
+1001,Compressed Vector - vlc_vector_fibonacci,seconds,172.267578125
+1001,Compressed Vector Downsample - dac_vector,seconds,154.4642578125
+1001,Compressed Vector Downsample - vlc_vector_comma_2,seconds,154.165234375
+1001,Compressed Vector Downsample - vlc_vector_elias_delta,seconds,154.4759765625
+1001,Compressed Vector Downsample - vlc_vector_elias_gamma,seconds,154.4759765625
+1001,Compressed Vector Downsample - vlc_vector_fibonacci,seconds,154.4740234375
+1001,Original Data,seconds,167.7419921875
+1001,SDSL4PY Vector - dac_vector,seconds,168.744140625
+1001,SDSL4PY Vector - vlc_vector_comma_2,seconds,169.271875
+1001,SDSL4PY Vector - vlc_vector_elias_delta,seconds,168.755859375
+1001,SDSL4PY Vector - vlc_vector_elias_gamma,seconds,168.755859375
+1001,SDSL4PY Vector - vlc_vector_fibonacci,seconds,168.75390625
+1001,TS Downsample,seconds,153.0640625
+300000,Compressed Vector - dac_vector,seconds,26387.34619140625
+300000,Compressed Vector - vlc_vector_comma_2,seconds,26396.7916015625
+300000,Compressed Vector - vlc_vector_elias_delta,seconds,26398.7119140625
+300000,Compressed Vector - vlc_vector_elias_gamma,seconds,26407.0384765625
+300000,Compressed Vector - vlc_vector_fibonacci,seconds,26392.7873046875
+300000,Compressed Vector Downsample - dac_vector,seconds,4693.079296875
+300000,Compressed Vector Downsample - vlc_vector_comma_2,seconds,4694.19443359375
+300000,Compressed Vector Downsample - vlc_vector_elias_delta,seconds,4694.15849609375
+300000,Compressed Vector Downsample - vlc_vector_elias_gamma,seconds,4693.456640625
+300000,Compressed Vector Downsample - vlc_vector_fibonacci,seconds,4693.99384765625
+300000,Original Data,seconds,19342.38330078125
+300000,SDSL4PY Vector - dac_vector,seconds,26384.76650390625
+300000,SDSL4PY Vector - vlc_vector_comma_2,seconds,26382.653515625
+300000,SDSL4PY Vector - vlc_vector_elias_delta,seconds,26389.82529296875
+300000,SDSL4PY Vector - vlc_vector_elias_gamma,seconds,26385.2078125
+300000,SDSL4PY Vector - vlc_vector_fibonacci,seconds,26386.69443359375
+300000,TS Downsample,seconds,4691.02177734375

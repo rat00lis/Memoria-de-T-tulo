@@ -1,0 +1,11 @@
+\begin{tabular}{lrrrrrr}
+\toprule
+option & Original Data & dac_vector - 8 & vlc_vector_comma_2 - 8 & vlc_vector_elias_delta - 8 & vlc_vector_elias_gamma - 8 & vlc_vector_fibonacci - 8 \\
+n_size &  &  &  &  &  &  \\
+\midrule
+1001 & 9.57e-08 [sec] & 1.08e-06 [sec] & 1.18e-06 [sec] & 1.21e-06 [sec] & 1.24e-06 [sec] & 1.14e-06 [sec] \\
+10000 & 9.59e-08 [sec] & 1.32e-06 [sec] & 1.44e-06 [sec] & 1.52e-06 [sec] & 1.50e-06 [sec] & 1.37e-06 [sec] \\
+100000 & 1.03e-07 [sec] & 4.70e-06 [sec] & 5.54e-06 [sec] & 5.02e-06 [sec] & 5.05e-06 [sec] & 4.84e-06 [sec] \\
+300000 & 1.02e-07 [sec] & 1.11e-05 [sec] & 1.65e-05 [sec] & 1.32e-05 [sec] & 1.50e-05 [sec] & 1.26e-05 [sec] \\
+\bottomrule
+\end{tabular}

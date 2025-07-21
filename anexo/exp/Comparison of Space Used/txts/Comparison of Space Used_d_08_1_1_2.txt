@@ -1,0 +1,11 @@
+\begin{tabular}{lrrrrrrrrrrrrrrrrrr}
+\toprule
+option & Compressed Vector - dac_vector & Compressed Vector - vlc_vector_comma_2 & Compressed Vector - vlc_vector_elias_delta & Compressed Vector - vlc_vector_elias_gamma & Compressed Vector - vlc_vector_fibonacci & Compressed Vector Downsampler - LTTBDownsampler - dac_vector & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2 & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_elias_delta & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_elias_gamma & Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci & Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2 & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_elias_delta & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_elias_gamma & Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci & Original Data & TS Downsample - LTTBDownsampler & TS Downsample - MinMaxLTTBDownsampler \\
+n_size &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\midrule
+1001 & 1.17e+04 [B] & 1.12e+04 [B] & 1.00e+04 [B] & 1.43e+04 [B] & 1.12e+04 [B] & 6.19e+03 [B] & 5.69e+03 [B] & 5.11e+03 [B] & 7.25e+03 [B] & 5.69e+03 [B] & 6.19e+03 [B] & 5.69e+03 [B] & 5.11e+03 [B] & 7.25e+03 [B] & 5.69e+03 [B] & 4.80e+04 [B] & 8.00e+03 [B] & 8.00e+03 [B] \\
+10000 & 1.10e+05 [B] & 1.09e+05 [B] & 9.81e+04 [B] & 1.41e+05 [B] & 1.10e+05 [B] & 1.16e+04 [B] & 1.11e+04 [B] & 1.00e+04 [B] & 1.43e+04 [B] & 1.12e+04 [B] & 2.93e+03 [B] & 2.45e+03 [B] & 2.21e+03 [B] & 3.10e+03 [B] & 2.45e+03 [B] & 4.80e+05 [B] & 1.60e+04 [B] & 3.20e+03 [B] \\
+100000 & 1.11e+06 [B] & 1.10e+06 [B] & 9.87e+05 [B] & 1.42e+06 [B] & 1.10e+06 [B] & 1.21e+04 [B] & 1.14e+04 [B] & 1.02e+04 [B] & 1.47e+04 [B] & 1.15e+04 [B] & 1.21e+04 [B] & 1.14e+04 [B] & 1.03e+04 [B] & 1.47e+04 [B] & 1.15e+04 [B] & 4.80e+06 [B] & 1.60e+04 [B] & 1.60e+04 [B] \\
+300000 & 3.35e+06 [B] & 3.34e+06 [B] & 2.99e+06 [B] & 4.31e+06 [B] & 3.35e+06 [B] & 1.21e+04 [B] & 1.16e+04 [B] & 1.04e+04 [B] & 1.49e+04 [B] & 1.16e+04 [B] & 1.21e+04 [B] & 1.16e+04 [B] & 1.04e+04 [B] & 1.50e+04 [B] & 1.17e+04 [B] & 1.44e+07 [B] & 1.60e+04 [B] & 1.60e+04 [B] \\
+\bottomrule
+\end{tabular}

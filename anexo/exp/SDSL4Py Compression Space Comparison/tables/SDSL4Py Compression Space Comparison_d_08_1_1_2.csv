@@ -1,0 +1,25 @@
+n_size,option,measurement_unit,mean
+100000,Original Data,bytes,1599984
+100000,dac_vector - 8,bytes,160434
+100000,vlc_vector_comma_2 - 8,bytes,193594
+100000,vlc_vector_elias_delta - 8,bytes,165242
+100000,vlc_vector_elias_gamma - 8,bytes,178906
+100000,vlc_vector_fibonacci - 8,bytes,161618
+10000,Original Data,bytes,159984
+10000,dac_vector - 8,bytes,16482
+10000,vlc_vector_comma_2 - 8,bytes,19738
+10000,vlc_vector_elias_delta - 8,bytes,16602
+10000,vlc_vector_elias_gamma - 8,bytes,18338
+10000,vlc_vector_fibonacci - 8,bytes,16522
+1001,Original Data,bytes,16000
+1001,dac_vector - 8,bytes,1794
+1001,vlc_vector_comma_2 - 8,bytes,2290
+1001,vlc_vector_elias_delta - 8,bytes,1962
+1001,vlc_vector_elias_gamma - 8,bytes,2090
+1001,vlc_vector_fibonacci - 8,bytes,1970
+300000,Original Data,bytes,4799984
+300000,dac_vector - 8,bytes,480802
+300000,vlc_vector_comma_2 - 8,bytes,584202
+300000,vlc_vector_elias_delta - 8,bytes,504298
+300000,vlc_vector_elias_gamma - 8,bytes,544010
+300000,vlc_vector_fibonacci - 8,bytes,489954

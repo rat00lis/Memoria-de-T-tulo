@@ -1,0 +1,25 @@
+n_size,option,measurement_unit,mean
+100000,Original Data,seconds,1.2889038771390915e-06
+100000,dac_vector - 8,seconds,0.06350052678026259
+100000,vlc_vector_comma_2 - 8,seconds,0.06762342974543571
+100000,vlc_vector_elias_delta - 8,seconds,0.06700203567743301
+100000,vlc_vector_elias_gamma - 8,seconds,0.06436069179326295
+100000,vlc_vector_fibonacci - 8,seconds,0.06599169876426458
+10000,Original Data,seconds,5.511566996574401e-07
+10000,dac_vector - 8,seconds,0.0060590026434510945
+10000,vlc_vector_comma_2 - 8,seconds,0.006382585596293211
+10000,vlc_vector_elias_delta - 8,seconds,0.006324823433533311
+10000,vlc_vector_elias_gamma - 8,seconds,0.006154781579971314
+10000,vlc_vector_fibonacci - 8,seconds,0.00633600247092545
+1001,Original Data,seconds,3.666151314973831e-07
+1001,dac_vector - 8,seconds,0.0006200615782290698
+1001,vlc_vector_comma_2 - 8,seconds,0.0006473017856478691
+1001,vlc_vector_elias_delta - 8,seconds,0.0006364436354488135
+1001,vlc_vector_elias_gamma - 8,seconds,0.0006299763452261686
+1001,vlc_vector_fibonacci - 8,seconds,0.0006439144723117352
+300000,Original Data,seconds,1.227855682373047e-06
+300000,dac_vector - 8,seconds,0.19676049598492681
+300000,vlc_vector_comma_2 - 8,seconds,0.20326592135243118
+300000,vlc_vector_elias_delta - 8,seconds,0.19934720313176513
+300000,vlc_vector_elias_gamma - 8,seconds,0.1967093776911497
+300000,vlc_vector_fibonacci - 8,seconds,0.20228820452466606
