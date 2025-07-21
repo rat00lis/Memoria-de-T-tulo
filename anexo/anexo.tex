@@ -61,27 +61,296 @@ Experimento que mide la memoria asignada por las diferentes bibliotecas al momen
 
 \AllLibrariesMemoryAllocation
 
-\subsubsection{Placeholder 1}
+\subsubsection{All Libraries Time Comparison}
+\label{all_libraries_time_comparison}
+
+Experimento que compara el tiempo de ejecución para generar gráficos utilizando diferentes bibliotecas de visualización de datos. Se mide el tiempo total desde el inicio de la creación del gráfico hasta su finalización.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+    \item Biblioteca a utilizar: Vega-Altair, Plotly, Pygal o Matplotlib.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Tiempo de ejecución en segundos para generar el gráfico.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\AllLibrariesTimeComparison
+
+\subsubsection{Vega-Altair Plot Time Comparison}
 \label{vega_altair_plot_time}
 
-\subsubsection{Placeholder 2}
+Experimento específico que mide el tiempo de generación de gráficos utilizando únicamente la biblioteca Vega-Altair con diferentes configuraciones y tamaños de datos.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+    \item Configuraciones específicas de Vega-Altair para diferentes tipos de gráficos.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Tiempo de ejecución detallado para cada configuración de Vega-Altair.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\VegaAltairPlotTimeComparison
+
+\subsubsection{PyGal Plot Time}
 \label{pygal_plot_time}
 
-\subsubsection{Placeholder 3}
+Experimento que evalúa el rendimiento temporal de la biblioteca PyGal para la generación de diferentes tipos de gráficos.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+    \item Configuraciones específicas de PyGal.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Tiempo de ejecución para generar gráficos con PyGal.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\PyGalPlotTime
+
+\subsubsection{Vega-Altair Plotting + Building Comparison}
 \label{vega_altair_plot_plus_build_time}
 
-\subsubsection{Placeholder 4}
-\label{vega_altair_plot_space}
+Experimento que mide el tiempo total incluyendo tanto la generación del gráfico como su construcción/renderizado final utilizando Vega-Altair.
 
-\subsubsection{Placeholder 5}
-\label{pygal_plot_space}
+\paragraph{Entrada}
+\begin{itemize}
+    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+    \item Configuraciones de Vega-Altair para diferentes tipos de visualización.
+\end{itemize}
 
-\subsubsection{Placeholder 6}
-\label{vega_altair_memory_allocation}
+\paragraph{Salida}
+\begin{itemize}
+    \item Tiempo total de plotting y building combinados.
+\end{itemize}
 
-\subsubsection{Placeholder 7}
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\VegaAltairPlottingBuildingComparison
+
+\subsubsection{Comparison of Space Used}
+\label{comparison_of_space_used}
+
+Experimento que compara el espacio utilizado en memoria y almacenamiento por las diferentes bibliotecas durante el proceso de visualización de datos.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+    \item Biblioteca a utilizar: Vega-Altair, Plotly, Pygal o Matplotlib.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Espacio utilizado en bytes por cada biblioteca.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\ComparisonOfSpaceUsed
+
+\subsubsection{PyGal Memory Allocation}
 \label{pygal_memory_allocation}
 
-\subsubsection{Placeholder 8}
+Experimento específico que analiza la asignación de memoria de la biblioteca PyGal durante la creación de gráficos.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+    \item Configuraciones específicas de PyGal.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Memoria asignada por PyGal durante el proceso de visualización.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\PyGalMemoryAllocation
+
+\subsubsection{Building Time Comparison}
+\label{building_time_comparison}
+
+Experimento que mide específicamente el tiempo de construcción/renderizado de los gráficos, separando esta fase del tiempo de plotting inicial.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Gráficos pre-generados por diferentes bibliotecas.
+    \item Configuraciones de renderizado para cada biblioteca.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Tiempo de construcción/renderizado en segundos.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\BuildingTimeComparison
+
+\subsubsection{Experimentos con CompressedVector y SDSL4Py}
 \label{anexo_sdsl4py}
-%explicar q no se usaron las estructuras q no permiten 0
+
+Esta sección agrupa los experimentos relacionados con el uso de estructuras de datos comprimidas, específicamente \texttt{CompressedVector} y las implementaciones de SDSL4Py.
+
+\paragraph{CVD Decimal Places Access Time Comparison}
+\label{cvd_decimal_places_access_time}
+
+Experimento que evalúa el tiempo de acceso a datos en \texttt{CompressedVector} con diferentes números de decimales configurados.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Conjunto de datos comprimidos con diferentes configuraciones de decimales.
+    \item Patrones de acceso aleatorio y secuencial.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Tiempo de acceso promedio para cada configuración de decimales.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\CVDDecimalPlacesAccessTimeComparison
+
+\paragraph{CVD Decimal Places Build Time Comparison}
+\label{cvd_decimal_places_build_time}
+
+Experimento que mide el tiempo necesario para construir estructuras \texttt{CompressedVector} con diferentes configuraciones de precisión decimal.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Datos originales en formato no comprimido.
+    \item Diferentes configuraciones de decimales (1, 2, 3, 4, 5 decimales).
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Tiempo de construcción para cada configuración.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\CVDDecimalPlacesBuildTimeComparison
+
+\paragraph{CVD Decimal Places Size Comparison}
+\label{cvd_decimal_places_size}
+
+Experimento que compara el tamaño final de las estructuras \texttt{CompressedVector} según el número de decimales configurados.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Datos originales idénticos.
+    \item Configuraciones de precisión decimal de 1 a 5 decimales.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Tamaño en bytes de la estructura comprimida para cada configuración.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\CVDDecimalPlacesSizeComparison
+
+\paragraph{SDSL4Py Access Time Comparison}
+\label{sdsl4py_access_time}
+
+Experimento que compara los tiempos de acceso utilizando diferentes estructuras de datos de SDSL4Py.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Datos almacenados en diferentes estructuras SDSL4Py.
+    \item Patrones de consulta variados.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Tiempo de acceso para cada estructura de datos SDSL4Py.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\SDSLFourPyAccessTimeComparison
+
+\paragraph{SDSL4Py Compression Space Comparison}
+\label{sdsl4py_compression_space}
+
+Experimento que evalúa el espacio utilizado por diferentes estructuras de compresión de SDSL4Py.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Datos originales idénticos.
+    \item Diferentes algoritmos de compresión disponibles en SDSL4Py.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Espacio utilizado por cada estructura de compresión.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\SDSLFourPyCompressionSpaceComparison
+
+\paragraph{SDSL4Py Compression Time Comparison}
+\label{sdsl4py_compression_time}
+
+Experimento que mide el tiempo necesario para comprimir datos utilizando diferentes algoritmos de SDSL4Py.
+
+\paragraph{Entrada}
+\begin{itemize}
+    \item Datos no comprimidos de diferentes tamaños.
+    \item Algoritmos de compresión de SDSL4Py.
+\end{itemize}
+
+\paragraph{Salida}
+\begin{itemize}
+    \item Tiempo de compresión para cada algoritmo.
+\end{itemize}
+
+\paragraph{Resultados}
+\vspace{0.5em}
+\noindent
+
+\SDSLFourPyCompressionTimeComparison
+
+\paragraph{Nota sobre estructuras SDSL4Py}
+Las estructuras de datos de SDSL4Py que no permiten valores cero no fueron utilizadas en estos experimentos.

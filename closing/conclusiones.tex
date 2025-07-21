@@ -1,0 +1,48 @@
+\section{Conclusiones}
+
+El carácter de la Memoria de Título es principalmente experimental. Las herramientas desarrolladas durante su realización han servido para delimitar un esquema general del potencial respecto al uso de estructuras de datos compactas para la visualización de datos, centrándose en una visión general de los caminos posibles que se ramifican a partir de la investigación realizada y los resultados obtenidos.
+
+El uso de estructuras de datos compactas para la visualización de datos es un campo en constante evolución, y los resultados obtenidos en esta Memoria de Título sugieren que hay un gran potencial para mejorar la eficiencia y la efectividad de las visualizaciones. A pesar de que éstas no han sido implementadas para su uso con valores flotantes, el desarrollo de la clase \texttt{CompressedVector} demuestra que es posible superar esta limitación y beneficiarse de la reducción del espacio en disco a la hora de renderizar gráficos.
+
+Además, su uso integrado con la biblioteca de \textit{downsampling} \texttt{tsdownsample}, a través de la clase desarrollada \texttt{CompressedVectorDownsampler}, demuestra que es posible combinar técnicas de compresión y reducción de datos para visualizar grandes conjuntos de datos, obteniendo una mejora significativa en tiempo y espacio de almacenamiento, sin sacrificar la calidad de la visualización y la capacidad de análisis de los mismos.
+
+Una limitación importante identificada es la asignación de memoria, que puede ser un factor limitante a la hora de ocupar la herramienta desarrollada. Si el usuario se viera perjudicado por un leve aumento de la misma, utilizar las herramientas desarrolladas supondría un problema o incluso una restricción para su uso.
+La escasez de bibliotecas de visualización que soporten iterar por sobre objetos sin la necesidad de asignar memoria adicional, o preprocesar los datos para su visualización, es una problema que sólo es evidente al momento del desarrollo de este trabajo.
+
+Por último, es importante destacar que la investigación y el desarrollo en este campo están en constante evolución. Las herramientas y técnicas desarrolladas en esta Memoria de Título son un primer paso hacia una comprensión más profunda de cómo las estructuras de datos compactas pueden mejorar la visualización de datos. Se espera que futuras investigaciones continúen explorando estas posibilidades y desarrollen nuevas técnicas y herramientas para mejorar aún más la eficiencia y efectividad de las visualizaciones.
+
+\section{Proyecciones}
+
+Hay muchas direcciones futuras que se pueden explorar a partir del trabajo realizado en esta Memoria de Título. Debido a su naturaleza general y experimental, son muy variadas las rutas por las cuales continuar la investigación y el desarrollo en este campo.
+
+\subsection{Mejoras en la clase \texttt{CompressedVector}}
+
+La implementación de la clase \texttt{CompressedVector} es un primer acercamiento que podría ser considerado un prototipo. A pesar de que cumple su función de reducir el espacio en disco contra los datos originales, aún existen muchos aspectos que podrían ser mejorados para garantizar una reducción mayor del espacio y una mejora en la velocidad de acceso a los datos.
+
+\subsubsection{Reducir la cantidad de vectores \texttt{SDSL4Py} usados.}
+
+Como se explicó anteriormente en la sección \ref{sec:development:compressed_vector}, la clase \texttt{CompressedVector} utiliza múltiples vectores de SDSL4Py para almacenar los datos. Esto provoca que por cada vector que usaría un espacio $s_{sdsl4py}$ en una estrucutura de SDSL4Py, la clase \texttt{CompressedVector} use un espacio $3s_{sdsl4py}$ en el peor caso. 
+
+Este problema podría ser mitigado eliminando el vector interno \texttt{sign\_part}, que actualmente indica si cada valor es positivo o negativo. En su lugar, se podría aplicar una transformación previa sobre el vector original para asegurar que todos los valores sean no negativos. Una forma común de lograr esto es restar el valor mínimo del conjunto a todos los elementos y almacenar este desplazamiento (\textit{offset}) por separado. Esta técnica es conocida como \textit{offset encoding} y permite reducir el número de vectores requeridos internamente, mejorando el uso de memoria.
+
+\begin{equation}
+x_i' = x_i - \min(x)
+\end{equation}
+
+Donde \( x_i \) representa cada elemento original del vector, y \( x_i' \) el valor transformado. El valor mínimo \(\min(x)\) se almacena de forma externa y puede ser sumado nuevamente al momento de acceder a los datos originales.
+
+
+\subsubsection{Optimizar el acceso secuencial y contiguo a los datos.}
+
+La clase \texttt{CompressedVector} actualmente accede a los datos mediante una iteración directa sobre los vectores internos, sin considerar el patrón de acceso. Este enfoque puede ser ineficiente en casos donde los accesos se realizan de manera contigua o secuencial, ya que no aprovecha las propiedades de localidad que podrían optimizar el rendimiento.
+
+En particular, las estructuras provistas por SDSL permiten el uso eficiente de operaciones como \texttt{rank} y \texttt{select}, que pueden ser explotadas para acelerar el acceso en escenarios donde se requiere iterar sobre rangos consecutivos de índices. Ya que para visualizar un gráfico se itera sobre todos los datos en orden, se podría implementar un método que aproveche estas operaciones para acceder a los datos de manera más eficiente, reduciendo el tiempo de acceso y mejorando el rendimiento general de la clase.
+
+\subsection{Bibliotecas de Visualización}
+
+Existen diversas bibliotecas de visualización que podrían beneficiarse de las optimizaciones propuestas en esta Memoria de Título. Por ejemplo, bibliotecas como Matplotlib, Seaborn o Plotly en Python, que son ampliamente utilizadas para la creación de gráficos y visualizaciones interactivas, podrían integrar técnicas de compresión y acceso eficiente a los datos para mejorar su rendimiento. Sin embargo, debido a que estas bibliotecas requieren un tipo especifico de vector para graficar, la implementación de la clase \texttt{CompressedVector} no es directamente compatible con ellas.
+
+Un trabajo futuro podría centrarse en desarrollar adaptadores o extensiones para estas bibliotecas, permitiendo que utilicen la clase \texttt{CompressedVector} para la visualización sin la necesidad de asignar memoria adicional. Esto podría implicar la creación de clases envoltorio que implementen las interfaces requeridas por estas bibliotecas, permitiendo que los datos comprimidos sean utilizados directamente para la visualización.
+
+Otro posible acercamiento a este problema podría incluir la creación de otro \texttt{dtype} para la biblioteca NumPy, que permita el uso de la clase \texttt{CompressedVector} como un tipo de dato nativo. Esto permitiría que las bibliotecas de visualización que dependen de NumPy puedan utilizar directamente los datos comprimidos sin necesidad de realizar conversiones adicionales.
+
