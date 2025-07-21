@@ -1,8 +1,6 @@
 \section{Evaluación de Alternativas}
 \label{alternatives}
 
-Existen distintas alternativas para la visualización de datos que se analizaron en este trabajo. A continuación, se describen en detalle y se justifica la selección de las herramientas ocupadas.
-
 \subsection{Técnicas de Downsampling}
 
 Una vez introducido el concepto de downsampling como solución al problema de visualización de series de tiempo muy densas, es necesario revisar y comparar las principales alternativas existentes.
@@ -35,9 +33,9 @@ Como complemento para el análisis comparativo, también se utilizará el algori
 
 \subsection{Estructuras de Datos Compactas}
 
-El uso de estructuras de datos compactas permite representar secuencias numéricas en memoria utilizando una menor cantidad de bits por elemento, manteniendo acceso eficiente y sin pérdida de información. Estas estructuras son especialmente útiles en contextos donde la cantidad de datos es alta y la eficiencia espacial se vuelve un factor relevante, como ocurre en la visualización de series de tiempo a gran escala.
+El uso de estructuras de datos compactas permite representar secuencias numéricas en memoria utilizando una menor cantidad de bits por elemento, manteniendo el acceso a los datos sin pérdida de información. 
 
-En este trabajo se utiliza la biblioteca \texttt{sdsl4py}, un conjunto de bindings en Python para la Succinct Data Structure Library (SDSL), que permite acceder a múltiples representaciones comprimidas desde entornos de análisis como Python. A continuación se presentan las principales estructuras disponibles en \texttt{sdsl4py} utilizadas en esta memoria:
+Para uso de este tipo de estructuras, se utiliza la biblioteca \texttt{sdsl4py}, un conjunto de bindings en Python para la Succinct Data Structure Library (SDSL), que permite acceder a múltiples representaciones comprimidas desde entornos de análisis como Python. A continuación se presentan las principales estructuras disponibles en \texttt{sdsl4py}.
 
 \begin{enumerate}
     \item \textbf{enc\_vector\_elias\_gamma}:

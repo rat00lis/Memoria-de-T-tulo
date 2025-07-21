@@ -1,17 +1,113 @@
 \section{Pruebas Sobre el Sistema}
 \label{sec:pruebas-sistema}
 
-Usando el framework descrito en la Sección~\ref{benchmarking}, se declararon distintos experimentos a partir de la plantilla base del repositorio. Cada uno de ellos evalúa distintos aspectos del sistema como el uso de memoria, tiempos de ejecución o el tamaño ocupado por diferentes representaciones de datos. La descripción de cada experimento, así como sus valores de entrada y salida se encuentran en el Anexo~\ref{anexo-resumen-experimentos}.
+Usando el framework descrito en la Sección~\ref{benchmarking}, se declararon distintos experimentos a partir de la plantilla base del repositorio. Cada uno de ellos evalúa distintos aspectos del sistema como el uso de memoria, tiempos de ejecución o el tamaño ocupado por diferentes representaciones de datos. La descripción de cada experimento, así como sus valores de entrada y salida se encuentran en el Anexo~\ref{sec:experimentos}.
 
-\input{testing/decimal-places-access.tex}
-% \input{testing/altair-mem.tex}
-\input{testing/all-libs-mem.tex}
-\input{testing/space-comparison.tex}
-\input{testing/compression-time.tex}
-\input{testing/all-libs-time.tex}
-\input{testing/cvd-build-decimals.tex}
-% \input{testing/cvd-sdsl-build.tex}
-\input{testing/cvd-size-decimals.tex}
-\input{testing/altair-total-time.tex}
-\input{testing/pygal-time.tex}
-\input{testing/altair-time.tex}
+\subsection{Complejidad Teórica}
+
+El proceso completo de visualización basado en estructuras comprimidas puede dividirse en tres etapas principales, cada una con una complejidad temporal asociada:
+
+\begin{enumerate}
+    \item \textbf{Downsampling:} \\
+    Esta etapa reduce el conjunto de datos desde un tamaño original \(n\) hasta una submuestra de tamaño \(n_{\text{out}}\), seleccionando los puntos más representativos. De acuerdo con los autores de \textit{tsdownsample}~\cite{tsdownsample}, esta operación tiene una complejidad temporal de \(\mathcal{O}(n)\).
+
+    \item \textbf{Construcción de la estructura de datos compacta:} \\
+    Una vez obtenido el subconjunto reducido, se codifica utilizando una estructura como \texttt{vlc\_vector}, donde cada valor \(v_i\) es transformado en un codeword autocontenible mediante un esquema como Elias gamma. La longitud del codeword es proporcional a \(\log v_i\), por lo que la complejidad total de esta etapa es:
+    \[
+    \mathcal{O}\left( \sum_{i=1}^{n_{\text{out}}} \log v_i \right) = \mathcal{O}(n_{\text{out}} \cdot \log V)
+    \]
+    donde \(V\) representa el valor promedio (o máximo) de los datos en la submuestra. En la práctica, esta operación es eficiente y puede realizarse en tiempo lineal con respecto al tamaño de la submuestra.
+
+    \item \textbf{Renderizado desde la estructura comprimida:} \\
+    Para generar el gráfico, es necesario acceder secuencialmente a los \(n_{\text{out}}\) elementos almacenados en la estructura comprimida. En estructuras como \texttt{vlc\_vector}, el acceso aleatorio a un valor \(v_i\) tiene una complejidad de:
+    \[
+    \mathcal{O}(t \cdot \log v_i)
+    \]
+    donde \(t\) es la densidad de muestreo definida como hiperparámetro (por ejemplo, cada \(t\) elementos se almacena un puntero de acceso rápido). Por tanto, el costo total de renderizar todos los puntos es:
+    \[
+    \mathcal{O}(n_{\text{out}} \cdot t \cdot \log V)
+    \]
+\end{enumerate}
+
+\noindent En resumen, el pipeline completo presenta la siguiente complejidad total:
+
+\[
+\underbrace{\mathcal{O}(n)}_{\text{downsampling}} +
+\underbrace{\mathcal{O}(n_{\text{out}} \cdot \log V)}_{\text{compresión}} +
+\underbrace{\mathcal{O}(n_{\text{out}} \cdot t \cdot \log V)}_{\text{renderizado}}
+\]
+
+En términos asintóticos, dado que \(n_{\text{out}} \ll n\) y que la densidad de muestreo \(t\) se mantiene constante, la complejidad total del proceso completo puede resumirse como \(\mathcal{O}(n)\), siendo dominada por el paso de \textit{downsampling}.
+
+\subsection{Tiempo}
+
+\subsubsection{Comparación de Tiempo de Visualización}
+
+Dado un conjunto de pares ordenados \((x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)\), es razonable esperar que el tiempo de visualización utilizando una lista resultante de \texttt{TSDownsample} sea inferior al de una visualización basada en \texttt{CompressedVectorDownsampler}.
+
+Esto se debe a que \texttt{CompressedVectorDownsampler} utiliza internamente la misma técnica de \textit{downsampling} provista por \texttt{TSDownsample}, pero aplica además una compresión adicional mediante estructuras de datos compactas. Esta compresión mejora el uso de memoria, pero introduce un mayor costo de acceso a los elementos.
+
+Recordando la complejidad de acceso:
+\begin{itemize}
+    \item En una lista de Python o un arreglo de NumPy, el acceso aleatorio tiene complejidad \(\mathcal{O}(1)\).
+    \item En cambio, en estructuras como \texttt{vlc\_vector}, el acceso tiene complejidad \(\mathcal{O}(t \cdot \log v_i)\), donde \(t\) es la densidad de muestreo y \(v_i\) el valor a decodificar.
+\end{itemize}
+
+Por tanto, aunque ambos métodos visualizan la misma cantidad de puntos \(n_{\text{out}}\), el tiempo requerido por \texttt{CompressedVectorDownsampler} será mayor debido al sobrecosto del acceso comprimido, en comparación con estructuras lineales con acceso directo.
+
+Esto puede observarse en los experimentos~\ref{vega_altair_plot_time} y~\ref{pygal_plot_time}, donde se evidencia que el tiempo requerido para renderizar gráficos utilizando \texttt{CompressedVectorDownsampler} es mayor en comparación con el uso directo de los datos devueltos por \texttt{TSDownsample}. No obstante, dicho tiempo sigue siendo significativamente inferior al necesario para graficar el conjunto original sin ningún tipo de preprocesamiento.
+
+En efecto, aunque la compresión introduce un costo adicional de acceso, su impacto es moderado y compensado por la reducción drástica en tamaño y cantidad de datos a procesar. Mientras que graficar la secuencia original requiere una complejidad temporal \(\mathcal{O}(n)\), el uso de estructuras comprimidas permite una visualización eficiente con una complejidad de \(\mathcal{O}(n_{\text{out}} \cdot t \cdot \log V)\), donde \(n_{\text{out}} \ll n\) y \(t\) es constante. 
+
+\subsubsection{Comparación de Tiempo de Visualización + Construcción}
+
+A pesar de tener resultados positivos en la acción aislada de visualizar, es importante analizar el tiempo adicional de construcción de \texttt{CompressedVectorDownsampler} para efectos de analizar los resultados de su implementación.
+
+Recordando entonces, las complejidades teóricas de procesar los datos originales y renderizarlos con \texttt{CompressedVectorDownsampler} y \texttt{TS Downsample}:
+
+\begin{itemize}
+    \item El tiempo total de preprocesamiento y visualización para una lista indexada con \texttt{TSDownsample} es:
+    \[
+    \mathcal{O}(n) + \mathcal{O}(n_{\text{out}})
+    \]
+    gracias al acceso directo en memoria.
+
+    \item En cambio, el tiempo total con \texttt{CompressedVectorDownsampler} es:
+    \[
+    \mathcal{O}(n) + \mathcal{O}(n_{\text{out}} \cdot \log V) + \mathcal{O}(n_{\text{out}} \cdot t \cdot \log V)
+    \]
+
+\end{itemize}
+
+A pesar de que la operación de crear la estructura de datos compacta introduce una complejidad superior al sistema, esta se aplica sobre $n_{out}$ que es constante. Por ende, aún tenemos tiempos considerablemente menores a renderizar los datos originales y una complejidad menor que puede observarse en el experimento \ref{vega_altair_plot_plus_build_time}.
+
+\subsubsection{Análisis}
+
+A pesar de que \texttt{CompressedVectorDownsampler} introduce una penalización en el tiempo de acceso, esta se compensa por la mejora significativa en el uso de memoria y la reducción en el volumen total de datos procesados. Al trabajar sobre una muestra reducida (\(n_{\text{out}} \ll n\)) y con estructuras comprimidas, el sistema logra mantener tiempos de visualización razonables sin comprometer la interpretabilidad de la información.
+
+En definitiva, si bien la visualización con estructuras comprimidas más uso de downsampler no alcanza la velocidad de acceso de listas nativas, sigue representando una mejora considerable frente a la visualización directa de los datos originales. 
+
+\subsection{Espacio}
+
+\subsubsection{Comparación de Espacio Utilizado}
+
+Como se observa en los experimentos~\ref{vega_altair_plot_space} y~\ref{pygal_plot_space}, el uso de \texttt{CompressedVectorDownsampler} permite una reducción significativa del espacio en disco ocupado, en comparación con representaciones tradicionales. Aunque \texttt{TSDownsample} y \texttt{CompressedVectorDownsampler} producen conjuntos con la misma cantidad de puntos \(n_{\text{out}}\), la estructura interna comprimida de \texttt{CompressedVectorDownsampler} codifica los valores de manera más eficiente, lo que se traduce en archivos de menor tamaño. 
+
+\subsubsection{Alocación de Memoria}
+
+En los experimentos~\ref{vega_altair_memory_allocation} y~\ref{pygal_memory_allocation} se evalúa la memoria alocada durante la visualización de los datos. Aquí se evidencia una diferencia importante entre las bibliotecas utilizadas:
+
+\begin{itemize}
+    \item \textbf{PyGal:} Al aceptar cualquier objeto iterable como fuente de datos, PyGal permite visualizar directamente la estructura comprimida sin necesidad de duplicar o transformar los datos. Gracias a esto, se observa una reducción efectiva del uso de memoria al utilizar \texttt{CompressedVectorDownsampler}.
+
+    \item \textbf{Vega-Altair:} Esta biblioteca, en cambio, requiere convertir los datos en un \texttt{DataFrame} de pandas antes de renderizar el gráfico. Aunque no necesita descomprimir completamente la estructura, el proceso de acceso y construcción del \texttt{DataFrame} implica recorrer todos los valores y almacenarlos explícitamente en memoria. Esto genera un consumo similar o incluso ligeramente superior a una representación tradicional, debido a la creación de objetos intermedios y operaciones realizadas \textit{in-place}.
+\end{itemize}
+
+En ambos casos, el uso de memoria sigue una complejidad asintótica de \(\mathcal{O}(n_{\text{out}})\), pero con distintas eficiencias prácticas según la estrategia de visualización. No obstante, la memoria alocada por esta estructura es de un orden menor que la de renderizar los datos sin procesamiento.
+
+\subsubsection{Análisis}
+
+El uso de estructuras comprimidas como \texttt{CompressedVectorDownsampler} permite reducir de forma efectiva el espacio en disco ocupado por los datos visualizables, lo cual representa una ventaja clara en términos de almacenamiento y eficiencia espacial. Sin embargo, esta optimización no siempre se refleja en el uso de memoria al momento de graficar, ya que depende fuertemente del modelo de ejecución de la biblioteca utilizada.
+
+En bibliotecas que operan sobre objetos iterables sin materializar los datos, como PyGal, la reducción de espacio sí se traduce en menores requerimientos de memoria. En cambio, herramientas como Altair neutralizan parcialmente los beneficios de la compresión en esta etapa.
+
