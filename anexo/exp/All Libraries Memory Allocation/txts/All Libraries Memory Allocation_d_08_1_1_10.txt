@@ -2,7 +2,8 @@
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|c|c|c|c|}
-\hline\multicolumn{1}{|c|}{Option} & \multicolumn{4}{c|}{\textbf{Number of data points}} \\
+\hline
+\multicolumn{1}{|c|}{Option} & \multicolumn{4}{c|}{\textbf{Number of data points}} \\
 \cline{2-5}
  & \textbf{1001} & \textbf{10000} & \textbf{100000} & \textbf{300000} \\
 \hline
