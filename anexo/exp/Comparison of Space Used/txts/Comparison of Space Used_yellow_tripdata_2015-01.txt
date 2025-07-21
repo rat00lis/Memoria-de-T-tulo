@@ -27,6 +27,5 @@ TS Downsample - MinMaxLTTBDownsampler & 8.00e+03 [B] & 1.28e+02 [B] & 9.60e+01 [
 \hline
 \end{tabular}
 }
-\caption{Comparison Of Space Used Yellow Tripdata 2015-01}
 \label{tab:comparison of space used-yellow-tripdata-2015-01}
 \end{table}

@@ -27,6 +27,5 @@ TS Downsample - MinMaxLTTBDownsampler & 1.67e-04 [kb] & 2.46e-04 [kb] & 4.04e-04
 \hline
 \end{tabular}
 }
-\caption{Pygal Plot Time Yellow Tripdata 2015-01}
 \label{tab:pygal plot time-yellow-tripdata-2015-01}
 \end{table}

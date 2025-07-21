@@ -27,6 +27,5 @@ TS Downsample - MinMaxLTTBDownsampler & 8.00e+03 [B] & 3.20e+03 [B] & 1.60e+04 [
 \hline
 \end{tabular}
 }
-\caption{Comparison Of Space Used D 08 1 1 2}
 \label{tab:comparison of space used-d-08-1-1-2}
 \end{table}

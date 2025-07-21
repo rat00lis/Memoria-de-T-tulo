@@ -32,6 +32,5 @@ TS Downsample - MinMaxLTTBDownsampler & 1.83e-04 [s] & 6.37e-04 [s] & 1.23e-03 [
 \hline
 \end{tabular}
 }
-\caption{Building Time Comparison Yellow Tripdata 2015-01}
 \label{tab:building time comparison-yellow-tripdata-2015-01}
 \end{table}

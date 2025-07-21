@@ -60,6 +60,5 @@ vlc_vector_fibonacci - 5 - MinMaxLTTBDownsampler & 1.18e+04 [s] & 2.57e+03 [s] &
 \hline
 \end{tabular}
 }
-\caption{Cvd Decimal Places Size Comparison D 08 1 1 2}
 \label{tab:cvd decimal places size comparison-d-08-1-1-2}
 \end{table}

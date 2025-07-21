@@ -13,6 +13,5 @@ Pygal Line Plot & 1.53e-03 [s] & 7.34e-04 [s] & 3.06e-03 [s] & 3.10e-03 [s] \\
 \hline
 \end{tabular}
 }
-\caption{All Libraries Time Comparison D 08 1 1 10}
 \label{tab:all libraries time comparison-d-08-1-1-10}
 \end{table}

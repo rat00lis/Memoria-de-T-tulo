@@ -60,6 +60,5 @@ vlc_vector_fibonacci - 5 - MinMaxLTTBDownsampler & 7.57e+03 [s] & 2.86e+02 [s] &
 \hline
 \end{tabular}
 }
-\caption{Cvd Decimal Places Size Comparison Yellow Tripdata 2015-01}
 \label{tab:cvd decimal places size comparison-yellow-tripdata-2015-01}
 \end{table}

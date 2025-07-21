@@ -15,6 +15,5 @@ vlc_vector_fibonacci - 8 & 1.97e+03 [B] & 1.65e+04 [B] & 1.62e+05 [B] & 4.90e+05
 \hline
 \end{tabular}
 }
-\caption{Sdsl4Py Compression Space Comparison D 08 1 1 2}
 \label{tab:sdsl4py compression space comparison-d-08-1-1-2}
 \end{table}

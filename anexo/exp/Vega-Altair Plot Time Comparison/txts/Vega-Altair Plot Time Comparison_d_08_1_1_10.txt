@@ -32,6 +32,5 @@ TS Downsample - MinMaxLTTBDownsampler & 5.70e-03 [s] & 5.77e-03 [s] & 6.26e-03 [
 \hline
 \end{tabular}
 }
-\caption{Vega-Altair Plot Time Comparison D 08 1 1 10}
 \label{tab:vega-altair plot time comparison-d-08-1-1-10}
 \end{table}

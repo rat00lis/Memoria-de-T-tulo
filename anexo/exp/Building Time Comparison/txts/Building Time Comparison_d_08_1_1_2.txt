@@ -32,6 +32,5 @@ TS Downsample - MinMaxLTTBDownsampler & 2.02e-04 [s] & 6.30e-04 [s] & 1.16e-03 [
 \hline
 \end{tabular}
 }
-\caption{Building Time Comparison D 08 1 1 2}
 \label{tab:building time comparison-d-08-1-1-2}
 \end{table}

@@ -15,6 +15,5 @@ vlc_vector_fibonacci - 8 & 6.59e-04 [s] & 6.72e-03 [s] & 7.82e-02 [s] & 2.07e-01
 \hline
 \end{tabular}
 }
-\caption{Sdsl4Py Compression Time Comparison Yellow Tripdata 2015-01}
 \label{tab:sdsl4py compression time comparison-yellow-tripdata-2015-01}
 \end{table}

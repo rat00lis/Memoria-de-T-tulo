@@ -27,6 +27,5 @@ TS Downsample - MinMaxLTTBDownsampler & 1.75e+01 [kb] & 1.25e+01 [kb] & 3.32e+01
 \hline
 \end{tabular}
 }
-\caption{Pygal Memory Allocation D 08 1 1 10}
 \label{tab:pygal memory allocation-d-08-1-1-10}
 \end{table}

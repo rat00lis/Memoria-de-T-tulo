@@ -27,6 +27,5 @@ TS Downsample - MinMaxLTTBDownsampler & 1.43e-04 [kb] & 1.98e-04 [kb] & 2.67e-04
 \hline
 \end{tabular}
 }
-\caption{Pygal Plot Time D 08 1 1 2}
 \label{tab:pygal plot time-d-08-1-1-2}
 \end{table}

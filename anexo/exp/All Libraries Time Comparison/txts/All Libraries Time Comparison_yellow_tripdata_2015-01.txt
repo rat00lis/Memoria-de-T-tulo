@@ -13,6 +13,5 @@ Pygal Line Plot & 6.58e-04 [s] & 2.44e-04 [s] & 2.62e-04 [s] & 6.26e-04 [s] \\
 \hline
 \end{tabular}
 }
-\caption{All Libraries Time Comparison Yellow Tripdata 2015-01}
 \label{tab:all libraries time comparison-yellow-tripdata-2015-01}
 \end{table}

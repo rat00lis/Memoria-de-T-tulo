@@ -26,6 +26,5 @@ TS Downsample & 1.53e+02 [s] & 1.59e+02 [s] & 1.56e+03 [s] & 4.69e+03 [s] \\
 \hline
 \end{tabular}
 }
-\caption{Vega-Altair Plotting + Building Comparison Yellow Tripdata 2015-01}
 \label{tab:vega-altair plotting + building comparison-yellow-tripdata-2015-01}
 \end{table}

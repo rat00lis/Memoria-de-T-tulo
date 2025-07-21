@@ -14,6 +14,5 @@ Pygal Line Plot & 3.43e+01 [kb] & 1.25e+01 [kb] & 1.25e+01 [kb] & 1.25e+01 [kb] 
 \hline
 \end{tabular}
 }
-\caption{All Libraries Memory Allocation D 08 1 1 2}
 \label{tab:all libraries memory allocation-d-08-1-1-2}
 \end{table}

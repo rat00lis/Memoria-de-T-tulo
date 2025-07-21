@@ -60,6 +60,5 @@ vlc_vector_fibonacci - 5 - MinMaxLTTBDownsampler & 3.88e-06 [s] & 4.46e-06 [s] &
 \hline
 \end{tabular}
 }
-\caption{Cvd Decimal Places Access Time Comparison Yellow Tripdata 2015-01}
 \label{tab:cvd decimal places access time comparison-yellow-tripdata-2015-01}
 \end{table}

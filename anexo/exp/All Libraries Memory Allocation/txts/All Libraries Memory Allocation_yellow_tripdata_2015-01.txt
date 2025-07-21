@@ -14,6 +14,5 @@ Pygal Line Plot & 3.40e+01 [kb] & 1.25e+01 [kb] & 1.54e+01 [kb] & 1.25e+01 [kb] 
 \hline
 \end{tabular}
 }
-\caption{All Libraries Memory Allocation Yellow Tripdata 2015-01}
 \label{tab:all libraries memory allocation-yellow-tripdata-2015-01}
 \end{table}
