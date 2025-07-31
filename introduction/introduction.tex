@@ -3,25 +3,24 @@
 
 Dar forma gráfica a la información es una herramienta valiosa, permitiendo que la misma sea más fácil y rápida de entender, comunicar e incluso aprender. 
 
-Algo tan simple como analizar manualmente los registros de un sistema o sensor—lo cual puede requerir una cantidad considerable de tiempo para comprender qué ocurrió en un determinado día o a una hora específica—, puede graficarse como una serie de tiempo y permitir que ese análisis se haga en cuestión de segundos.
+Algo tan simple como analizar manualmente los registros de un sistema, lo cual puede requerir una cantidad considerable de tiempo para comprender qué ocurrió en un determinado día o a una hora específica, puede graficarse como una serie de tiempo y permitir que ese análisis se haga en cuestión de segundos.
 
 Todo esto es posible gracias a la \textbf{visualización}, que para efectos de esta Memoria de Título podemos entender como el uso de representaciones visuales interactivas, asistidas por computadora, para ayudar a la cognición.~\cite{card1999readings}. 
 
-A pesar de esta definición, que posiciona la visualización como una herramienta que sienta sus bases en la computación, sus orígenes no se alinean con la llegada de la tecnología moderna. El adagio "Una imagen vale más que mil palabras", atribuida al dramaturgo y poeta Henrik Johan Ibsen, demuestra cómo esta idea se sienta en el imaginario colectivo como una verdad lógica. Incluso remontándonos a tiempos previos a nuestra era, las civilizaciones tempranas utilizaron distintos métodos para representar datos de forma visual, como el mapa estelar de Suzhou de la dinastía Song en China, que mostraba 1.434 estrellas agrupadas en 280 constelaciones~\cite{bonnetbidaud2009dunhuang}. Este y otros ejemplos históricos nos demuestran el deseo humano de centrar sus esfuerzos en simplificar información compleja en formas comprensibles y accesibles, utilizando representaciones visuales que potencian nuestra capacidad para observar patrones, relaciones y significados que de otro modo pasarían desapercibidos.
+A pesar de esta definición, que posiciona la visualización como una herramienta que sienta sus bases en la computación, sus orígenes no se alinean con la llegada de la tecnología moderna. El adagio ``Una imagen vale más que mil palabras", atribuida al dramaturgo y poeta Henrik Johan Ibsen, demuestra cómo esta idea se sienta en el imaginario colectivo como una verdad lógica. Incluso remontándonos a tiempos previos a nuestra era, las civilizaciones tempranas utilizaron distintos métodos para representar datos de forma visual, como el mapa estelar de Suzhou de la dinastía Song en China, que mostraba 1.434 estrellas agrupadas en 280 constelaciones~\cite{bonnetbidaud2009dunhuang}. Este y otros ejemplos históricos nos demuestran el deseo humano de centrar sus esfuerzos en simplificar información compleja en formas comprensibles y accesibles, utilizando representaciones visuales que potencian nuestra capacidad para observar patrones, relaciones y significados que de otro modo pasarían desapercibidos.
 
 Este concepto es aún más prevalente en los tiempos que corren, ya que la llegada de las computadoras y el software ha revolucionado nuestra capacidad de manejar la información. Es gracias a estos avances tecnológicos que podemos analizar grandes volúmenes de información compleja, que normalmente no podríamos haber procesado sin la aparición de software específico para este objetivo. Nos referiremos a este tipo de datos como \textbf{Macrodatos} o \textbf{Big Data}\cite{mcafee2012bigdata}.
 
 \subsubsection{Big Data}
 
-La definición de \textit{Big Data} corresponde a la información de gran volúmen, gran velocidad y gran variedad que requiere formas innovadoras y eficientes para su procesamiento. Sin embargo, este término se popularizó al rededor del año 2012~\cite{diebold2012bigdata}, y lo que se consideraba \textit{Big Data} en el pasado es de mucha menor magnitud de lo que se considera hoy en día. Así mismo, la magnitud de estos datos en un futuro será mayor, ya que las capacidades de almacenamiento y procesamiento aumentarán.
+La definición de \textit{Big Data} corresponde a la información de gran volumen, gran velocidad y gran variedad que requiere formas innovadoras y eficientes para su procesamiento. Sin embargo, este término se popularizó alrededor del año 2012~\cite{diebold2012bigdata}, y lo que se consideraba \textit{Big Data} en el pasado es de mucha menor magnitud de lo que se considera hoy en día. Así mismo, la magnitud de estos datos en un futuro será mayor, ya que las capacidades de almacenamiento y procesamiento aumentarán.
 
 Por tanto, se considerarán algunas características esenciales para asegurarnos de que estamos lidiando con macrodatos.
 \begin{enumerate}
-    \item \textbf{Variedad}: \\
-        El conjunto de datos es heterogéneo, y normalmente no posee una estructura concreta para su procesamiento de manera nativa.
-    \item \textbf{Velocidad}: \\
+    \item \textbf{Variedad}:         El conjunto de datos es heterogéneo, y normalmente no posee una estructura concreta para su procesamiento de manera nativa.
+    \item \textbf{Velocidad}: 
         Se refiera a la rapidez con la que los datos se generan. Normalmente los tipos de datos a analizar están en tiempo real, y generan nuevos datos a una frecuencia alta.
-    \item \textbf{Volumen}: \\
+    \item \textbf{Volumen}: 
         La cantidad de datos es significativa para el sistema donde se está trabajando y la tecnología actual.
 \end{enumerate}
 
@@ -43,9 +42,10 @@ De acuerdo con el informe publicado por Visa en 2017~\cite{visa2017facts}, su pl
 
 Bajo este escenario, un trabajador que requiera analizar la actividad completa de un solo día enfrentaría una carga de datos que oscila entre cientos de millones y varios miles de millones de registros. Si asumimos un proceso de visualización con complejidad temporal \(\mathcal{O}(n)\), incluso los enfoques más optimizados en términos de eficiencia enfrentarán tiempos de procesamiento significativos y haciendo inviable su análisis oportuno.
 
-Además del rendimiento, cuando trabajamos con series temporales extremadamente densas o con puntos altamente consecutivos entre sí, obtenemos gráficos difíciles de interpretar visualmente. Este problema genera la impresión de gráficos comprimidos o saturados ("squashed"), dificultando enormemente su cognición, como puede observarse claramente en la Figura \ref{squashed_plot}, que representa la lectura de un sensor colocado en un puente.
+Además del rendimiento, cuando trabajamos con series temporales extremadamente densas o con puntos altamente consecutivos entre sí, obtenemos gráficos difíciles de interpretar visualmente. Este problema genera la impresión de gráficos comprimidos o saturados (``quashed"), dificultando enormemente su cognición, como puede observarse claramente en la Figura \ref{squashed_plot}, que representa la lectura de un sensor colocado en un puente.
 
 El creciente volumen de datos en contextos de Big Data nos obliga a repensar los fundamentos mismos de la visualización. Si graficar cientos de miles de puntos ya representa un reto técnico y cognitivo, ¿qué ocurre cuando nos enfrentamos a millones o incluso miles de millones de registros? En estos casos, la visualización deja de ser una simple representación directa de los datos y se transforma en un proceso de síntesis y decisión: ¿qué se debe mostrar, qué se puede omitir, y cómo evitar distorsionar la información en el camino?
+
 
 \subsubsection{Downsampling}
 
@@ -55,16 +55,16 @@ Es complejo escapar de esta problemática, ya que no podemos reducir la compleji
 
 Bajo esa idea surge la técnica conocida como \textit{downsampling}, la cual consiste en seleccionar solo un subconjunto de los puntos originales para ser graficados. A diferencia de métodos que generan nuevos datos mediante agregaciones o promedios, el \textit{downsampling} busca preservar puntos existentes del conjunto original que sean representativos de su comportamiento general. Su objetivo no es reemplazar el análisis detallado, sino facilitar la interpretación visual de grandes volúmenes de datos en contextos donde mostrar todos los puntos no es viable ni útil~\cite{steinarsson2013downsampling}. Esta técnica permite reducir el tiempo de renderizado y evitar la saturación visual sin comprometer, en teoría, la percepción de patrones relevantes. No obstante, su aplicación exige un criterio claro: ¿qué puntos se deben conservar para que la visualización siga siendo fiel a los datos?
 
-Este acercamiento permite mejorar el rendimiento y la legibilidad sin comprometer significativamente la percepción de patrones relevantes. Existen múltiples algoritmos diseñados con este fin, los cuales serán analizados en detalle en la sección de Evaluación de Alternativas\ref{alternatives}.
+Este acercamiento permite mejorar el rendimiento y la legibilidad sin comprometer significativamente la percepción de patrones relevantes. Existen múltiples algoritmos diseñados con este fin, los cuales serán analizados en detalle en la Sección~\ref{alternatives}.
 
 \squashedplot
 \downsample
 
-El grupo de investigación \textbf{PreDiCT.IDLab}, afiliado a la Universidad de Gante en Bélgica, ha desarrollado e investigado activamente métodos avanzados para la visualización eficiente de series de tiempo. Entre sus contribuciones destaca la herramienta tsdownsample, un conjunto de algoritmos de alto rendimiento diseñados específicamente para realizar downsampling en contextos de visualización~\cite{tsdownsample}, la cual implementa los algoritmos ya mencionados para ser utilizados en \textit{python}.
+El grupo de investigación \textbf{PreDiCT.IDLab}\cite{predict2025}, afiliado a la Universidad de Gante en Bélgica, ha desarrollado e investigado activamente métodos avanzados para la visualización eficiente de series de tiempo. Entre sus contribuciones destaca la herramienta \texttt{tsdownsample}, un conjunto de algoritmos de alto rendimiento diseñados específicamente para realizar downsampling en contextos de visualización~\cite{tsdownsample}, la cual implementa los algoritmos ya mencionados para ser utilizados en \textit{Python}.
 
 Otra biblioteca de gran utilidad creada por estos académicos es \textit{plotly-resampler}~\cite{plotly-resampler}, la cual integra \textit{tsdownsample} de manera directa en \textit{plotly}. A pesar de el preprocesamiento necesario para generar una submuestra de una serie de tiempo, aún así podemos ver diferencias significativas en el tiempo necesario para la visualización de conjuntos grandes de información.
 
-Esta mejora es evidente en la Figura \ref{plotly_vs_resampler}, donde podemos observar cómo usar \textit{plotly-resampler} disminuye el tiempo de ejecución al visualizar un conjunto de pares ordenados, a pesar de que es un \textit{wrapper} de \textit{plotly} y procesa el vector original. Esto se debe a que la cantidad de puntos seleccionados $(n_{out})$ es constante, por lo que la complejidad de crear un gráfico con técnicas de \textit{downsample} es $\mathcal{O}(n_{out})$, o sea, $\mathcal{O}(1)$.
+Esta mejora es evidente en la Figura \ref{plotly_vs_resampler}, donde podemos observar cómo usar \textit{plotly-resampler} disminuye el tiempo de renderización del gráfico para un conjunto de pares ordenados, a pesar de que es un \textit{wrapper} de \textit{plotly} y procesa el vector original. Esto se debe a que la cantidad de puntos seleccionados $(n_{out})$ es constante, por lo que la complejidad de crear un gráfico con técnicas de \textit{downsample} es $\mathcal{O}(n_{out})$, o sea, $\mathcal{O}(1)$.
 
 \plotlyresampler
 
@@ -74,6 +74,9 @@ En definitiva, usar estrategias de \textit{downsample} es una opción muy útil 
 
 A pesar de todas las ventajas que ofrece el uso de técnicas de \textit{downsampling} —como la mejora en el tiempo de renderizado, la reducción de la sobrecarga cognitiva y una experiencia más fluida al visualizar datos densos—, estas no necesariamente abordan todos los aspectos posibles de optimización dentro del proceso de visualización de series de tiempo.
 
+%se marca en un marco mas grande que la memoria se acerca pero es mas otrabajo q esta memoria de titulo -- uno no reemplaza al otro -- explicar la idea de tener datos originales en memoria junto a downsampleados
+
+% downsample te ayuda a visualizar pero tmb es necesario operar sobre los datos originales
 Por ejemplo, herramientas como \textit{tsdownsample} permiten reducir la cantidad de puntos a representar, generando así gráficos más livianos y veloces. Sin embargo, incluso los datos ya reducidos siguen representándose con estructuras estándar que pueden ocupar un espacio considerable en memoria. En otras palabras, se reduce la cantidad de información a procesar, pero no necesariamente el tamaño de esa información en términos de espacio ocupado.
 
 Esto plantea una nueva dimensión del problema: si ya hemos logrado disminuir significativamente el tiempo requerido para visualizar datos, ¿por qué no aprovechar esa mejora para optimizar también el espacio que ocupan los datos resultantes? Es decir, en lugar de mantenernos solo en la reducción de puntos, podríamos buscar formas de representar esa información de manera más eficiente, reduciendo aún más el tamaño total ocupado sin perder la capacidad de analizarla visualmente.

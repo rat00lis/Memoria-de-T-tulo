@@ -32,9 +32,32 @@ Todos los experimentos se realizaron en el servidor \texttt{chome} de la Univers
     \end{itemize}
     \item \textbf{Directorio base:} /home/obrito2020/oliver/cv\_visualization/benchmarking
     \item \textbf{Repositorio:} git@github.com:rat00lis/cv\_visualization.git
-    \item \textbf{Commit:} 8bf12c009fc991b9eeb2cb655b4d5cc3b5030a44
+    \item \textbf{Commit:} \texttt{8bf12c009fc991b9eeb2cb655b4d5cc3b5030a44}
 \end{itemize}
 
+\paragraph{Configuración}
+
+\begin{itemize}
+    \item \textbf{Iteraciones por experimento:} 100
+    \item \textbf{Rangos de entrada:} $(1001, 10000, 100000, 300000)$
+\end{itemize}
+
+\paragraph{Datos de Entrada}
+
+\begin{itemize}
+    \item \textbf{Sensores de Puente:}
+    \begin{itemize}
+        \item \textbf{d\_08\_1\_1\_2.txt} 
+        \item \textbf{d\_08\_1\_1\_10.txt} 
+    \end{itemize}
+    \item \textbf{Usuarios por fecha en Taxi New York:}
+    \begin{itemize}
+        \item \textbf{yellow\_tripdata\_2015\_01.txt} 
+    \end{itemize}
+    \item \textbf{Rangos de entrada:} $(1001, 10000, 100000, 300000)$
+\end{itemize}
+
+\newpage
 
 \subsubsection{All Libraries Memory Allocation}
 \label{all_libraries_memory_allocation}
@@ -60,6 +83,7 @@ Experimento que mide la memoria asignada por las diferentes bibliotecas al momen
 \noindent
 
 \AllLibrariesMemoryAllocation
+\newpage
 
 \subsubsection{All Libraries Time Comparison}
 \label{all_libraries_time_comparison}
@@ -82,6 +106,9 @@ Experimento que compara el tiempo de ejecución para generar gráficos utilizand
 \noindent
 
 \AllLibrariesTimeComparison
+\newpage
+
+Podemos ver una anomalía en el tamaño de entrada \textbf{1001} ya que no utiliza \textit{downsampling}.
 
 \subsubsection{Vega-Altair Plot Time Comparison}
 \label{vega_altair_plot_time}
@@ -104,6 +131,7 @@ Experimento específico que mide el tiempo de generación de gráficos utilizand
 \noindent
 
 \VegaAltairPlotTimeComparison
+\newpage
 
 \subsubsection{PyGal Plot Time}
 \label{pygal_plot_time}
@@ -126,6 +154,7 @@ Experimento que evalúa el rendimiento temporal de la biblioteca PyGal para la g
 \noindent
 
 \PyGalPlotTime
+\newpage
 
 \subsubsection{Vega-Altair Plotting + Building Comparison}
 \label{vega_altair_plot_plus_build_time}
@@ -148,6 +177,7 @@ Experimento que mide el tiempo total incluyendo tanto la generación del gráfic
 \noindent
 
 \VegaAltairPlottingBuildingComparison
+\newpage
 
 \subsubsection{Comparison of Space Used}
 \label{comparison_of_space_used}
@@ -170,6 +200,7 @@ Experimento que compara el espacio utilizado en memoria y almacenamiento por las
 \noindent
 
 \ComparisonOfSpaceUsed
+\newpage
 
 \subsubsection{PyGal Memory Allocation}
 \label{pygal_memory_allocation}
@@ -192,6 +223,7 @@ Experimento específico que analiza la asignación de memoria de la biblioteca P
 \noindent
 
 \PyGalMemoryAllocation
+\newpage
 
 \subsubsection{Building Time Comparison}
 \label{building_time_comparison}
@@ -214,11 +246,12 @@ Experimento que mide específicamente el tiempo de construcción/renderizado de 
 \noindent
 
 \BuildingTimeComparison
+\newpage
 
 \subsubsection{Experimentos con CompressedVector y SDSL4Py}
 \label{anexo_sdsl4py}
 
-Esta sección agrupa los experimentos relacionados con el uso de estructuras de datos comprimidas, específicamente \texttt{CompressedVector} y las implementaciones de SDSL4Py.
+Esta sección agrupa los experimentos relacionados con el uso de estructuras de datos compactas, específicamente \texttt{CompressedVector} y las implementaciones de SDSL4Py.
 
 \paragraph{CVD Decimal Places Access Time Comparison}
 \label{cvd_decimal_places_access_time}
@@ -241,6 +274,9 @@ Experimento que evalúa el tiempo de acceso a datos en \texttt{CompressedVector}
 \noindent
 
 \CVDDecimalPlacesAccessTimeComparison
+\newpage
+
+
 
 \paragraph{CVD Decimal Places Build Time Comparison}
 \label{cvd_decimal_places_build_time}
@@ -263,6 +299,7 @@ Experimento que mide el tiempo necesario para construir estructuras \texttt{Comp
 \noindent
 
 \CVDDecimalPlacesBuildTimeComparison
+\newpage
 
 \paragraph{CVD Decimal Places Size Comparison}
 \label{cvd_decimal_places_size}
@@ -285,6 +322,7 @@ Experimento que compara el tamaño final de las estructuras \texttt{CompressedVe
 \noindent
 
 \CVDDecimalPlacesSizeComparison
+\newpage
 
 \paragraph{SDSL4Py Access Time Comparison}
 \label{sdsl4py_access_time}
@@ -307,6 +345,7 @@ Experimento que compara los tiempos de acceso utilizando diferentes estructuras 
 \noindent
 
 \SDSLFourPyAccessTimeComparison
+\newpage
 
 \paragraph{SDSL4Py Compression Space Comparison}
 \label{sdsl4py_compression_space}

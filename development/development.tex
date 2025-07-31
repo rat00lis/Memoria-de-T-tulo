@@ -3,7 +3,7 @@
 
 \subsection{Uso de \texttt{sdsl4py} para la visualización de datos}
 
-La biblioteca \texttt{sdsl4py} expone en Python diversas estructuras comprimidas de la librería \texttt{sdsl-lite}, diseñada originalmente para representar secuencias de enteros sin signo de forma eficiente en términos de espacio. El flujo de trabajo básico consiste en construir un \texttt{int\_vector} modificable con un tamaño predefinido, cargar los datos en él, y luego aplicar una estrategia de compresión específica. Una vez comprimido, el vector pasa a ser de solo lectura.
+La biblioteca \texttt{sdsl4py} expone en Python diversas estructuras de datos compactas de la librería \texttt{sdsl-lite}, diseñada originalmente para representar secuencias de enteros sin signo de forma eficiente en términos de espacio. El flujo de trabajo básico consiste en construir un \texttt{int\_vector} modificable con un tamaño predefinido, cargar los datos en él, y luego aplicar una estrategia de compresión específica. Una vez comprimido, el vector pasa a ser de solo lectura.
 
 Aunque estas estructuras pueden integrarse con bibliotecas como \texttt{plotly}, presentan una limitación clave: no admiten valores flotantes ni negativos de forma nativa. Esto se debe a que las técnicas de compresión empleadas —como las codificaciones de Elias o Fibonacci— asumen enteros positivos, donde patrones de repetición o crecimiento logarítmico pueden ser aprovechados para reducir el espacio.
 
@@ -14,7 +14,7 @@ Por estas razones, aunque \texttt{sdsl4py} puede ser útil para visualizar datos
 
 \subsection{CompressedVector}
 
-Para superar la limitación de que \texttt{sdsl4py} sólo permite almacenar enteros sin signo (\textit{uint}), se propone una estructura llamada \texttt{CompressedVector}, que habilita la representación de números reales (positivos, negativos y \texttt{NaN}) mediante la combinación de varios vectores \texttt{int\_vector<>} comprimidos. La estrategia consiste en descomponer cada número flotante en tres componentes separados:
+Para superar la limitación de que \texttt{sdsl4py} sólo permite almacenar enteros sin signo (\textit{uint}), se propone una estructura llamada \texttt{CompressedVector}, que habilita la representación de números reales (positivos, negativos y \texttt{NaN}) mediante la combinación de varias estructuras compactas para representar vectores de enteros,\texttt{int\_vector<>}. La estrategia consiste en descomponer cada número flotante en tres componentes separados:
 
 \begin{enumerate}
     \item \textbf{Parte entera}: el valor absoluto truncado del número.
@@ -36,11 +36,10 @@ Dado un número real $x \in \mathbb{R}$ y una precisión de $d$ dígitos decimal
         \end{cases}
 \end{align*}
 
-Cada uno de estos componentes se almacena en un \texttt{int\_vector<>} distinto, lo que permite aplicar técnicas de compresión como \texttt{bit\_compressed\_vector<>} o \texttt{rrr\_vector<>}, conservando eficiencia espacial.
-
+Cada uno de estos componentes se almacena en un \texttt{int\_vector<>} distinto, lo que permite aplicar técnicas de compresión sobre los mismos.
 \vspace{1em}
 \noindent
-La reconstrucción del número original en la posición $i$ se realiza mediante la operación inversa:
+Es posible recuperar la $i$-ésima entrada del vector original mediante la operación inversa:
 
 \begin{align*}
     \text{si } \text{signo}[i] = 2, \quad &\Rightarrow x_i = \texttt{NaN} \\
@@ -48,11 +47,11 @@ La reconstrucción del número original en la posición $i$ se realiza mediante 
 \end{align*}
 
 \noindent
-Este procedimiento está implementado en el método \texttt{\_reconstruct\_float\_value} y utiliza la clase \texttt{Decimal} de Python para preservar la precisión durante las operaciones aritméticas.
+Este procedimiento está implementado en el método \texttt{\_reconstruct\_float\_value} de la clase \texttt{CompressedVector}, y utiliza la biblioteca \texttt{Decimal} de Python para preservar la precisión durante las operaciones aritméticas.
 
 \vspace{1em}
 \noindent
-Si bien esta solución requiere más espacio que una única estructura comprimida, permite una representación robusta y precisa de números reales, manteniendo las ventajas de compresión que ofrece \texttt{sdsl4py} para enteros.
+Si bien esta solución requiere más espacio que una única estructura de datos compacta, permite una representación robusta y precisa de números reales, manteniendo las ventajas de compresión que ofrece \texttt{sdsl4py} para enteros.
 
 Para facilitar su uso dentro del ecosistema Python y su interoperabilidad con bibliotecas estándar, \texttt{CompressedVector} implementa múltiples operaciones comunes mediante funciones mágicas (\textit{dunder methods}). En la siguiente tabla se resumen las principales funcionalidades disponibles.
 

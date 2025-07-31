@@ -24,7 +24,7 @@ Diversos autores han propuesto algoritmos que permiten seleccionar los puntos m�
     Variante del LTTB que adapta dinámicamente el tamaño de los bloques según la variación local de los datos. Mejora la representación visual en series con regiones muy fluctuantes y otras más estables~\cite{steinarsson2013downsampling}.
 
     \item \textbf{MinMaxLTTB}: 
-    Propuesto por Van Der Donckt et al.~\cite{vanderdonckt2023minmaxlttb}, este algoritmo mejora la escalabilidad de LTTB al aplicar una preselección eficiente de puntos mínimos y máximos verticales mediante el algoritmo MinMax, para luego aplicar LTTB solo sobre esos puntos seleccionados. De esta manera, reduce significativamente el tiempo de cómputo sin sacrificar calidad visual.
+    Propuesto por Van Der Donckt {\it et al.}~\cite{vanderdonckt2023minmaxlttb}, este algoritmo mejora la escalabilidad de LTTB al aplicar una preselección eficiente de puntos mínimos y máximos verticales mediante el algoritmo MinMax, para luego aplicar LTTB solo sobre esos puntos seleccionados. De esta manera, reduce significativamente el tiempo de cómputo sin sacrificar calidad visual.
 \end{enumerate}
 
 Dado el enfoque de este trabajo, se seleccionó principalmente el uso del algoritmo \textbf{MinMaxLTTB}. Esta decisión se fundamenta en varios factores: en primer lugar, el algoritmo ha sido propuesto por los mismos autores que desarrollaron la biblioteca \texttt{tsdownsample}, lo que garantiza una implementación de referencia optimizada y bien documentada. Además, MinMaxLTTB presenta un excelente equilibrio entre rendimiento y fidelidad visual, al combinar una reducción sustancial en el tiempo de cómputo con una buena preservación de la forma general de la serie de tiempo.
@@ -35,7 +35,7 @@ Como complemento para el análisis comparativo, también se utilizará el algori
 
 El uso de estructuras de datos compactas permite representar secuencias numéricas en memoria utilizando una menor cantidad de bits por elemento, manteniendo el acceso a los datos sin pérdida de información. 
 
-Para uso de este tipo de estructuras, se utiliza la biblioteca \texttt{sdsl4py}, un conjunto de bindings en Python para la Succinct Data Structure Library (SDSL), que permite acceder a múltiples representaciones comprimidas desde entornos de análisis como Python. A continuación se presentan las principales estructuras disponibles en \texttt{sdsl4py}.
+En la literatura existen bibliotecas que implementan estas estructuras de datos compactas. En particular, utilizaremos la biblioteca \texttt{sdsl4py}, un conjunto de bindings en Python para la Succinct Data Structure Library (SDSL), que permite acceder a múltiples representaciones compactas desde  Python. A continuación se presentan las  estructuras de datos compactas que fueron consideradas en esta memoria de título:
 
 \begin{enumerate}
     \item \textbf{enc\_vector\_elias\_gamma}:
@@ -70,6 +70,7 @@ Para uso de este tipo de estructuras, se utiliza la biblioteca \texttt{sdsl4py},
 Como podemos apreciar en el Anexo~\ref{anexo_sdsl4py}, al evaluar la velocidad de acceso, el tiempo de construcción y el espacio utilizado por las distintas alternativas de estructuras de datos compactas, no se observa una diferencia significativa en cuanto a su curva de complejidad teórica. No obstante, para determinar cuál estructura resulta más adecuada en la práctica, se define una \textbf{relación compuesta} que pondera las tres métricas principales.
 
 Esta relación se formula como:
+%scatter plot para seleccionar la estructura de datos compacta 3d
 
 \begin{equation}
 \text{Score}(E) = \alpha \cdot \text{AccessTime}(E) + \beta \cdot \text{BuildTime}(E) + \gamma \cdot \text{SpaceUsed}(E)

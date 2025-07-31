@@ -1,40 +1,140 @@
-\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Plantilla para la elaboración del informe final de memorias de título  %%%
+%%%  Adaptada por Oliver Diego Antonio Alarcón                              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,twoside]{report}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[inner=2.5cm,outer=2cm,top=2.5cm,bottom=2cm]{geometry}
 \usepackage{amsmath, amsfonts, amssymb}
 \usepackage{graphicx, float}
 \usepackage{subcaption}
 \usepackage{booktabs}
-% images path
-\graphicspath{{images/}}
-\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{enumitem}
 \usepackage{adjustbox}
 \usepackage{makecell}
-\usepackage{enumitem}
-\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{setspace}
 
-% Title and author
+\graphicspath{{images/}}
 
-\title{Pending Title}
-\author{Oliver Diego Antonio Alarcón}
+\setlength{\parindent}{12pt}
+\titleformat{\chapter}
+{\bfseries\large}{\chaptertitlename~\thechapter. }{0pt}{}
+\titleformat{\section}
+{\bfseries\large}{\thesection. }{0pt}{}
 
 \begin{document}
+\pagestyle{empty}
 
-\maketitle
+%%%%%%% Portada (Anexo C)
+\begin{titlepage}
+    \includegraphics[height=55pt]{escudoUdec}
+    \begin{minipage}[b][60pt][c]{70ex}
+    	\bfseries
+        UNIVERSIDAD DE CONCEPCIÓN\\
+        FACULTAD DE INGENIERÍA\\
+        DEPARTAMENTO DE INGENIERÍA INFORMÁTICA\\
+        Y CIENCIAS DE LA COMPUTACIÓN
+    \end{minipage}
+    \vspace{3cm}
+    
+    \begin{center}	
+        \uppercase{\large\textbf{Título de la memoria de título}}
+
+        \bigskip
+        Subtítulo (si corresponde) de la Memoria de Título
+
+        \vspace{1.5cm}
+        POR
+        \bigskip
+
+        \textbf{Oliver Diego Antonio Brito Alarcón}
+
+        \vspace{2cm}
+        {\small Memoria de Título presentada a la Facultad de Ingeniería de la Universidad de Concepción para\\
+        optar al título profesional de Ingeniero Civil Informático}
 	
+        \vspace{2cm}	
+        Profesores Guía
+
+        José Fuentes
+        Gonzalo Roja
+
+        \bigskip
+        Profesional Supervisor
+
+        Nombre del profesional supervisor
+
+        \vfill
+        Julio 2025
+
+        Concepción (Chile)
+        
+        \bigskip
+        \textcopyright{}
+        2025 Oliver Diego Antonio Alarcón
+	\end{center}
+\end{titlepage}
+
+%%%%%%%% Copyright
+\textcolor{white}{.}
+\vfill
+\noindent\textcopyright{}
+2025 Oliver Diego Antonio Alarcón\\
+Se autoriza la reproducción total o parcial, con fines académicos, por cualquier medio o procedimiento, incluyendo la cita bibliográfica del documento.
+
+%%%%% Dedicatoria
+\clearpage
+\onehalfspace
+\vspace*{5cm}
+\begin{flushright}
+	A quienes el destino me dio por familia y a quienes la vida me permitió elegir como tal.
+\end{flushright}
+
+%%%%% Agradecimientos
+\chapter*{Agradecimientos}
+\thispagestyle{empty}
+Esta Memoria de Título fue posible gracias al apoyo invaluable de mi madre, mi hermano y mi pareja, quienes estuvieron a mi lado y me permitieron concentrarme cuando más lo necesitaba.
+
+A mis abuelos, gracias por su cariño y fortaleza. Y a mis amigues, gracias por su escucha, su compañía y por ayudarme a no perder la cordura durante esta etapa.
+%%%%% Resumen
+\clearpage
+\pagestyle{plain}
+\pagenumbering{roman} 
+\chapter*{Resumen}
+Aquí va el resumen en español...
+
+\chapter*{Abstract}
+Aquí va la versión en inglés...
+
+%%%%% Índices
 \tableofcontents
-\listoftables	
+\listoftables
 \listoffigures
-\input{images_declaration/images} %aqui se declaran las imagenes
+
+%%%%% Cuerpo principal
+\clearpage
+\pagenumbering{arabic}
+
 \include{introduction/introduction}
 \include{objectives/objectives}
 \include{alternatives/alternatives}
 \include{development/development}
 \include{testing/testing}
-\include{anexo/anexo}
 \include{closing/conclusiones}
 
-\bibliographystyle{plain} % or alpha, ieeetr, apa, etc.
-\bibliography{references}    
+%%%%% Referencias
+\bibliographystyle{plain}
+\bibliography{references}
+
+%%%%% Apéndices
+\appendix
+\renewcommand{\chaptertitlename}{Anexo}
+\include{anexo/anexo}
 
 \end{document}
