@@ -67,48 +67,89 @@ En la literatura existen bibliotecas que implementan estas estructuras de datos 
 
 \end{enumerate}
 
-Como podemos apreciar en el Anexo~\ref{anexo_sdsl4py}, al evaluar la velocidad de acceso, el tiempo de construcción y el espacio utilizado por las distintas alternativas de estructuras de datos compactas, no se observa una diferencia significativa en cuanto a su curva de complejidad teórica. No obstante, para determinar cuál estructura resulta más adecuada en la práctica, se define una \textbf{relación compuesta} que pondera las tres métricas principales.
+Para evaluar estas estructuras de datos, se han medido tres métricas clave: el tiempo de acceso a los elementos, el tiempo de construcción de la estructura y el espacio utilizado en memoria. 
 
-Esta relación se formula como:
-%scatter plot para seleccionar la estructura de datos compacta 3d
+\paragraph{Input}
+\vspace{0.2cm}
 
-\begin{equation}
-\text{Score}(E) = \alpha \cdot \text{AccessTime}(E) + \beta \cdot \text{BuildTime}(E) + \gamma \cdot \text{SpaceUsed}(E)
-\end{equation}
+Para garantizar una evaluación comprehensiva y representativa del comportamiento de las estructuras de datos comprimidas, se han diseñado cuatro tipos de vectores sintéticos que simulan diferentes patrones de datos comúnmente encontrados en aplicaciones reales:
 
-donde:
-\begin{itemize}
-    \item $E$ representa una estructura evaluada,
-    \item $\text{AccessTime}(E)$, $\text{BuildTime}(E)$ y $\text{SpaceUsed}(E)$ corresponden a los valores empíricos medidos para dicha estructura,
-    \item y $\alpha$, $\beta$, y $\gamma$ son coeficientes de ponderación tales que $\alpha + \beta + \gamma = 1$.
-\end{itemize}
+\begin{enumerate}
+    \item \textbf{Incremental pequeño (\texttt{incremental\_small}):} Vectores con valores crecientes que presentan pequeñas diferencias entre elementos consecutivos. Este patrón simula series temporales con crecimiento gradual o datos de sensores con variaciones mínimas. Los valores de $x$ siguen la secuencia $[1, 2, 3, ..., n]$, mientras que los valores de $y$ añaden una pequeña variación aleatoria en el rango $[0, 2]$ a cada posición.
 
-Estos coeficientes pueden ser ajustados en función de los objetivos específicos del sistema o aplicación. Por ejemplo, en un entorno donde el rendimiento en lectura sea prioritario, se puede asignar un valor mayor a $\alpha$; en cambio, si se trabaja con recursos de almacenamiento limitados, se puede incrementar el peso de $\gamma$. 
+    \item \textbf{Aleatorio (\texttt{random}):} Vectores con valores completamente aleatorios distribuidos uniformemente en un rango amplio. Este patrón representa el peor caso para algoritmos de compresión, ya que no presenta patrones predecibles. Tanto $x$ como $y$ contienen enteros aleatorios en el rango $[1, n \times 10]$.
 
-En esta ocasión, se consideran los valores:
+    \item \textbf{Oscilante (\texttt{oscillating}):} Vectores que siguen un patrón de onda sinusoidal, alternando entre valores ascendentes y descendentes. Este comportamiento es típico en señales periódicas, datos de vibración o patrones cíclicos. Los valores de $x$ son secuenciales, mientras que $y$ sigue la función $y_i = \frac{n}{2}(1 + \sin(\frac{4\pi i}{n}))$.
 
-\begin{itemize}
-    \item $\alpha = 0.6$
-	\item $\beta = 0.4$
-	\item $\gamma = 0.3$
-\end{itemize}
+    \item \textbf{Incremental grande (\texttt{incremental\_large}):} Vectores con valores crecientes que presentan grandes diferencias entre elementos consecutivos. Este patrón simula datos con crecimiento exponencial o escalas logarítmicas. Los valores de $x$ son secuenciales $[1, 2, 3, ..., n]$, y los valores de $y$ se calculan como $y_i = i \times \text{random}[50, 200]$.
+\end{enumerate}
 
-\begin{table}[H]
+Cada vector de prueba contiene por defecto 10,000 elementos, proporcionando un volumen de datos suficiente para evaluar el rendimiento de las estructuras de datos compactas. Esta diversidad de patrones permite analizar cómo cada método de compresión se adapta a diferentes características de los datos, desde el caso ideal (datos con alta correlación) hasta el caso más desafiante (datos completamente aleatorios).
+
+\paragraph{Resultados}
+\vspace{0.2cm}
+
+A continuación, se presenta un promedio de los resultados obtenidos al evaluar las distintas estructuras de datos compactas utilizando los vectores sintéticos mencionados anteriormente.
+
+% añadir imagenes y tablas de resultados
+\begin{figure}[H]
 \centering
-\caption{Puntaje promedio por estructura (menor es mejor)}
-\label{tab:score_promedio_estructuras}
-\begin{tabular}{l r}
-\toprule
-\textbf{Estructura} & \textbf{Score promedio} \\
-\midrule
-dac\_vector - 8              & 65899.74 \\
-vlc\_vector\_fibonacci - 8   & 69255.21 \\
-vlc\_vector\_elias\_delta - 8 & 73931.74 \\
-vlc\_vector\_elias\_gamma - 8 & 78023.47 \\
-vlc\_vector\_comma\_2 - 8     & 80850.67 \\
-Original Data                & 657595.20 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\includegraphics[width=0.8\textwidth]{alternatives/scatter_plot/3d_scatter_plot_structures.png}
+\caption{Puntajes promedio de las estructuras de datos compactas}   
+\label{fig:scatter_plot_structures}
+\end{figure}
 
-A partir de la puntuación resultante, se seleccionan las estructuras de datos \textit{dac\_vector} y \textit{vlc\_vector\_fibonacci} como las más adecuadas para el sistema, ya que son las que obtuvieron los puntajes más bajos en la evaluación.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{alternatives/scatter_plot/euclidian_distance_from_ideal.png}
+\caption{Distancia euclidiana promedio de las estructuras de datos compactas respecto al punto $(0, 0, 0)$}   
+\label{fig:euclidian_distance_from_ideal}
+\end{figure}
+
+\input{alternatives/scatter_plot/latex_ranking_table.tex}
+
+% Como podemos apreciar en el Anexo~\ref{anexo_sdsl4py}, al evaluar la velocidad de acceso, el tiempo de construcción y el espacio utilizado por las distintas alternativas de estructuras de datos compactas, no se observa una diferencia significativa en cuanto a su curva de complejidad teórica. No obstante, para determinar cuál estructura resulta más adecuada en la práctica, se define una \textbf{relación compuesta} que pondera las tres métricas principales.
+
+% Esta relación se formula como:
+% %scatter plot para seleccionar la estructura de datos compacta 3d
+
+% \begin{equation}
+% \text{Score}(E) = \alpha \cdot \text{AccessTime}(E) + \beta \cdot \text{BuildTime}(E) + \gamma \cdot \text{SpaceUsed}(E)
+% \end{equation}
+
+% donde:
+% \begin{itemize}
+%     \item $E$ representa una estructura evaluada,
+%     \item $\text{AccessTime}(E)$, $\text{BuildTime}(E)$ y $\text{SpaceUsed}(E)$ corresponden a los valores empíricos medidos para dicha estructura,
+%     \item y $\alpha$, $\beta$, y $\gamma$ son coeficientes de ponderación tales que $\alpha + \beta + \gamma = 1$.
+% \end{itemize}
+
+% Estos coeficientes pueden ser ajustados en función de los objetivos específicos del sistema o aplicación. Por ejemplo, en un entorno donde el rendimiento en lectura sea prioritario, se puede asignar un valor mayor a $\alpha$; en cambio, si se trabaja con recursos de almacenamiento limitados, se puede incrementar el peso de $\gamma$. 
+
+% En esta ocasión, se consideran los valores:
+
+% \begin{itemize}
+%     \item $\alpha = 0.6$
+% 	\item $\beta = 0.4$
+% 	\item $\gamma = 0.3$
+% \end{itemize}
+
+% \begin{table}[H]
+% \centering
+% \caption{Puntaje promedio por estructura (menor es mejor)}
+% \label{tab:score_promedio_estructuras}
+% \begin{tabular}{l r}
+% \toprule 
+% \textbf{Estructura} & \textbf{Score promedio} \\
+% \midrule
+% dac\_vector - 8              & 65899.74 \\
+% vlc\_vector\_fibonacci - 8   & 69255.21 \\
+% vlc\_vector\_elias\_delta - 8 & 73931.74 \\
+% vlc\_vector\_elias\_gamma - 8 & 78023.47 \\
+% vlc\_vector\_comma\_2 - 8     & 80850.67 \\
+% Original Data                & 657595.20 \\
+% \bottomrule
+% \end{tabular}
+% \end{table}
+
+A partir de la puntuación resultante, se seleccionan las estructuras de datos \textit{dac\_vector} y \textit{vlc\_vector\_fibonacci} como las más adecuadas para el sistema, ya que son las que obtuvieron los puntajes más favorables en la evaluación.
