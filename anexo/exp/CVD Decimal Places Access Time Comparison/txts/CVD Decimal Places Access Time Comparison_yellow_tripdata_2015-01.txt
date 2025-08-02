@@ -1,1 +1,19 @@
-PLACEHOLDER TABLE
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|}
+\hline
+option/$n_{size}$ & \textbf{dac_vector - 0 - MinMaxLTTBDownsampler} & \textbf{dac_vector - 10 - MinMaxLTTBDownsampler} & \textbf{dac_vector - 5 - MinMaxLTTBDownsampler}\\
+\hline
+2000 & 1.80e-06 [s] & 3.68e-06 [s] & 3.67e-06 [s] \\
+6000 & 2.38e-06 [s] & 4.97e-06 [s] & 4.99e-06 [s] \\
+12000 & 2.96e-06 [s] & 6.30e-06 [s] & 6.01e-06 [s] \\
+20000 & 3.08e-06 [s] & 6.38e-06 [s] & 6.35e-06 [s] \\
+70000 & 4.06e-06 [s] & 7.81e-06 [s] & 7.78e-06 [s] \\
+100000 & 2.66e-06 [s] & 5.21e-06 [s] & 5.22e-06 [s] \\
+300000 & 3.07e-06 [s] & 5.85e-06 [s] & 5.68e-06 [s] \\
+\hline
+\end{tabular}
+}
+\label{tab:cvd decimal places access time comparison-yellow-tripdata-2015-01}
+\end{table}

@@ -1,1 +1,19 @@
-PLACEHOLDER TABLE
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|}
+\hline
+option/$n_{size}$ & \textbf{dac_vector - 0 - MinMaxLTTBDownsampler} & \textbf{dac_vector - 10 - MinMaxLTTBDownsampler} & \textbf{dac_vector - 5 - MinMaxLTTBDownsampler}\\
+\hline
+2000 & 4.64e-03 [s] & 6.60e-03 [s] & 6.54e-03 [s] \\
+6000 & 7.53e-04 [s] & 7.63e-04 [s] & 7.61e-04 [s] \\
+12000 & 1.33e-03 [s] & 1.34e-03 [s] & 1.38e-03 [s] \\
+20000 & 2.19e-03 [s] & 2.21e-03 [s] & 2.21e-03 [s] \\
+70000 & 7.78e-03 [s] & 7.97e-03 [s] & 7.72e-03 [s] \\
+100000 & 1.21e-02 [s] & 1.21e-02 [s] & 1.21e-02 [s] \\
+300000 & 4.02e-02 [s] & 4.04e-02 [s] & 4.04e-02 [s] \\
+\hline
+\end{tabular}
+}
+\label{tab:cvd decimal places build time comparison-yellow-tripdata-2015-01}
+\end{table}
