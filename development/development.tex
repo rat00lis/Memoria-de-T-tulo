@@ -98,7 +98,7 @@ Para facilitar su uso dentro del ecosistema Python y su interoperabilidad con bi
 
 Hasta ahora hemos abordado por separado el uso de estructuras de datos compactas y las técnicas de \textit{downsampling}. La clase \texttt{CompressedVectorDownsampler} combina ambos enfoques en una única solución, permitiendo obtener datos listos para ser graficados tras haber sido comprimidos y reducidos.
 
-Esta clase integra internamente las funcionalidades de \texttt{CompressedVector} y \texttt{TsDownsample}. El usuario puede proporcionar como entrada uno o ambos vectores originales (\texttt{x} y \texttt{y}), junto con los siguientes parámetros:
+Esta clase integra internamente las funcionalidades de \texttt{CompressedVector} y \texttt{TsDownsample}. El usuario puede proporcionar como entrada uno o ambos vectores originales (\texttt{x} e \texttt{y}), junto con los siguientes parámetros:
 
 \begin{itemize}
     \item Cantidad de decimales a conservar.
@@ -129,7 +129,7 @@ Resolver esta limitación está fuera del alcance de este trabajo. Sería necesa
 
 \subsubsection{PyGal}
 
-\texttt{PyGal} es una biblioteca orientada a la generación de gráficos SVG embebibles para la web~\cite{pygal}. Aunque ofrece funcionalidades básicas como gráficos de líneas y dispersión, se destaca por una característica clave: acepta cualquier objeto iterable como fuente de datos, sin necesidad de convertirlo a \texttt{numpy}. Gracias a esto, \texttt{PyGal} es plenamente compatible con \texttt{CompressedVector} y \texttt{CompressedVectorDownsampler}.
+\texttt{PyGal} es una biblioteca orientada a la generación de gráficos SVG embebibles para la Web~\cite{pygal}. Aunque ofrece funcionalidades básicas como gráficos de líneas y dispersión, se destaca por una característica clave: acepta cualquier objeto iterable como fuente de datos, sin necesidad de convertirlo a \texttt{numpy}. Gracias a esto, \texttt{PyGal} es plenamente compatible con \texttt{CompressedVector} y \texttt{CompressedVectorDownsampler}.
 
 No obstante, esta flexibilidad tiene un costo. \texttt{PyGal} presenta limitaciones notables en cuanto a interactividad y personalización. No permite acciones como zoom, selección dinámica de puntos o animaciones avanzadas, lo que restringe su utilidad en contextos donde el análisis visual requiere exploración activa y responsiva.
 
@@ -169,10 +169,10 @@ Por ejemplo, se estableció globalmente que cada experimento debe ejecutarse 100
 \vspace{0.5em}
 \textbf{Extracción de datos:} la función \textit{get\_from\_file()} permite cargar columnas desde archivos CSV, entregando los datos en distintos formatos según el parámetro \textit{option}:
 \begin{itemize}
-    \item \textit{"default"}: datos crudos en \textit{float}.
-    \item \textit{"compressed\_vector"}: representación comprimida con \textit{CompressedVector}.
-    \item \textit{"compressed\_vector\_downsampler"}: compresión + reducción usando \textit{CompressedVectorDownsampler}.
-    \item \textit{"tsdownsample"}: reducción usando librería externa \textit{tsdownsample}.
+    \item \textit{``default"}: datos crudos en \textit{float}.
+    \item \textit{``compressed\_vector"}: representación comprimida con \textit{CompressedVector}.
+    \item \textit{``compressed\_vector\_downsampler"}: compresión + reducción usando \textit{CompressedVectorDownsampler}.
+    \item \textit{``tsdownsample"}: reducción usando librería externa \textit{tsdownsample}.
 \end{itemize}
 
 \vspace{0.5em}
