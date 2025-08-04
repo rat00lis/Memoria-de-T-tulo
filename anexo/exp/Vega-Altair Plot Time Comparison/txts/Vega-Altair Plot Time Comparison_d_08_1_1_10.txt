@@ -1,1 +1,20 @@
-placeholder vega altair 2 table
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{6}{c|}{\textbf{Number of data points}} \\
+\cline{2-7}
+ & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Compressed Vector Downsampler - LTTBDownsampler - dac_vector & 1.43e-02 [s] & 1.44e-02 [s] & 1.45e-02 [s] & 1.49e-02 [s] & 1.49e-02 [s] & 1.50e-02 [s] \\
+Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2 & 1.53e-02 [s] & 1.54e-02 [s] & 1.55e-02 [s] & 1.58e-02 [s] & 1.59e-02 [s] & 1.69e-02 [s] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector & 6.74e-03 [s] & 7.98e-03 [s] & 9.45e-03 [s] & 1.49e-02 [s] & 1.49e-02 [s] & 1.49e-02 [s] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2 & 6.98e-03 [s] & 8.19e-03 [s] & 9.84e-03 [s] & 1.59e-02 [s] & 1.59e-02 [s] & 1.58e-02 [s] \\
+Original Data & 6.90e-03 [s] & 8.04e-03 [s] & 9.61e-03 [s] & 1.95e-02 [s] & 2.55e-02 [s] & 7.37e-02 [s] \\
+TS Downsample - LTTBDownsampler & 5.88e-03 [s] & 5.98e-03 [s] & 6.04e-03 [s] & 6.36e-03 [s] & 6.35e-03 [s] & 6.43e-03 [s] \\
+TS Downsample - MinMaxLTTBDownsampler & 5.81e-03 [s] & 6.01e-03 [s] & 6.10e-03 [s] & 6.40e-03 [s] & 6.35e-03 [s] & 6.68e-03 [s] \\
+\hline
+\end{tabular}
+}
+\label{tab:vega-altair plot time comparison-d-08-1-1-10}
+\end{table}
