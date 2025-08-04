@@ -38,20 +38,148 @@ El uso de estructuras de datos compactas permite representar secuencias numéric
 En la literatura existen bibliotecas que implementan estas estructuras de datos compactas. En particular, utilizaremos la biblioteca \texttt{sdsl4py}, un conjunto de bindings en Python para la Succinct Data Structure Library (SDSL), que permite acceder a múltiples representaciones compactas desde  Python. A continuación se presentan las  estructuras de datos compactas que fueron consideradas en esta memoria de título:
 
 \begin{enumerate}
-    \item \textbf{enc\_vector\_elias\_gamma}:
-    Utiliza codificación de enteros Elias-Gamma. Es eficiente para valores pequeños, ya que su tamaño codificado crece logarítmicamente con el valor. No puede representar ceros.
+    \item \texttt{enc\_vector\_elias\_gamma}: 
+        Utiliza codificación de enteros Elias-Gamma. Es eficiente para valores pequeños, ya que su tamaño codificado crece logarítmicamente con el valor. No puede representar ceros.
+        
+        \begin{enumerate}
+            \item Para cada entero \(x_i > 0\):
+            \begin{enumerate}
+                \item Se convierte a binario: \(\text{bin}(x_i)\)
+                \item Se calcula su longitud en bits: \(\mathcal{L} = \lfloor \log_2 x_i \rfloor + 1\)
+                \item Se anteponen \(\mathcal{L} - 1\) ceros al binario
+                \item El código resultante es: \texttt{prefijo + binario}
+            \end{enumerate}
+            \item Para decodificar:
+            \begin{enumerate}
+                \item Contar ceros iniciales (\(z\)) → \(\mathcal{L} = z + 1\)
+                \item Leer los siguientes \(\mathcal{L}\) bits
+                \item Interpretar ese bloque como un entero
+                \item Repetir hasta terminar el bitstream
+            \end{enumerate}
+        \end{enumerate}
+    
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.9\linewidth]{alternatives/images/enc_vector_elias_gamma.png}
+            \caption[Ejemplo \texttt{enc\_vector\_elias_gamma}]{Diagrama paso a paso de codificación usando el tipo de vector \texttt{enc\_vector} y la codificación \textit{Elias Gamma}.}
+            \label{enc_vector_elias_gamma}
+        \end{figure}
+    
+    \item \texttt{enc\_vector\_elias\_delta}: 
+        Variante de Elias-Gamma que mejora la compresión para valores grandes, manteniendo eficiencia en lectura. También requiere que todos los valores sean mayores que cero.
+            
+        \begin{enumerate}
+            \item Para cada entero \(x_i > 0\):
+            \begin{enumerate}
+                \item Se calcula su longitud en bits: \(\mathcal{L} = \lfloor \log_2 x_i \rfloor + 1\)
+                \item Se codifica \(\mathcal{L}\) usando Elias Gamma
+                \item Se eliminan el bit más significativo de \(\text{bin}(x_i)\) y se concatenan al código anterior
+                \item El código resultante es: \(\text{EliasGamma}(\mathcal{L}) + \text{bin}(x_i)[2:]\)
+            \end{enumerate}
+            \item Para decodificar:
+            \begin{enumerate}
+                \item Decodificar un número \( \mathcal{L} \) usando Elias Gamma
+                \item Leer los siguientes \(\mathcal{L} - 1\) bits
+                \item Anteponer un bit 1 a esa secuencia
+                \item Interpretar el binario resultante como un entero
+            \end{enumerate}
+        \end{enumerate}
+        
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.9\linewidth]{alternatives/images/enc_vector_elias_delta.png}
+            \caption[Ejemplo \texttt{enc\_vector\_elias\_delta}]{Diagrama paso a paso de codificación usando el tipo de vector \texttt{enc\_vector} y la codificación \textit{Elias Delta}.}
+            \label{enc_vector_elias_delta}
+        \end{figure}
+        
 
-    \item \textbf{enc\_vector\_elias\_delta}:
-    Variante de Elias-Gamma que mejora la compresión para valores grandes, manteniendo eficiencia en lectura. También requiere que todos los valores sean mayores que cero.
+    \item \texttt{enc\_vector\_fibonacci}:
+        Usa codificación basada en la sucesión de Fibonacci. Esta técnica es compacta y libre de prefijos, pero tiene limitaciones para valores cero y una complejidad levemente mayor en decodificación.
+        
+        \begin{enumerate}
+            \item Para cada entero \(x_i > 0\):
+            \begin{enumerate}
+                \item Se representa como suma de términos no consecutivos de la sucesión de Fibonacci (codificación de Zeckendorf).
+                \item Se escribe un bit por cada número de Fibonacci menor o igual a \(x_i\): se marca con un 1 si se usa y con 0 si no.
+                \item Se agrega un bit 1 al final como terminador.
+            \end{enumerate}
+        
+            \item Para decodificar:
+            \begin{enumerate}
+                \item Leer bits hasta encontrar dos 1 seguidos (el 1 de terminación).
+                \item Interpretar los 1s como los términos de Fibonacci usados.
+                \item Sumar los términos correspondientes para obtener el valor original.
+            \end{enumerate}
+        \end{enumerate}
+        
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.9\linewidth]{alternatives/images/enc_vector_fibonacci.png}
+            \caption[Ejemplo \texttt{enc\_vector\_fibonacci}]{Diagrama paso a paso de codificación usando el tipo de vector \texttt{enc\_vector} y la codificación \textit{Fibonacci}.}
+            \label{enc_vector_fibonacci}
+        \end{figure}
+        
 
-    \item \textbf{enc\_vector\_fibonacci}:
-    Usa codificación basada en la sucesión de Fibonacci. Esta técnica es compacta y libre de prefijos, pero tiene limitaciones para valores cero y una complejidad levemente mayor en decodificación.
-
-    \item \textbf{enc\_vector\_comma\_2}:
-    Codificación por comas binarias (comma-2), una forma simple y eficiente de codificar enteros con separación de bits mediante una secuencia especial. Ofrece buena compresión para secuencias no muy dispersas.
-
-    \item \textbf{vlc\_vector\_elias\_delta}:
-    Variante del enc\_vector\_elias\_delta que permite acceso más rápido a los elementos gracias a una estructura de lectura optimizada (Variable-Length Codes con índice de acceso directo).
+  \item \texttt{enc\_vector\_comma\_2}:  
+        Codificación por comas binarias usando una base derivada de un ancho fijo de dígitos (\(t_{\text{width}} = 2\)). Es simple y compacta para valores enteros positivos, ideal para secuencias con pocos valores grandes.
+        
+        \begin{enumerate}
+            \item Para cada entero \(x_i > 0\):
+            \begin{enumerate}
+                \item Se define una base \(b = 2^{t_{\text{width}}} - 1 = 3\)
+                \item Se representa el número en base \(b\): \(\text{base}_b(x_i)\)
+                \item Cada dígito de esa representación se codifica en binario con \(t_{\text{width}}\) bits
+                \item Se agrega un dígito de terminación con valor \(b\) (es decir, el número reservado para marcar el final), también con \(t_{\text{width}}\) bits
+            \end{enumerate}
+            \item Para decodificar:
+            \begin{enumerate}
+                \item Se leen bloques de \(t_{\text{width}}\) bits
+                \item Cada bloque se interpreta como un dígito en base \(b\)
+                \item Cuando se detecta un bloque igual a \(b\), se termina la lectura del número
+                \item Se reconstruye el entero a partir de la secuencia de dígitos previa al terminador
+            \end{enumerate}
+        \end{enumerate}
+        
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.9\linewidth]{alternatives/images/enc_vector_comma.png}
+            \caption[Ejemplo \texttt{enc\_vector\_comma\_2}]{Diagrama paso a paso de codificación usando el tipo de vector \texttt{enc\_vector} con codificación por comas binarias (base \(2^2 - 1 = 3\)).}
+            \label{enc_vector_comma_2}
+        \end{figure}
+        
+        
+  \item \texttt{vlc\_vector\_elias\_delta}:  
+        Variante optimizada del tipo \texttt{enc\_vector\_elias\_delta}, que agrega una estructura de muestreo para permitir acceso aleatorio más eficiente. Los elementos se codifican igual que en Elias Delta, pero se almacenan junto con un índice que permite ubicar cada cierto número de elementos directamente en el bitstream.
+    
+        \begin{enumerate}
+            \item Para construir el vector:
+            \begin{enumerate}
+                \item Se codifica cada valor \(x_i > 0\) como \(x_i + 1\) usando Elias Delta.
+                \item El resultado se concatena en un bitstream global \(m_z\).
+                \item Cada \(t_{\text{dens}}\) elementos (por ejemplo, cada 2), se registra la posición de bit de inicio como una muestra (sample).
+                \item Se guarda un vector con las posiciones de muestra: \texttt{m\_sample\_pointer}.
+            \end{enumerate}
+    
+            \item Para decodificar el elemento \(x_i\):
+            \begin{enumerate}
+                \item Se calcula el bloque de muestra \(j = \lfloor i / t_{\text{dens}} \rfloor\)
+                \item Se toma el bit de inicio \(p = \texttt{m\_sample\_pointer}[j]\)
+                \item Se decodifican los siguientes \(i \bmod t_{\text{dens}} + 1\) elementos desde el bitstream, a partir de \(p\)
+                \item Finalmente, se le resta 1 al valor decodificado
+            \end{enumerate}
+        \end{enumerate}
+    
+        \begin{figure}[h!]
+            \centering
+            \makebox[\textwidth][c]{%
+                \includegraphics[width=1.1\textwidth]{alternatives/images/vlc_vector_elias_delta.png}
+            }
+            \caption[Ejemplo \texttt{vlc\_vector\_elias\_delta}]{Acceso eficiente con \texttt{vlc\_vector} codificado con \textit{Elias Delta} y muestreo. Se muestran los pasos de codificación, almacenamiento del bitstream y búsqueda rápida gracias a los índices de muestra.}
+            \label{vlc_vector_elias_delta}
+        \end{figure}
+        
+            
+    
 
     \item \textbf{vlc\_vector\_elias\_gamma}:
     Equivalente a la anterior, pero usando codificación Elias-Gamma. Útil cuando se prioriza el acceso sobre la compresión máxima.
@@ -62,14 +190,42 @@ En la literatura existen bibliotecas que implementan estas estructuras de datos 
     \item \textbf{vlc\_vector\_comma\_2}:
     Aplica codificación comma-2 con estructura de acceso rápido. Es útil cuando se necesita acceder a datos comprimidos con latencias bajas.
 
-    \item \textbf{dac\_vector}:
-    Utiliza Directly Addressable Codes (DAC), una estructura escalonada que permite un buen balance entre compresión y velocidad de acceso. Es especialmente útil para secuencias de enteros donde los valores tienen alta varianza.
+    \item \texttt{dac\_vector}:
+        Utiliza \textit{Directly Addressable Codes} (DAC), una estructura escalonada que permite un buen balance entre compresión y velocidad de acceso. Es especialmente útil para secuencias de enteros donde los valores tienen alta varianza.
+        
+        \begin{enumerate}
+            \item Para codificar un entero \(x_i > 0\):
+            \begin{enumerate}
+                \item Se representa en binario: \(\text{bin}(x_i)\)
+                \item Se divide en bloques de \(t_{\text{width}}\) bits desde el bit más significativo.
+                \item Cada bloque se guarda en un nivel diferente de la estructura DAC.
+                \item Se usa un bit de continuación por cada bloque (excepto el último) para señalar si hay más bloques en niveles inferiores.
+            \end{enumerate}
+    
+            \item Para decodificar:
+            \begin{enumerate}
+                \item Se comienza en el primer nivel, leyendo un bloque de \(t_{\text{width}}\) bits y su bit de continuación.
+                \item Si el bit indica continuación, se avanza al siguiente nivel y se repite el proceso.
+                \item Se concatenan los bloques hasta que el bit de continuación sea 0.
+                \item El binario resultante es el valor original.
+            \end{enumerate}
+        \end{enumerate}
+        
+        \begin{figure}
+            \centering
+            \makebox[\textwidth][c]{%
+                \includegraphics[width=1.3\textwidth]{alternatives/images/dac_vector.png}
+            }
+            \caption[Ejemplo \texttt{dac\_vector}]{Estructura escalonada del vector \texttt{dac\_vector}. Cada nivel almacena bloques de bits fijos con su correspondiente bit de continuación, permitiendo acceso eficiente sin necesidad de decodificar secuencialmente todo el vector.}
+            \label{dac_vector}
+        \end{figure}
+
 
 \end{enumerate}
 
 Para evaluar estas estructuras de datos, se han medido tres métricas clave: el tiempo de acceso a los elementos, el tiempo de construcción de la estructura y el espacio utilizado en memoria. 
 
-Es importante mencionar que debido a las limitantes de la implementación de \texttt{enc_vector} dentro de la biblioteca \texttt{sdsl4py}, se ha omitido la estructura para su evaluación y posterior experimentación. 
+Es importante mencionar que debido a las limitantes de la implementación de \texttt{enc\_vector} dentro de la biblioteca \texttt{sdsl4py}, se ha omitido la estructura para su evaluación y posterior experimentación. 
 
 \paragraph{Input}
 \vspace{0.2cm}
