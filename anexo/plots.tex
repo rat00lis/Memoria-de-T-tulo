@@ -206,6 +206,47 @@ Building Time Comparison
         \caption[]{Gráfico de espacio usado por las diferentes bibliotecas para el input \textbf{d\_08\_1\_1\_2}.}
         \label{fig:comparison_of_space_used_plot_bar_1}
     \end{figure}
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+        \begin{tabular}{|l|c|c|c|c|c|c|}
+        \hline\multicolumn{1}{|c|}{Option} & \multicolumn{6}{c|}{\textbf{Number of data points}} \\
+        \cline{2-7}
+         & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
+        \hline
+        Compressed Vector Downsample - dac\_vector & 1.66e+03 [B] & 2.68e+03 [B] & 4.07e+03 [B] & 9.49e+03 [B] & 9.48e+03 [B] & 9.54e+03 [B] \\
+        Compressed Vector Downsample - vlc\_vector\_fibonacci & 1.24e+03 [B] & 2.26e+03 [B] & 3.65e+03 [B] & 8.89e+03 [B] & 8.88e+03 [B] & 9.04e+03 [B] \\
+        Original Data & 1.06e+05 [B] & 2.16e+05 [B] & 3.46e+05 [B] & 1.12e+06 [B] & 1.60e+06 [B] & 5.20e+06 [B] \\
+        TS Downsample & 2.14e+03 [B] & 4.06e+03 [B] & 6.62e+03 [B] & 1.62e+04 [B] & 1.62e+04 [B] & 1.62e+04 [B] \\
+        \hline
+        \end{tabular}
+        }
+        \label{tab:comparison of space used-d-08-1-1-2}
+    \end{table}
+    \begin{table}[H]
+        \centering
+        \caption{Comparison of Space Used\_d\_08\_1\_1\_2 – Tasa de compactación CVD vs TS vs Datos Originales}
+        \label{tab:Comparison of Space Used\_d\_08\_1\_1\_2_cvd_compactacion}
+        \begin{tabular}{rlrr}
+        \toprule
+        n\_size & Variante & Comp. vs TS (\%) & Comp. vs Original (\%) \\
+        \midrule
+        6000 & CVD - dac\_vector & 22.48 & 98.43 \\
+        6000 & CVD - vlc\_vector\_fibonacci & 42.26 & 98.83 \\
+        12000 & CVD - dac\_vector & 34.10 & 98.76 \\
+        12000 & CVD - vlc\_vector\_fibonacci & 44.34 & 98.95 \\
+        20000 & CVD - dac\_vector & 38.56 & 98.82 \\
+        20000 & CVD - vlc\_vector\_fibonacci & 44.96 & 98.95 \\
+        70000 & CVD - dac\_vector & 41.53 & 99.16 \\
+        70000 & CVD - vlc\_vector\_fibonacci & 45.18 & 99.21 \\
+        100000 & CVD - dac\_vector & 41.58 & 99.41 \\
+        100000 & CVD - vlc\_vector\_fibonacci & 45.28 & 99.45 \\
+        300000 & CVD - dac\_vector & 41.19 & 99.82 \\
+        300000 & CVD - vlc\_vector\_fibonacci & 44.29 & 99.83 \\
+        \bottomrule
+        \end{tabular}
+        
+    \end{table}
 }
 
 \DeclareRobustCommand{\ComparisonOfSpaceUsedTwoPlotLine}{
@@ -226,6 +267,48 @@ Building Time Comparison
         \caption[]{Gráfico de espacio usado por las diferentes bibliotecas para el input \textbf{d\_08\_1\_1\_10}.}
         \label{fig:comparison_of_space_used_plot_bar_2}
     \end{figure}
+
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+        \begin{tabular}{|l|c|c|c|c|c|c|}
+        \hline\multicolumn{1}{|c|}{Option} & \multicolumn{6}{c|}{\textbf{Number of data points}} \\
+        \cline{2-7}
+         & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
+        \hline
+        Compressed Vector Downsample - dac\_vector & 1.67e+03 [B] & 2.73e+03 [B] & 4.21e+03 [B] & 9.57e+03 [B] & 9.55e+03 [B] & 9.57e+03 [B] \\
+        Compressed Vector Downsample - vlc\_vector\_fibonacci & 1.28e+03 [B] & 2.33e+03 [B] & 3.77e+03 [B] & 9.15e+03 [B] & 9.13e+03 [B] & 9.17e+03 [B] \\
+        Original Data & 1.06e+05 [B] & 2.16e+05 [B] & 3.46e+05 [B] & 1.12e+06 [B] & 1.60e+06 [B] & 5.20e+06 [B] \\
+        TS Downsample & 2.18e+03 [B] & 4.10e+03 [B] & 6.66e+03 [B] & 1.62e+04 [B] & 1.62e+04 [B] & 1.62e+04 [B] \\
+        \hline
+        \end{tabular}
+        }
+        \label{tab:comparison of space used-d-08-1-1-10}
+    \end{table}
+        \begin{table}[H]
+\centering
+\caption{Comparison of Space Used\_d\_08\_1\_1\_10 – Tasa de compactación CVD vs TS vs Datos Originales}
+\label{tab:Comparison of Space Used\_d\_08\_1\_1\_10_cvd_compactacion}
+\begin{tabular}{rlrr}
+\toprule
+n\_size & Variante & Comp. vs TS (\%) & Comp. vs Original (\%) \\
+\midrule
+6000 & CVD - dac\_vector & 23.25 & 98.43 \\
+6000 & CVD - vlc\_vector\_fibonacci & 41.27 & 98.80 \\
+12000 & CVD - dac\_vector & 33.45 & 98.74 \\
+12000 & CVD - vlc\_vector\_fibonacci & 43.02 & 98.92 \\
+20000 & CVD - dac\_vector & 36.81 & 98.78 \\
+20000 & CVD - vlc\_vector\_fibonacci & 43.42 & 98.91 \\
+70000 & CVD - dac\_vector & 41.04 & 99.15 \\
+70000 & CVD - vlc\_vector\_fibonacci & 43.60 & 99.19 \\
+100000 & CVD - dac\_vector & 41.14 & 99.40 \\
+100000 & CVD - vlc\_vector\_fibonacci & 43.75 & 99.43 \\
+300000 & CVD - dac\_vector & 41.04 & 99.82 \\
+300000 & CVD - vlc\_vector\_fibonacci & 43.45 & 99.82 \\
+\bottomrule
+\end{tabular}
+
+\end{table}
 }
 
 \DeclareRobustCommand{\ComparisonOfSpaceUsedThreePlotLine}{
@@ -246,6 +329,47 @@ Building Time Comparison
         \caption[]{Gráfico de espacio usado por las diferentes bibliotecas para el input \textbf{yellow\_tripdata\_2015\_01}.}
         \label{fig:comparison_of_space_used_plot_bar_3}
     \end{figure}
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+        \begin{tabular}{|l|c|c|c|c|c|c|}
+        \hline\multicolumn{1}{|c|}{Option} & \multicolumn{6}{c|}{\textbf{Number of data points}} \\
+        \cline{2-7}
+         & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
+        \hline
+        Compressed Vector Downsample - dac\_vector & 4.68e+02 [B] & 4.60e+02 [B] & 4.60e+02 [B] & 4.60e+02 [B] & 4.76e+02 [B] & 4.76e+02 [B] \\
+        Compressed Vector Downsample - vlc\_vector\_fibonacci & 1.80e+02 [B] & 1.72e+02 [B] & 1.72e+02 [B] & 1.72e+02 [B] & 1.96e+02 [B] & 1.96e+02 [B] \\
+        Original Data & 1.06e+05 [B] & 2.16e+05 [B] & 3.46e+05 [B] & 1.12e+06 [B] & 1.60e+06 [B] & 5.20e+06 [B] \\
+        TS Downsample & 2.88e+02 [B] & 2.56e+02 [B] & 2.56e+02 [B] & 2.56e+02 [B] & 3.20e+02 [B] & 3.20e+02 [B] \\
+        \hline
+        \end{tabular}
+        }
+        \label{tab:comparison of space used-yellow-tripdata-2015-01}
+    \end{table}
+    \begin{table}[H]
+\centering
+\caption{Comparison of Space Used\_yellow\_tripdata\_2015-01 – Tasa de compactación CVD vs TS vs Datos Originales}
+\label{tab:Comparison of Space Used\_yellow\_tripdata\_2015-01_cvd_compactacion}
+\begin{tabular}{rlrr}
+\toprule
+n\_size & Variante & Comp. vs TS (\%) & Comp. vs Original (\%) \\
+\midrule
+6000 & CVD - dac\_vector & -62.50 & 99.56 \\
+6000 & CVD - vlc\_vector\_fibonacci & 37.50 & 99.83 \\
+12000 & CVD - dac\_vector & -79.69 & 99.79 \\
+12000 & CVD - vlc\_vector\_fibonacci & 32.81 & 99.92 \\
+20000 & CVD - dac\_vector & -79.69 & 99.87 \\
+20000 & CVD - vlc\_vector\_fibonacci & 32.81 & 99.95 \\
+70000 & CVD - dac\_vector & -79.69 & 99.96 \\
+70000 & CVD - vlc\_vector\_fibonacci & 32.81 & 99.98 \\
+100000 & CVD - dac\_vector & -48.75 & 99.97 \\
+100000 & CVD - vlc\_vector\_fibonacci & 38.75 & 99.99 \\
+300000 & CVD - dac\_vector & -48.75 & 99.99 \\
+300000 & CVD - vlc\_vector\_fibonacci & 38.75 & 100.00 \\
+\bottomrule
+\end{tabular}
+
+\end{table}
 }
 
 
@@ -400,12 +524,12 @@ Building Time Comparison
 
 
 
-% PyGal Memory Allocation
+% PyGal Plotting Memory Allocation
 \DeclareRobustCommand{\PyGalMemoryAllocationOnePlotLine}{
     %insertar imagen
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/PyGal Memory Allocation/plots/PyGal Memory Allocation_d_08_1_1_2_linear_line.png}
+        \includegraphics[width=1\textwidth]{anexo/exp/Pygal Plotting Memory Allocation/plots/Pygal Plotting Memory Allocation_d_08_1_1_2_log_line.png}
         \caption[]{Gráfico de memoria asignada por PyGal para el input \textbf{d\_08\_1\_1\_2}.}
         \label{fig:pygal_memory_allocation_plot_line_1}
     \end{figure}
@@ -415,17 +539,53 @@ Building Time Comparison
     %insertar imagen
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/PyGal Memory Allocation/bar_plots/PyGal Memory Allocation_d_08_1_1_2_log_bar.png}
+        \includegraphics[width=1\textwidth]{anexo/exp/Pygal Plotting Memory Allocation/bar_plots/Pygal Plotting Memory Allocation_d_08_1_1_2_log_bar.png}
         \caption[]{Gráfico de memoria asignada por PyGal para el input \textbf{d\_08\_1\_1\_2}.}
         \label{fig:pygal_memory_allocation_plot_bar_1}
     \end{figure}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{6}{c|}{\textbf{Number of data points}} \\
+\cline{2-7}
+ & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Compressed Vector Downsample - dac\_vector & 9.38e+02 [kb] & 1.75e+03 [kb] & 2.81e+03 [kb] & 6.88e+03 [kb] & 6.88e+03 [kb] & 6.88e+03 [kb] \\
+Compressed Vector Downsample - vlc\_vector\_fibonacci & 9.38e+02 [kb] & 1.75e+03 [kb] & 2.81e+03 [kb] & 6.88e+03 [kb] & 6.88e+03 [kb] & 6.88e+03 [kb] \\
+Original Data & 4.02e+04 [kb] & 8.03e+04 [kb] & 1.34e+05 [kb] & 4.70e+05 [kb] & 6.71e+05 [kb] & 2.01e+06 [kb] \\
+TS Downsample & 9.37e+02 [kb] & 1.75e+03 [kb] & 2.81e+03 [kb] & 6.88e+03 [kb] & 6.88e+03 [kb] & 6.88e+03 [kb] \\
+\hline
+\end{tabular}
+}
+\label{tab:pygal plotting memory allocation-d-08-1-1-2}
+\end{table}
+   \begin{table}[H]
+\centering
+\caption{\textit{d\_08\_1\_1\_2} – Memoria por elemento}
+\label{tab:d\_08\_1\_1\_2_mem_por_elemento_sin_original}
+\begin{tabular}{rrrr}
+\toprule
+ & CVD - dac\_vector & CVD - vlc\_vector\_fibonacci & TS Downsample \\
+n\_size &  &  &  \\
+\midrule
+6000 & 0.94 & 0.94 & 0.94 \\
+12000 & 1.75 & 1.75 & 1.75 \\
+20000 & 2.81 & 2.81 & 2.81 \\
+70000 & 6.88 & 6.88 & 6.88 \\
+100000 & 6.88 & 6.88 & 6.88 \\
+300000 & 6.88 & 6.88 & 6.88 \\
+\bottomrule
+\end{tabular}
+
+\end{table}
 }
 
 \DeclareRobustCommand{\PyGalMemoryAllocationTwoPlotLine}{
     %insertar imagen
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/PyGal Memory Allocation/plots/PyGal Memory Allocation_d_08_1_1_10_linear_line.png}
+        \includegraphics[width=1\textwidth]{anexo/exp/PyGal Plotting Memory Allocation/plots/PyGal Plotting Memory Allocation_d_08_1_1_10_linear_line.png}
         \caption[]{Gráfico de memoria asignada por PyGal para el input \textbf{d\_08\_1\_1\_10}.}
         \label{fig:pygal_memory_allocation_plot_line_2}
     \end{figure}
@@ -435,17 +595,54 @@ Building Time Comparison
     %insertar imagen
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/PyGal Memory Allocation/bar_plots/PyGal Memory Allocation_d_08_1_1_10_log_bar.png}
+        \includegraphics[width=1\textwidth]{anexo/exp/Pygal Plotting Memory Allocation/bar_plots/Pygal Plotting Memory Allocation_d_08_1_1_10_log_bar.png}
         \caption[]{Gráfico de memoria asignada por PyGal para el input \textbf{d\_08\_1\_1\_10}.}
         \label{fig:pygal_memory_allocation_plot_bar_2}
     \end{figure}
+
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{6}{c|}{\textbf{Number of data points}} \\
+\cline{2-7}
+ & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Compressed Vector Downsample - dac_vector & 9.36e+02 [kb] & 1.74e+03 [kb] & 2.83e+03 [kb] & 6.88e+03 [kb] & 6.88e+03 [kb] & 6.89e+03 [kb] \\
+Compressed Vector Downsample - vlc_vector_fibonacci & 9.36e+02 [kb] & 1.75e+03 [kb] & 2.83e+03 [kb] & 6.88e+03 [kb] & 6.88e+03 [kb] & 6.89e+03 [kb] \\
+Original Data & 4.01e+04 [kb] & 8.01e+04 [kb] & 1.33e+05 [kb] & 4.70e+05 [kb] & 6.71e+05 [kb] & 2.02e+06 [kb] \\
+TS Downsample & 9.36e+02 [kb] & 1.74e+03 [kb] & 2.83e+03 [kb] & 6.88e+03 [kb] & 6.88e+03 [kb] & 6.90e+03 [kb] \\
+\hline
+\end{tabular}
+}
+\label{tab:pygal plotting memory allocation-d-08-1-1-10}
+\end{table}
+\begin{table}[H]
+\centering
+\caption{\textit{d\_08\_1\_1\_10} – Memoria por elemento}
+\label{tab:d\_08\_1\_1\_10_mem_por_elemento_sin_original}
+\begin{tabular}{rrrr}
+\toprule
+ & CVD - dac\_vector & CVD - vlc\_vector\_fibonacci & TS Downsample \\
+n\_size &  &  &  \\
+\midrule
+6000 & 0.94 & 0.94 & 0.94 \\
+12000 & 1.74 & 1.75 & 1.74 \\
+20000 & 2.83 & 2.83 & 2.83 \\
+70000 & 6.88 & 6.88 & 6.88 \\
+100000 & 6.88 & 6.88 & 6.88 \\
+300000 & 6.89 & 6.89 & 6.90 \\
+\bottomrule
+\end{tabular}
+
+\end{table}
 }
 
 \DeclareRobustCommand{\PyGalMemoryAllocationThreePlotLine}{
     %insertar imagen
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/PyGal Memory Allocation/plots/PyGal Memory Allocation_yellow_tripdata_2015-01_linear_line.png}
+        \includegraphics[width=1\textwidth]{anexo/exp/PyGal Plotting Memory Allocation/plots/PyGal Plotting Memory Allocation_yellow_tripdata_2015-01_linear_line.png}
         \caption[]{Gráfico de memoria asignada por PyGal para el input \textbf{yellow\_tripdata\_2015\_01}.}
         \label{fig:pygal_memory_allocation_plot_line_3}
     \end{figure}
@@ -455,10 +652,46 @@ Building Time Comparison
     %insertar imagen
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/PyGal Memory Allocation/bar_plots/PyGal Memory Allocation_yellow_tripdata_2015-01_log_bar.png}
+        \includegraphics[width=1\textwidth]{anexo/exp/Pygal Plotting Memory Allocation/bar_plots/Pygal Plotting Memory Allocation_yellow_tripdata_2015-01_log_bar.png}
         \caption[]{Gráfico de memoria asignada por PyGal para el input \textbf{yellow\_tripdata\_2015\_01}.}
         \label{fig:pygal_memory_allocation_plot_bar_3}
     \end{figure}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{6}{c|}{\textbf{Number of data points}} \\
+\cline{2-7}
+ & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Compressed Vector Downsample - dac_vector & 1.33e+02 [kb] & 1.09e+02 [kb] & 1.09e+02 [kb] & 1.09e+02 [kb] & 1.53e+02 [kb] & 1.52e+02 [kb] \\
+Compressed Vector Downsample - vlc_vector_fibonacci & 1.33e+02 [kb] & 1.09e+02 [kb] & 1.10e+02 [kb] & 1.09e+02 [kb] & 1.53e+02 [kb] & 1.53e+02 [kb] \\
+Original Data & 4.00e+04 [kb] & 7.99e+04 [kb] & 1.33e+05 [kb] & 4.65e+05 [kb] & 6.64e+05 [kb] & 2.00e+06 [kb] \\
+TS Downsample & 1.32e+02 [kb] & 1.09e+02 [kb] & 1.09e+02 [kb] & 1.08e+02 [kb] & 1.53e+02 [kb] & 1.53e+02 [kb] \\
+\hline
+\end{tabular}
+}
+\label{tab:pygal plotting memory allocation-yellow-tripdata-2015-01}
+\end{table}
+\begin{table}[H]
+\centering
+\caption{\textit{yellow\_tripdata\_2015-01} – Memoria por elemento}
+\label{tab:yellow\_tripdata\_2015-01_mem_por_elemento_sin_original}
+\begin{tabular}{rrrr}
+\toprule
+ & CVD - dac\_vector & CVD - vlc\_vector\_fibonacci & TS Downsample \\
+n\_size &  &  &  \\
+\midrule
+6000 & 0.13 & 0.13 & 0.13 \\
+12000 & 0.11 & 0.11 & 0.11 \\
+20000 & 0.11 & 0.11 & 0.11 \\
+70000 & 0.11 & 0.11 & 0.11 \\
+100000 & 0.15 & 0.15 & 0.15 \\
+300000 & 0.15 & 0.15 & 0.15 \\
+\bottomrule
+\end{tabular}
+
+\end{table}
 }
 
 % PyGal Plot Time
@@ -656,12 +889,6 @@ Building Time Comparison
         \caption[]{Gráfico de tiempo de renderización Vega-Altair para el input \textbf{d\_08\_1\_1\_10}.}
         \label{fig:vega_altair_plot_time_comparison_plot_line_2}
     \end{figure}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plot Time Comparison/plots/Vega-Altair Plot Time Comparison_d_08_1_1_10_log_line.png}
-        \caption[]{Gráfico de tiempo de renderización Vega-Altair para el input \textbf{d\_08\_1\_1\_10} en escala logarítmica.}
-        \label{fig:vega_altair_plot_time_comparison_plot_line_2_log}
-    \end{figure}
 }
 
 \DeclareRobustCommand{\VegaAltairPlotTimeComparisonTwoPlotBar}{
@@ -681,12 +908,6 @@ Building Time Comparison
         \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plot Time Comparison/plots/Vega-Altair Plot Time Comparison_yellow_tripdata_2015-01_linear_line.png}
         \caption[]{Gráfico de tiempo de renderización Vega-Altair para el input \textbf{yellow\_tripdata\_2015\_01}.}
         \label{fig:vega_altair_plot_time_comparison_plot_line_3}
-    \end{figure}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plot Time Comparison/plots/Vega-Altair Plot Time Comparison_yellow_tripdata_2015-01_log_line.png}
-        \caption[]{Gráfico de tiempo de renderización Vega-Altair para el input \textbf{yellow\_tripdata\_2015\_01} en escala logarítmica.}
-        \label{fig:vega_altair_plot_time_comparison_plot_line_3_log}
     \end{figure}
 }
 
@@ -709,12 +930,6 @@ Building Time Comparison
         \caption[]{Gráfico de tiempo de renderización y construcción Vega-Altair para el input \textbf{d\_08\_1\_1\_2}.}
         \label{fig:vega_altair_plotting_building_comparison_plot_line_1}
     \end{figure}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plotting + Building Comparison/plots/Vega-Altair Plotting + Building Comparison_d_08_1_1_2_log_line.png}
-        \caption[]{Gráfico de tiempo de renderización y construcción Vega-Altair para el input \textbf{d\_08\_1\_1\_2} en escala logarítmica.}
-        \label{fig:vega_altair_plotting_building_comparison_plot_line_1}
-    \end{figure}
 }
 
 \DeclareRobustCommand{\VegaAltairPlottingBuildingComparisonOnePlotBar}{
@@ -733,12 +948,6 @@ Building Time Comparison
         \centering
         \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plotting + Building Comparison/plots/Vega-Altair Plotting + Building Comparison_d_08_1_1_10_linear_line.png}
         \caption[]{Gráfico de tiempo de renderización y construcción Vega-Altair para el input \textbf{d\_08\_1\_1\_10}.}
-        \label{fig:vega_altair_plotting_building_comparison_plot_line_2}
-    \end{figure}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plotting + Building Comparison/plots/Vega-Altair Plotting + Building Comparison_d_08_1_1_10_linear_line.png}
-        \caption[]{Gráfico de tiempo de renderización y construcción Vega-Altair para el input \textbf{d\_08\_1\_1\_10} en escala logarítmica.}
         \label{fig:vega_altair_plotting_building_comparison_plot_line_2}
     \end{figure}
 }
@@ -761,12 +970,6 @@ Building Time Comparison
         \caption[]{Gráfico de tiempo de renderización y construcción Vega-Altair para el input \textbf{yellow\_tripdata\_2015\_01}.}
         \label{fig:vega_altair_plotting_building_comparison_plot_line_3}
     \end{figure}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plotting + Building Comparison/plots/Vega-Altair Plotting + Building Comparison_yellow_tripdata_2015-01_linear_line.png}
-        \caption[]{Gráfico de tiempo de renderización y construcción Vega-Altair para el input \textbf{yellow\_tripdata\_2015\_01} en escala logarítmica.}
-        \label{fig:vega_altair_plotting_building_comparison_plot_line_3}
-    \end{figure}
 }
 
 \DeclareRobustCommand{\VegaAltairPlottingBuildingComparisonThreePlotBar}{
@@ -777,4 +980,123 @@ Building Time Comparison
         \caption[]{Gráfico de tiempo de renderización y construcción Vega-Altair para el input \textbf{yellow\_tripdata\_2015\_01}.}
         \label{fig:vega_altair_plotting_building_comparison_plot_bar_3}
     \end{figure}
+}
+
+% VEGA ALTAIR MEMORY ALLOCATION
+
+\DeclareRobustCommand{\VegaAltairMemoryAllocationOnePlotLine}{
+    %insertar imagen
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plotting Memory Allocation/plots/Vega-Altair Plotting Memory Allocation_d_08_1_1_2_log_line.png}
+        \caption[]{Gráfico de tiempo de renderización y construcción Vega-Altair para el input \textbf{d\_08\_1\_1\_2}.}
+        \label{fig:vega_altair_plotting_building_comparison_plot_line_1}
+    \end{figure}
+}
+
+\DeclareRobustCommand{\VegaAltairMemoryAllocationOnePlotBar}{
+    %insertar imagen
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plotting Memory Allocation/bar_plots/Vega-Altair Plotting Memory Allocation_d_08_1_1_2_log_bar.png}
+        \caption[]{Gráfico de tiempo de renderización y construcción Vega-Altair para el input \textbf{d\_08\_1\_1\_2}.}
+        \label{fig:vega_altair_plotting_building_comparison_plot_bar_1}
+    \end{figure}
+\begin{table}[H]
+\centering
+\caption{\textit{d\_08\_1\_1\_2} – Memoria por elemento [KB]}
+\label{tab:Vega-Altair Plotting Memory Allocation\_d\_08\_1\_1\_2_mem_por_elemento_sin_original}
+\begin{tabular}{rrrr}
+\toprule
+ & CVD - dac\_vector & CVD - vlc\_vector\_fibonacci & TS Downsample \\
+n\_size &  &  &  \\
+\midrule
+6000 & 0.16 & 0.16 & 0.16 \\
+12000 & 0.16 & 0.16 & 0.16 \\
+20000 & 0.17 & 0.17 & 0.16 \\
+70000 & 0.18 & 0.18 & 0.17 \\
+100000 & 0.18 & 0.18 & 0.17 \\
+300000 & 0.19 & 0.18 & 0.17 \\
+\bottomrule
+\end{tabular}
+
+\end{table}
+}
+
+\DeclareRobustCommand{\VegaAltairMemoryAllocationTwoPlotLine}{
+    %insertar imagen
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plotting Memory Allocation/plots/Vega-Altair Plotting Memory Allocation_d_08_1_1_10_log_line.png}
+        \caption[]{Gráfico de tiempo de renderización y construcción Vega-Altair para el input \textbf{d\_08\_1\_1\_10}.}
+        \label{fig:vega_altair_plotting_building_comparison_plot_line_2}
+    \end{figure}
+}
+
+\DeclareRobustCommand{\VegaAltairMemoryAllocationTwoPlotBar}{
+    %insertar imagen
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plotting Memory Allocation/bar_plots/Vega-Altair Plotting Memory Allocation_d_08_1_1_10_log_bar.png}
+        \caption[]{Gráfico de asignación de memoria con la biblioteca Vega-Altair para el input \textbf{d\_08\_1\_1\_10}.}
+        \label{fig:vega_altair_plotting_building_comparison_plot_bar_2}
+    \end{figure}
+\begin{table}[H]
+\centering
+\caption{\textit{d\_08\_1\_1\_10} – Memoria por elemento [KB]}
+\label{tab:Vega-Altair Plotting Memory Allocation\_d\_08\_1\_1\_10_mem_por_elemento_sin_original}
+\begin{tabular}{rrrr}
+\toprule
+ & CVD - dac\_vector & CVD - vlc\_vector\_fibonacci & TS Downsample \\
+n\_size &  &  &  \\
+\midrule
+6000 & 0.16 & 0.16 & 0.16 \\
+12000 & 0.16 & 0.16 & 0.16 \\
+20000 & 0.17 & 0.17 & 0.16 \\
+70000 & 0.18 & 0.18 & 0.17 \\
+100000 & 0.18 & 0.18 & 0.17 \\
+300000 & 0.18 & 0.20 & 0.17 \\
+\bottomrule
+\end{tabular}
+
+\end{table}
+}
+
+\DeclareRobustCommand{\VegaAltairMemoryAllocationThreePlotLine}{
+    %insertar imagen
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plotting Memory Allocation/plots/Vega-Altair Plotting Memory Allocation_yellow_tripdata_2015-01_log_line.png}
+        \caption[]{Gráfico de asignación de memoria con la biblioteca Vega-Altair para el input \textbf{yellow\_tripdata\_2015\_01}.}
+        \label{fig:vega_altair_plotting_building_comparison_plot_line_3}
+    \end{figure}
+}
+
+\DeclareRobustCommand{\VegaAltairMemoryAllocationThreePlotBar}{
+    %insertar imagen
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{anexo/exp/Vega-Altair Plotting Memory Allocation/bar_plots/Vega-Altair Plotting Memory Allocation_yellow_tripdata_2015-01_log_bar.png}
+        \caption[]{Gráfico de asignación de memoria con la biblioteca Vega-Altair para el input \textbf{yellow\_tripdata\_2015\_01}.}
+        \label{fig:vega_altair_plotting_building_comparison_plot_bar_3}
+    \end{figure}
+\begin{table}[H]
+\centering
+\caption{\textit{yellow\_tripdata\_2015-01} – Memoria por elemento [KB]}
+\label{tab:Vega-Altair Plotting Memory Allocation\_yellow\_tripdata\_2015-01_mem_por_elemento_sin_original}
+\begin{tabular}{rrrr}
+\toprule
+ & CVD - dac\_vector & CVD - vlc\_vector\_fibonacci & TS Downsample \\
+n\_size &  &  &  \\
+\midrule
+6000 & 0.16 & 0.16 & 0.16 \\
+12000 & 0.16 & 0.16 & 0.16 \\
+20000 & 0.16 & 0.16 & 0.16 \\
+70000 & 0.16 & 0.16 & 0.16 \\
+100000 & 0.16 & 0.16 & 0.16 \\
+300000 & 0.16 & 0.16 & 0.16 \\
+\bottomrule
+\end{tabular}
+
+\end{table}
 }

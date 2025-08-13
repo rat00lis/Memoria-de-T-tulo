@@ -1,17 +1,15 @@
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|c|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{6}{c|}{\textbf{Number of data points}} \\
+\cline{2-7}
+ & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
 \hline
-option/$n_{size}$ & \textbf{Altair Line Plot} & \textbf{Altair Line Plot - No CV} & \textbf{MatPlotlib Line Plot} & \textbf{Plotly Line Plot} & \textbf{Pygal Line Plot}\\
-\hline
-2000 & 1.71e+02 [kb] & 1.68e+02 [kb] & 4.60e+02 [kb] & 1.93e+03 [kb] & 3.37e+01 [kb] \\
-6000 & 1.55e+02 [kb] & 1.54e+02 [kb] & 3.86e+02 [kb] & 3.74e+02 [kb] & 1.25e+01 [kb] \\
-12000 & 1.58e+02 [kb] & 1.56e+02 [kb] & 3.84e+02 [kb] & 3.69e+02 [kb] & 1.25e+01 [kb] \\
-20000 & 1.61e+02 [kb] & 1.58e+02 [kb] & 3.84e+02 [kb] & 3.67e+02 [kb] & 1.25e+01 [kb] \\
-70000 & 1.70e+02 [kb] & 1.68e+02 [kb] & 3.85e+02 [kb] & 3.71e+02 [kb] & 1.25e+01 [kb] \\
-100000 & 1.71e+02 [kb] & 1.68e+02 [kb] & 3.84e+02 [kb] & 3.67e+02 [kb] & 1.25e+01 [kb] \\
-300000 & 1.70e+02 [kb] & 1.68e+02 [kb] & 3.85e+02 [kb] & 3.70e+02 [kb] & 1.25e+01 [kb] \\
+Altair Line Plot & 1.61e+02 [kb] & 1.64e+02 [kb] & 1.66e+02 [kb] & 1.76e+02 [kb] & 1.76e+02 [kb] & 1.76e+02 [kb] \\
+MatPlotlib Line Plot & 4.08e+02 [kb] & 4.06e+02 [kb] & 4.06e+02 [kb] & 4.07e+02 [kb] & 4.06e+02 [kb] & 4.06e+02 [kb] \\
+Plotly Line Plot & 4.17e+02 [kb] & 4.16e+02 [kb] & 4.15e+02 [kb] & 4.16e+02 [kb] & 4.14e+02 [kb] & 4.34e+02 [kb] \\
+Pygal Line Plot & 1.25e+01 [kb] & 1.25e+01 [kb] & 1.25e+01 [kb] & 1.25e+01 [kb] & 1.25e+01 [kb] & 1.25e+01 [kb] \\
 \hline
 \end{tabular}
 }

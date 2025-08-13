@@ -1,25 +1,25 @@
 n_size,option,measurement_unit,mean
-100000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,bytes,12134
-100000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,bytes,12142
-100000,TS Downsample - LTTBDownsampler,bytes,16224
-100000,TS Downsample - MinMaxLTTBDownsampler,bytes,16224
-12000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,bytes,11806
-12000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,bytes,3414
-12000,TS Downsample - LTTBDownsampler,bytes,16224
-12000,TS Downsample - MinMaxLTTBDownsampler,bytes,4096
-20000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,bytes,12014
-20000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,bytes,5302
-20000,TS Downsample - LTTBDownsampler,bytes,16224
-20000,TS Downsample - MinMaxLTTBDownsampler,bytes,6656
-300000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,bytes,12142
-300000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,bytes,12158
-300000,TS Downsample - LTTBDownsampler,bytes,16224
-300000,TS Downsample - MinMaxLTTBDownsampler,bytes,16224
-6000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,bytes,11790
-6000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,bytes,2038
-6000,TS Downsample - LTTBDownsampler,bytes,16224
-6000,TS Downsample - MinMaxLTTBDownsampler,bytes,2176
-70000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,bytes,12142
-70000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,bytes,12158
-70000,TS Downsample - LTTBDownsampler,bytes,16224
-70000,TS Downsample - MinMaxLTTBDownsampler,bytes,16224
+100000,Compressed Vector Downsample - dac_vector,bytes,9550
+100000,Compressed Vector Downsample - vlc_vector_fibonacci,bytes,9126
+100000,Original Data,bytes,1601968
+100000,TS Downsample,bytes,16224
+12000,Compressed Vector Downsample - dac_vector,bytes,2726
+12000,Compressed Vector Downsample - vlc_vector_fibonacci,bytes,2334
+12000,Original Data,bytes,215792
+12000,TS Downsample,bytes,4096
+20000,Compressed Vector Downsample - dac_vector,bytes,4206
+20000,Compressed Vector Downsample - vlc_vector_fibonacci,bytes,3766
+20000,Original Data,bytes,346032
+20000,TS Downsample,bytes,6656
+300000,Compressed Vector Downsample - dac_vector,bytes,9566
+300000,Compressed Vector Downsample - vlc_vector_fibonacci,bytes,9174
+300000,Original Data,bytes,5203120
+300000,TS Downsample,bytes,16224
+6000,Compressed Vector Downsample - dac_vector,bytes,1670
+6000,Compressed Vector Downsample - vlc_vector_fibonacci,bytes,1278
+6000,Original Data,bytes,106160
+6000,TS Downsample,bytes,2176
+70000,Compressed Vector Downsample - dac_vector,bytes,9566
+70000,Compressed Vector Downsample - vlc_vector_fibonacci,bytes,9150
+70000,Original Data,bytes,1124976
+70000,TS Downsample,bytes,16224

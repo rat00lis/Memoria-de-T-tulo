@@ -1,4 +1,4 @@
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|c|c|c|c|c|c|}
@@ -6,8 +6,8 @@
 \cline{2-7}
  & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
 \hline
-Compressed Vector Downsampler - LTTBDownsampler - dac_vector & 7.31e-03 [s] & 7.96e-03 [s] & 8.80e-03 [s] & 1.41e-02 [s] & 1.73e-02 [s] & 4.30e-02 [s] \\
-Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector & 1.57e-03 [s] & 2.97e-03 [s] & 4.91e-03 [s] & 1.44e-02 [s] & 1.74e-02 [s] & 4.58e-02 [s] \\
+Compressed Vector Downsampler - LTTBDownsampler - dac\_vector & 7.31e-03 [s] & 7.96e-03 [s] & 8.80e-03 [s] & 1.41e-02 [s] & 1.73e-02 [s] & 4.30e-02 [s] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac\_vector & 1.57e-03 [s] & 2.97e-03 [s] & 4.91e-03 [s] & 1.44e-02 [s] & 1.74e-02 [s] & 4.58e-02 [s] \\
 TS Downsample - LTTBDownsampler & 6.04e-04 [s] & 1.18e-03 [s] & 1.98e-03 [s] & 7.03e-03 [s] & 1.00e-02 [s] & 3.44e-02 [s] \\
 TS Downsample - MinMaxLTTBDownsampler & 6.13e-04 [s] & 1.20e-03 [s] & 2.01e-03 [s] & 7.00e-03 [s] & 1.01e-02 [s] & 3.41e-02 [s] \\
 \hline

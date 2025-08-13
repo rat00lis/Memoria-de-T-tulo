@@ -1,4 +1,4 @@
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|c|c|c|c|c|c|}
@@ -6,13 +6,13 @@
 \cline{2-7}
  & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
 \hline
-Compressed Vector Downsampler - LTTBDownsampler - dac_vector & 9.94e-03 [s] & 1.00e-02 [s] & 1.01e-02 [s] & 1.06e-02 [s] & 1.11e-02 [s] & 1.10e-02 [s] \\
-Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2 & 1.05e-02 [s] & 1.05e-02 [s] & 1.09e-02 [s] & 1.11e-02 [s] & 1.14e-02 [s] & 1.19e-02 [s] \\
-Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector & 5.82e-03 [s] & 5.99e-03 [s] & 6.13e-03 [s] & 6.49e-03 [s] & 6.66e-03 [s] & 7.10e-03 [s] \\
-Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2 & 5.92e-03 [s] & 5.94e-03 [s] & 6.09e-03 [s] & 6.90e-03 [s] & 6.86e-03 [s] & 7.15e-03 [s] \\
-Original Data & 6.85e-03 [s] & 8.10e-03 [s] & 9.55e-03 [s] & 1.99e-02 [s] & 2.61e-02 [s] & 7.53e-02 [s] \\
-TS Downsample - LTTBDownsampler & 5.82e-03 [s] & 5.95e-03 [s] & 6.04e-03 [s] & 6.45e-03 [s] & 6.56e-03 [s] & 6.90e-03 [s] \\
-TS Downsample - MinMaxLTTBDownsampler & 5.82e-03 [s] & 5.97e-03 [s] & 6.13e-03 [s] & 6.85e-03 [s] & 6.54e-03 [s] & 6.74e-03 [s] \\
+Compressed Vector Downsampler - LTTBDownsampler - dac_vector & 1.04e-02 [s] & 1.21e-02 [s] & 1.05e-02 [s] & 1.57e-02 [s] & 1.05e-02 [s] & 1.06e-02 [s] \\
+Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci & 1.09e-02 [s] & 1.10e-02 [s] & 1.09e-02 [s] & 1.08e-02 [s] & 1.09e-02 [s] & 1.08e-02 [s] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector & 6.48e-03 [s] & 6.44e-03 [s] & 6.43e-03 [s] & 6.45e-03 [s] & 6.58e-03 [s] & 6.49e-03 [s] \\
+Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci & 6.30e-03 [s] & 6.52e-03 [s] & 9.35e-03 [s] & 6.60e-03 [s] & 6.47e-03 [s] & 6.60e-03 [s] \\
+Original Data & 7.62e-03 [s] & 8.76e-03 [s] & 1.47e-02 [s] & 1.99e-02 [s] & 2.90e-02 [s] & 7.26e-02 [s] \\
+TS Downsample - LTTBDownsampler & 6.66e-03 [s] & 6.39e-03 [s] & 6.37e-03 [s] & 6.40e-03 [s] & 6.48e-03 [s] & 6.46e-03 [s] \\
+TS Downsample - MinMaxLTTBDownsampler & 7.09e-03 [s] & 6.51e-03 [s] & 7.19e-03 [s] & 6.41e-03 [s] & 6.45e-03 [s] & 6.52e-03 [s] \\
 \hline
 \end{tabular}
 }

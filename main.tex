@@ -20,6 +20,9 @@
 \usepackage{titlesec}
 \usepackage{setspace}
 \usepackage{svg}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage{todonotes}
 \graphicspath{{images/}}
 
 \setlength{\parindent}{12pt}
@@ -44,10 +47,7 @@
     \vspace{3cm}
     
     \begin{center}	
-        \uppercase{\large\textbf{Título de la memoria de título}}
-
-        \bigskip
-        Subtítulo (si corresponde) de la Memoria de Título
+        \uppercase{\large\textbf{Uso De Estructuras De Datos Compactas Para Visualización De Series De Tiempo}}
 
         \vspace{1.5cm}
         POR
@@ -60,15 +60,12 @@
         optar al título profesional de Ingeniero Civil Informático}
 	
         \vspace{2cm}	
-        Profesores Guía
-
-        José Fuentes
-        Gonzalo Roja
-
+        \textbf{Profesores Guía} \\
         \bigskip
-        Profesional Supervisor
+        
+        José Fuentes \\
+        Gonzalo Rojas
 
-        Nombre del profesional supervisor
 
         \vfill
         Julio 2025
@@ -107,10 +104,20 @@ A mis abuelos, gracias por su cariño y fortaleza. Y a mis amigues, gracias por 
 \pagestyle{plain}
 \pagenumbering{roman} 
 \chapter*{Resumen}
-Aquí va el resumen en español...
+El creciente volumen de datos en aplicaciones modernas ha generado la necesidad de técnicas eficientes para su almacenamiento, análisis y visualización. Esta memoria explora el uso de estructuras de datos compactas —como \texttt{enc\_vector}, \texttt{vlc\_vector} y \texttt{dac\_vector} de la biblioteca \texttt{SDSL}— para representar series de tiempo de gran tamaño, combinándolas con algoritmos de \textit{downsampling} que permiten visualizar grandes volúmenes de información sin perder interpretabilidad. Se implementa una biblioteca en Python, \texttt{cv\_visualization}, que actúa como capa de compatibilidad entre estas estructuras y librerías de visualización como \texttt{Plotly}, \texttt{Altair} y \texttt{PyGal}.
+
+Se diseñan experimentos para evaluar el impacto de estas técnicas en el uso de memoria durante la visualización (es decir, cuánta memoria RAM es necesario asignar en tiempo de ejecución), el tiempo de renderizado y el espacio de almacenamiento ocupado por los datos una vez reducidos. El análisis teórico y empírico incluye explicaciones detalladas de los esquemas de codificación utilizados, su complejidad de acceso y la comparación entre representaciones tradicionales y compactas.
+
+Los resultados demuestran que, si bien el \textit{downsampling} mejora la velocidad de visualización, el uso de estructuras compactas puede sacrificar parcialmente esa velocidad —aunque sigue siendo menor que la necesaria para visualizar los datos originales—, y reduce en gran medida el espacio que ocupan los datos downsampleados en disco. Se mantiene la fidelidad visual de las gráficas, pero se identifican como limitaciones que algunas bibliotecas de visualización no son completamente compatibles con estas estructuras, ya que pueden descomprimir los datos de forma interna, provocando que el uso de memoria en tiempo de ejecución aumente significativamente y limite los beneficios esperados.
+
+No quedan claros cuáles son los beneficios logrados con el trabajo, más allá de las limitaciones.
 
 \chapter*{Abstract}
-Aquí va la versión en inglés...
+The growing volume of data in modern applications has created the need for efficient techniques for storage, analysis, and visualization. This thesis explores the use of compact data structures —such as \texttt{enc\_vector}, \texttt{vlc\_vector}, and \texttt{dac\_vector} from the \texttt{SDSL} library— to represent large time series, combining them with \textit{downsampling} algorithms that allow the visualization of massive datasets without losing interpretability. A Python library, \texttt{cv\_visualization}, was developed to serve as a compatibility layer between these structures and visualization libraries such as \texttt{Plotly}, \texttt{Altair}, and \texttt{PyGal}.
+
+Experiments were designed to evaluate the impact of these techniques on memory usage during visualization (i.e., how much RAM needs to be allocated at runtime), rendering time, and the storage space occupied by the reduced datasets. Theoretical and empirical analysis includes detailed explanations of the encoding schemes used, their access complexity, and the comparison between traditional and compact representations.
+
+The results show that while \textit{downsampling} improves visualization speed, the use of compact structures may partially sacrifice that speed—although it remains lower than rendering the original data—and significantly reduces the disk space occupied by downsampled datasets. Visual fidelity is preserved, but a notable limitation is that some visualization libraries are not fully compatible with these structures, as they may internally decompress the data, causing runtime memory usage to increase substantially and limiting the expected efficiency benefits.
 
 %%%%% Índices
 \tableofcontents

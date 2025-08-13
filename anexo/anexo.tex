@@ -1,249 +1,285 @@
-\section{Anexo}
+% \appendix
 
-\subsection{Experimentos}
-\label{sec:experimentos}
-\input{anexo/plots}
-\input{anexo/tables}
-\input{anexo/exp}
+% \chapter{Experimentos}
+% \label{sec:experimentos}
+% \input{anexo/plots}
+% \input{anexo/tables}
+% \input{anexo/exp}
 
-En esta sección se describen los experimentos realizados para evaluar el rendimiento de las diferentes bibliotecas de visualización de datos. Cada experimento incluye una breve descripción, los datos de entrada utilizados y los resultados obtenidos.
+% En esta sección se describen los experimentos realizados para evaluar el rendimiento de las diferentes bibliotecas de visualización de datos. Cada experimento incluye una breve descripción, los datos de entrada utilizados y los resultados obtenidos.
 
-\subsubsection{Información General}
-\label{general_info}
+% \section{Información General}
+% \label{general_info}
 
-\paragraph{Equipo de Pruebas}
-Los experimentos fueron ejecutados en el siguiente entorno de pruebas:
+% \paragraph{Equipo de Pruebas}
+% Los experimentos fueron ejecutados en el siguiente entorno de pruebas:
 
-Todos los experimentos se realizaron en el servidor \texttt{chome} de la Universidad de Concepción, el cual fue proporcionado específicamente para el desarrollo de esta memoria de título. 
+% Todos los experimentos se realizaron en el servidor \texttt{chome} de la Universidad de Concepción, el cual fue proporcionado específicamente para el desarrollo de esta memoria de título. 
 
-\begin{itemize}
-    \item \textbf{Hostname:} chome
-    \item \textbf{CPU:} Intel(R) Xeon(R) Gold 5320T CPU @ 2.30GHz
-    \item \textbf{Sistema Operativo:} Linux 5.10.0-13-amd64-x86\_64-with-glibc2.31
-    \item \textbf{Versión de Python:} 3.9.2
-    \item \textbf{Dependencias principales para el framework de experimentos:}
-    \begin{itemize}
-        \item numpy==2.0.2
-            % explicar para que se usa
-            Usada para calcular promedio, desviación estándar, entre otros.
-        \item sacred==0.8.7
-            % explicar para que se usa
-            Usada para definir y ejecutar los experimentos.
-    \end{itemize}
-    \item \textbf{Directorio base:} /home/obrito2020/oliver/cv\_visualization/benchmarking
-    \item \textbf{Repositorio:} git@github.com:rat00lis/cv\_visualization.git
-    \item \textbf{Commit:} \texttt{8bf12c009fc991b9eeb2cb655b4d5cc3b5030a44}
-\end{itemize}
+% \begin{itemize}
+%     \item \textbf{Hostname:} chome
+%     \item \textbf{CPU:} Intel(R) Xeon(R) Gold 5320T CPU @ 2.30GHz
+%     \item \textbf{Sistema Operativo:} Linux 5.10.0-13-amd64-x86\_64-with-glibc2.31
+%     \item \textbf{Versión de Python:} 3.9.2
+%     \item \textbf{Dependencias principales para el framework de experimentos:}
+%     \begin{itemize}
+%         \item numpy==2.0.2
+%             % explicar para que se usa
+%             Usada para calcular promedio, desviación estándar, entre otros.
+%         \item sacred==0.8.7
+%             % explicar para que se usa
+%             Usada para definir y ejecutar los experimentos.
+%     \end{itemize}
+%     \item \textbf{Directorio base:} /home/obrito2020/oliver/cv\_visualization/benchmarking
+%     \item \textbf{Repositorio:} git@github.com:rat00lis/cv\_visualization.git
+%     \item \textbf{Commit:} \texttt{8bf12c009fc991b9eeb2cb655b4d5cc3b5030a44}
+% \end{itemize}
 
-\paragraph{Configuración}
+% \paragraph{Configuración}
 
-\begin{itemize}
-    \item \textbf{Iteraciones por experimento:} 100
-    \item \textbf{Rangos de entrada:} $(1001, 10000, 100000, 300000)$
-\end{itemize}
+% \begin{itemize}
+%     \item \textbf{Iteraciones por experimento:} 100
+%     \item \textbf{Rangos de entrada:} $(1001, 10000, 100000, 300000)$
+% \end{itemize}
 
-\paragraph{Datos de Entrada}
+% \paragraph{Datos de Entrada}
 
-\begin{itemize}
-    \item \textbf{Sensores de Puente:}
-    \begin{itemize}
-        \item \textbf{d\_08\_1\_1\_2.txt} 
-        \item \textbf{d\_08\_1\_1\_10.txt} 
-    \end{itemize}
-    \item \textbf{Usuarios por fecha en Taxi New York:}
-    \begin{itemize}
-        \item \textbf{yellow\_tripdata\_2015\_01.txt} 
-    \end{itemize}
-    \item \textbf{Rangos de entrada:} $(1001, 10000, 100000, 300000)$
-\end{itemize}
+% \begin{itemize}
+%     \item \textbf{Sensores de Puente:}
+%     \begin{itemize}
+%         \item \textbf{d\_08\_1\_1\_2.txt} 
+%         \item \textbf{d\_08\_1\_1\_10.txt} 
+%     \end{itemize}
+%     \item \textbf{Usuarios por fecha en Taxi New York:}
+%     \begin{itemize}
+%         \item \textbf{yellow\_tripdata\_2015\_01.txt} 
+%     \end{itemize}
+%     \item \textbf{Rangos de entrada:} $(1001, 10000, 100000, 300000)$
+% \end{itemize}
 
-\newpage
+% \newpage
 
-\subsubsection{All Libraries Memory Allocation}
-\label{all_libraries_memory_allocation}
+% \section{All Libraries Memory Allocation}
+% \label{all_libraries_memory_allocation}
 
-%descripcion
-Experimento que mide la memoria asignada por las diferentes bibliotecas al momento de crear un gráfico. Se incluye la memoria asignada al descomprimir los datos de entrada si la biblioteca no es compatible con \texttt{CompressedVector}.
+% %descripcion
+% Experimento que mide la memoria asignada por las diferentes bibliotecas al momento de crear un gráfico. Se incluye la memoria asignada al descomprimir los datos de entrada si la biblioteca no es compatible con \texttt{CompressedVector}.
 
-\paragraph{Entrada}
-%lista
-\begin{itemize}
-    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
-    \item Biblioteca a utilizar: Vega-Altair, Plotly, Pygal o Matplotlib.
-\end{itemize}
+% \paragraph{Entrada}
+% %lista
+% \begin{itemize}
+%     \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+%     \item Biblioteca a utilizar: Vega-Altair, Plotly, Pygal o Matplotlib.
+% \end{itemize}
 
-\paragraph{Salida}
-%lista
-\begin{itemize}
-    \item Memoria asignada en el proceso de creación del gráfico.
-\end{itemize}
+% \paragraph{Salida}
+% %lista
+% \begin{itemize}
+%     \item Memoria asignada en el proceso de creación del gráfico.
+% \end{itemize}
 
-\paragraph{Resultados}
-\vspace{0.5em}
-\noindent
+% \paragraph{Resultados}
+% \vspace{0.5em}
+% \noindent
 
-\AllLibrariesMemoryAllocation
-\newpage
+% \AllLibrariesMemoryAllocation
+% \newpage
 
-\subsubsection{All Libraries Time Comparison}
-\label{all_libraries_time_comparison}
+% \section{All Libraries Time Comparison}
+% \label{all_libraries_time_comparison}
 
-Experimento que compara el tiempo de ejecución para generar gráficos utilizando diferentes bibliotecas de visualización de datos. Se mide el tiempo total desde el inicio de la creación del gráfico hasta su finalización.
+% Experimento que compara el tiempo de ejecución para generar gráficos utilizando diferentes bibliotecas de visualización de datos. Se mide el tiempo total desde el inicio de la creación del gráfico hasta su finalización.
 
-\paragraph{Entrada}
-\begin{itemize}
-    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
-    \item Biblioteca a utilizar: Vega-Altair, Plotly, Pygal o Matplotlib.
-\end{itemize}
+% \paragraph{Entrada}
+% \begin{itemize}
+%     \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+%     \item Biblioteca a utilizar: Vega-Altair, Plotly, Pygal o Matplotlib.
+% \end{itemize}
 
-\paragraph{Salida}
-\begin{itemize}
-    \item Tiempo de ejecución en segundos para generar el gráfico.
-\end{itemize}
+% \paragraph{Salida}
+% \begin{itemize}
+%     \item Tiempo de ejecución en segundos para generar el gráfico.
+% \end{itemize}
 
-\paragraph{Resultados}
-\vspace{0.5em}
-\noindent
+% \paragraph{Resultados}
+% \vspace{0.5em}
+% \noindent
 
-\AllLibrariesTimeComparison
-\newpage
+% \AllLibrariesTimeComparison
+% \newpage
 
-Podemos ver una anomalía en el tamaño de entrada \textbf{1001} ya que no utiliza \textit{downsampling}.
+% Podemos ver una anomalía en el tamaño de entrada \textbf{1001} ya que no utiliza \textit{downsampling}.
 
-\subsubsection{Vega-Altair Plot Time Comparison}
-\label{vega_altair_plot_time}
+% \section{Vega-Altair Plot Time Comparison}
+% \label{vega_altair_plot_time}
 
-Experimento específico que mide el tiempo de generación de gráficos utilizando únicamente la biblioteca Vega-Altair con diferentes configuraciones y tamaños de datos.
+% Experimento específico que mide el tiempo de generación de gráficos utilizando únicamente la biblioteca Vega-Altair con diferentes configuraciones y tamaños de datos.
 
-\paragraph{Entrada}
-\begin{itemize}
-    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
-    \item Configuraciones específicas de Vega-Altair para diferentes tipos de gráficos.
-\end{itemize}
+% \paragraph{Entrada}
+% \begin{itemize}
+%     \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+%     \item Configuraciones específicas de Vega-Altair para diferentes tipos de gráficos.
+% \end{itemize}
 
-\paragraph{Salida}
-\begin{itemize}
-    \item Tiempo de ejecución detallado para cada configuración de Vega-Altair.
-\end{itemize}
+% \paragraph{Salida}
+% \begin{itemize}
+%     \item Tiempo de ejecución detallado para cada configuración de Vega-Altair.
+% \end{itemize}
 
-\paragraph{Resultados}
-\vspace{0.5em}
-\noindent
+% \paragraph{Resultados}
+% \vspace{0.5em}
+% \noindent
 
-\VegaAltairPlotTimeComparison
-\newpage
+% \VegaAltairPlotTimeComparison
+% \newpage
 
-\subsubsection{PyGal Plot Time}
-\label{pygal_plot_time}
+% \section{PyGal Plot Time}
+% \label{pygal_plot_time}
 
-Experimento que evalúa el rendimiento temporal de la biblioteca PyGal para la generación de diferentes tipos de gráficos.
+% Experimento que evalúa el rendimiento temporal de la biblioteca PyGal para la generación de diferentes tipos de gráficos.
 
-\paragraph{Entrada}
-\begin{itemize}
-    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
-    \item Configuraciones específicas de PyGal.
-\end{itemize}
+% \paragraph{Entrada}
+% \begin{itemize}
+%     \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+%     \item Configuraciones específicas de PyGal.
+% \end{itemize}
 
-\paragraph{Salida}
-\begin{itemize}
-    \item Tiempo de ejecución para generar gráficos con PyGal.
-\end{itemize}
+% \paragraph{Salida}
+% \begin{itemize}
+%     \item Tiempo de ejecución para generar gráficos con PyGal.
+% \end{itemize}
 
-\paragraph{Resultados}
-\vspace{0.5em}
-\noindent
+% \paragraph{Resultados}
+% \vspace{0.5em}
+% \noindent
 
-\PyGalPlotTime
-\newpage
+% \PyGalPlotTime
+% \newpage
 
-\subsubsection{Vega-Altair Plotting + Building Comparison}
-\label{vega_altair_plot_plus_build_time}
+% \section{Vega-Altair Plotting + Building Comparison}
+% \label{vega_altair_plot_plus_build_time}
 
-Experimento que mide el tiempo total incluyendo tanto la generación del gráfico como su construcción/renderizado final utilizando Vega-Altair.
+% Experimento que mide el tiempo total incluyendo tanto la generación del gráfico como su construcción/renderizado final utilizando Vega-Altair.
 
-\paragraph{Entrada}
-\begin{itemize}
-    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
-    \item Configuraciones de Vega-Altair para diferentes tipos de visualización.
-\end{itemize}
+% \paragraph{Entrada}
+% \begin{itemize}
+%     \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+%     \item Configuraciones de Vega-Altair para diferentes tipos de visualización.
+% \end{itemize}
 
-\paragraph{Salida}
-\begin{itemize}
-    \item Tiempo total de plotting y building combinados.
-\end{itemize}
+% \paragraph{Salida}
+% \begin{itemize}
+%     \item Tiempo total de plotting y building combinados.
+% \end{itemize}
 
-\paragraph{Resultados}
-\vspace{0.5em}
-\noindent
+% \paragraph{Resultados}
+% \vspace{0.5em}
+% \noindent
 
-\VegaAltairPlottingBuildingComparison
-\newpage
+% \VegaAltairPlottingBuildingComparison
+% \newpage
 
-\subsubsection{Comparison of Space Used}
-\label{comparison_of_space_used}
+% \section{Comparison of Space Used}
+% \label{comparison_of_space_used}
 
-Experimento que compara el espacio utilizado en memoria y almacenamiento por las diferentes bibliotecas durante el proceso de visualización de datos.
+% Experimento que compara el espacio utilizado en memoria y almacenamiento por las diferentes bibliotecas durante el proceso de visualización de datos.
 
-\paragraph{Entrada}
-\begin{itemize}
-    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
-    \item Biblioteca a utilizar: Vega-Altair, Plotly, Pygal o Matplotlib.
-\end{itemize}
+% \paragraph{Entrada}
+% \begin{itemize}
+%     \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+%     \item Biblioteca a utilizar: Vega-Altair, Plotly, Pygal o Matplotlib.
+% \end{itemize}
 
-\paragraph{Salida}
-\begin{itemize}
-    \item Espacio utilizado en bytes por cada biblioteca.
-\end{itemize}
+% \paragraph{Salida}
+% \begin{itemize}
+%     \item Espacio utilizado en bytes por cada biblioteca.
+% \end{itemize}
 
-\paragraph{Resultados}
-\vspace{0.5em}
-\noindent
+% \paragraph{Resultados}
+% \vspace{0.5em}
+% \noindent
 
-\ComparisonOfSpaceUsed
-\newpage
+% \ComparisonOfSpaceUsed
+% \newpage
 
-\subsubsection{PyGal Memory Allocation}
-\label{pygal_memory_allocation}
 
-Experimento específico que analiza la asignación de memoria de la biblioteca PyGal durante la creación de gráficos.
+% \section{Vega-Altair Memory Allocation}
+% \label{vega_altair_memory_allocation}
 
-\paragraph{Entrada}
-\begin{itemize}
-    \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
-    \item Configuraciones específicas de PyGal.
-\end{itemize}
+% Experimento específico que analiza la asignación de memoria de la biblioteca Vega-Altair durante la creación de gráficos.
 
-\paragraph{Salida}
-\begin{itemize}
-    \item Memoria asignada por PyGal durante el proceso de visualización.
-\end{itemize}
+% \paragraph{Entrada}
+% \begin{itemize}
+%     \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+%     \item Configuraciones específicas de Vega-Altair.
+% \end{itemize}
 
-\paragraph{Resultados}
-\vspace{0.5em}
-\noindent
+% \paragraph{Salida}
+% \begin{itemize}
+%     \item Memoria asignada por Vega-Altair durante el proceso de visualización.
+% \end{itemize}
 
-\PyGalMemoryAllocation
-\newpage
+% \paragraph{Resultados}
+% \vspace{0.5em}
+% \noindent
 
-\subsubsection{Building Time Comparison}
-\label{building_time_comparison}
+% \VegaAltairMemoryAllocation
+% \newpage
 
-Experimento que mide específicamente el tiempo de construcción/renderizado de los gráficos, separando esta fase del tiempo de plotting inicial.
 
-\paragraph{Entrada}
-\begin{itemize}
-    \item Gráficos pre-generados por diferentes bibliotecas.
-    \item Configuraciones de renderizado para cada biblioteca.
-\end{itemize}
+% \section{PyGal Memory Allocation}
+% \label{pygal_memory_allocation}
 
-\paragraph{Salida}
-\begin{itemize}
-    \item Tiempo de construcción/renderizado en segundos.
-\end{itemize}
+% Experimento específico que analiza la asignación de memoria de la biblioteca PyGal durante la creación de gráficos.
 
-\paragraph{Resultados}
-\vspace{0.5em}
-\noindent
+% \paragraph{Entrada}
+% \begin{itemize}
+%     \item Conjunto de datos de entrada: \( (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n) \)
+%     \item Configuraciones específicas de PyGal.
+% \end{itemize}
 
-\BuildingTimeComparison
-\newpage
+% \paragraph{Salida}
+% \begin{itemize}
+%     \item Memoria asignada por PyGal durante el proceso de visualización.
+% \end{itemize}
+
+% \paragraph{Resultados}
+% \vspace{0.5em}
+% \noindent
+
+% \PyGalMemoryAllocation
+% \newpage
+
+
+
+% \section{Building Time Comparison}
+% \label{building_time_comparison}
+
+% Experimento que mide específicamente el tiempo de construcción/renderizado de los gráficos, separando esta fase del tiempo de plotting inicial.
+
+% \paragraph{Entrada}
+% \begin{itemize}
+%     \item Gráficos pre-generados por diferentes bibliotecas.
+%     \item Configuraciones de renderizado para cada biblioteca.
+% \end{itemize}
+
+% \paragraph{Salida}
+% \begin{itemize}
+%     \item Tiempo de construcción/renderizado en segundos.
+% \end{itemize}
+
+% \paragraph{Resultados}
+% \vspace{0.5em}
+% \noindent
+
+% \BuildingTimeComparison
+% \newpage
+
+\chapter{Limitaciones de Implementación SDSL4PY}
+\label{limitaciones_enc_vector}
+Dentro de las estructuras de datos compactas evaluadas durante la Memoria de Título, se menciona \texttt{enc\_vector} como una de las candidatas para su procesamiento y uso en visualización de datos. Sin embargo, a pesar de estar implementada en las clases desarrolladas, no se usó para la evaluación de alternativas ni para las pruebas sobre sistema. Esto es debido a los siguientes motivos:
+
+\begin{enumerate}
+    \item \textbf{Redundancia}: Ya se evalúa \texttt{vlc\_vector} que es una versión mejorada de \texttt{enc\_vector} en su velocidad de acceso.
+    \item \textbf{Problemas en la implementación}: Los vectores \texttt{enc\_vector} presentaban problemas inesperados a nivel de su implementación en \texttt{SDSL4Py}, provocando problemas de memoria y acceso si no se utilizaban con una longitud de $64 bits$ por elemento. La corrección de estos problemas escapa al trabajo de esta Memoria de Título, y por ende se decide excluir la estructura de datos del análisis.  
+\end{enumerate}

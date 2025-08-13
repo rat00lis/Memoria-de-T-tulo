@@ -1,43 +1,43 @@
 n_size,option,measurement_unit,mean
-100000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.014927099350218971
-100000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2,seconds,0.01586026269942522
-100000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.014928701752796768
-100000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2,seconds,0.01585593253063659
-100000,Original Data,seconds,0.02549907014084359
-100000,TS Downsample - LTTBDownsampler,seconds,0.006345543715481957
-100000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.006353848023960987
-12000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.014448188881700238
-12000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2,seconds,0.015436200161154072
-12000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.007977759962280591
-12000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2,seconds,0.008191288200517495
-12000,Original Data,seconds,0.008038173507278165
-12000,TS Downsample - LTTBDownsampler,seconds,0.0059793018735945225
-12000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.006013855074221889
-20000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.014544745286305746
-20000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2,seconds,0.015541178795198599
-20000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.009447653746853272
-20000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2,seconds,0.009840874637787541
-20000,Original Data,seconds,0.00960640663591524
-20000,TS Downsample - LTTBDownsampler,seconds,0.006038885097950697
-20000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.006095407996326685
-300000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.014958930543313424
-300000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2,seconds,0.016908352558190624
-300000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.01490006218664348
-300000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2,seconds,0.015845251766343913
-300000,Original Data,seconds,0.07367675215937197
-300000,TS Downsample - LTTBDownsampler,seconds,0.006431976178040107
-300000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.0066848919571687775
-6000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.014341039241602023
-6000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2,seconds,0.015266556696345409
-6000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.006735288957133889
-6000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2,seconds,0.0069786669996877515
-6000,Original Data,seconds,0.006895779492333531
-6000,TS Downsample - LTTBDownsampler,seconds,0.005876007070764899
-6000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.0058110860176384446
-70000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.01493402263149619
-70000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_comma_2,seconds,0.015796294420336685
-70000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.014861228285978238
-70000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_comma_2,seconds,0.01586130155871312
-70000,Original Data,seconds,0.019495016088088353
-70000,TS Downsample - LTTBDownsampler,seconds,0.00636241875278453
-70000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.00639760970758895
+100000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.014841088093817234
+100000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci,seconds,0.015518199652433395
+100000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.015003926120698452
+100000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci,seconds,0.015485399402678013
+100000,Original Data,seconds,0.02620225679129362
+100000,TS Downsample - LTTBDownsampler,seconds,0.006394552066922188
+100000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.006487377919256687
+12000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.015231490135192871
+12000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci,seconds,0.014883826486766338
+12000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.008163472637534142
+12000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci,seconds,0.008387195877730846
+12000,Original Data,seconds,0.008365459740161896
+12000,TS Downsample - LTTBDownsampler,seconds,0.007090101018548012
+12000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.006293904967606068
+20000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.0146722923964262
+20000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci,seconds,0.01605542190372944
+20000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.009612256661057472
+20000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci,seconds,0.01010226272046566
+20000,Original Data,seconds,0.011174643412232399
+20000,TS Downsample - LTTBDownsampler,seconds,0.006431940011680126
+20000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.0063805049285292625
+300000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.01653736364096403
+300000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci,seconds,0.0228940574452281
+300000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.01706551294773817
+300000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci,seconds,0.015343567356467247
+300000,Original Data,seconds,0.07337330654263496
+300000,TS Downsample - LTTBDownsampler,seconds,0.006495964713394642
+300000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.006438692100346088
+6000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.014846635982394218
+6000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci,seconds,0.015034290961921215
+6000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.007525494322180748
+6000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci,seconds,0.007659648545086384
+6000,Original Data,seconds,0.007198866456747055
+6000,TS Downsample - LTTBDownsampler,seconds,0.006064819172024727
+6000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.0062172748148441315
+70000,Compressed Vector Downsampler - LTTBDownsampler - dac_vector,seconds,0.01692176330834627
+70000,Compressed Vector Downsampler - LTTBDownsampler - vlc_vector_fibonacci,seconds,0.01530689187347889
+70000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - dac_vector,seconds,0.014884556643664837
+70000,Compressed Vector Downsampler - MinMaxLTTBDownsampler - vlc_vector_fibonacci,seconds,0.015441007912158966
+70000,Original Data,seconds,0.019763163290917873
+70000,TS Downsample - LTTBDownsampler,seconds,0.006562737748026848
+70000,TS Downsample - MinMaxLTTBDownsampler,seconds,0.0064195627346634865

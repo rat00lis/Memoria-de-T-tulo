@@ -1,0 +1,25 @@
+n_size,option,measurement_unit,mean
+100000,Compressed Vector Downsample - dac_vector,kilobytes,153.2109375
+100000,Compressed Vector Downsample - vlc_vector_fibonacci,kilobytes,153.318359375
+100000,Original Data,kilobytes,664380.810546875
+100000,TS Downsample,kilobytes,152.92578125
+12000,Compressed Vector Downsample - dac_vector,kilobytes,108.8798828125
+12000,Compressed Vector Downsample - vlc_vector_fibonacci,kilobytes,108.9873046875
+12000,Original Data,kilobytes,79886.6171875
+12000,TS Downsample,kilobytes,108.5009765625
+20000,Compressed Vector Downsample - dac_vector,kilobytes,108.8798828125
+20000,Compressed Vector Downsample - vlc_vector_fibonacci,kilobytes,109.5498046875
+20000,Original Data,kilobytes,133062.6513671875
+20000,TS Downsample,kilobytes,108.5009765625
+300000,Compressed Vector Downsample - dac_vector,kilobytes,151.525390625
+300000,Compressed Vector Downsample - vlc_vector_fibonacci,kilobytes,153.03125
+300000,Original Data,kilobytes,1997222.125
+300000,TS Downsample,kilobytes,153.232421875
+6000,Compressed Vector Downsample - dac_vector,kilobytes,133.220703125
+6000,Compressed Vector Downsample - vlc_vector_fibonacci,kilobytes,132.765625
+6000,Original Data,kilobytes,40019.2158203125
+6000,TS Downsample,kilobytes,132.326171875
+70000,Compressed Vector Downsample - dac_vector,kilobytes,108.8798828125
+70000,Compressed Vector Downsample - vlc_vector_fibonacci,kilobytes,108.9873046875
+70000,Original Data,kilobytes,465109.0703125
+70000,TS Downsample,kilobytes,108.4462890625

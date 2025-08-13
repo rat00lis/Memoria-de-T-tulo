@@ -1,4 +1,4 @@
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|c|c|c|c|c|c|}
@@ -6,10 +6,10 @@
 \cline{2-7}
  & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
 \hline
-Compressed Vector Downsample - dac_vector & 8.40e-03 [s] & 1.09e-02 [s] & 1.42e-02 [s] & 2.90e-02 [s] & 3.26e-02 [s] & 6.18e-02 [s] \\
-Compressed Vector Downsample - vlc_vector_comma_2 & 8.60e-03 [s] & 1.11e-02 [s] & 1.47e-02 [s] & 3.02e-02 [s] & 3.36e-02 [s] & 6.36e-02 [s] \\
-Original Data & 6.74e-03 [s] & 7.73e-03 [s] & 9.32e-03 [s] & 1.83e-02 [s] & 2.35e-02 [s] & 6.99e-02 [s] \\
-TS Downsample & 6.26e-03 [s] & 6.64e-03 [s] & 7.25e-03 [s] & 1.06e-02 [s] & 1.24e-02 [s] & 3.01e-02 [s] \\
+Compressed Vector Downsample - dac_vector & 8.44e-03 [s] & 1.09e-02 [s] & 1.43e-02 [s] & 2.98e-02 [s] & 3.40e-02 [s] & 6.77e-02 [s] \\
+Compressed Vector Downsample - vlc_vector_fibonacci & 8.45e-03 [s] & 1.10e-02 [s] & 1.44e-02 [s] & 3.30e-02 [s] & 3.48e-02 [s] & 6.90e-02 [s] \\
+Original Data & 6.76e-03 [s] & 7.86e-03 [s] & 9.38e-03 [s] & 1.91e-02 [s] & 2.48e-02 [s] & 7.43e-02 [s] \\
+TS Downsample & 6.29e-03 [s] & 6.79e-03 [s] & 7.33e-03 [s] & 1.21e-02 [s] & 1.43e-02 [s] & 3.50e-02 [s] \\
 \hline
 \end{tabular}
 }

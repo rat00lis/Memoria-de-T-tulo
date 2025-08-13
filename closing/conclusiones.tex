@@ -1,4 +1,4 @@
-\section{Conclusiones}
+\chapter{Conclusiones}
 
 El carácter de la Memoria de Título es principalmente experimental. Las herramientas desarrolladas durante su realización han servido para delimitar un esquema general del potencial respecto al uso de estructuras de datos compactas para la visualización de datos, centrándose en una visión general de los caminos posibles que se ramifican a partir de la investigación realizada y los resultados obtenidos.
 
@@ -11,19 +11,21 @@ La escasez de bibliotecas de visualización que soporten iterar por sobre objeto
 
 Por último, es importante destacar que la investigación y el desarrollo en este campo están en constante evolución. Las herramientas y técnicas desarrolladas en esta Memoria de Título son un primer paso hacia una comprensión más profunda de cómo las estructuras de datos compactas pueden mejorar la visualización de datos. Se espera que futuras investigaciones continúen explorando estas posibilidades y desarrollen nuevas técnicas y herramientas para mejorar aún más la eficiencia y efectividad de las visualizaciones.
 
-\section{Proyecciones}
-
+\chapter{Proyecciones}
+\label{proyecciones}
 Hay muchas direcciones futuras que se pueden explorar a partir del trabajo realizado en esta Memoria de Título. Debido a su naturaleza general y experimental, son muy variadas las rutas por las cuales continuar la investigación y el desarrollo en este campo.
 
-\subsection{Mejoras en la clase \texttt{CompressedVector}}
+\section{Mejoras en la clase \texttt{CompressedVector}}
 
 La implementación de la clase \texttt{CompressedVector} es un primer acercamiento que podría ser considerado un prototipo. A pesar de que cumple su función de reducir el espacio en disco contra los datos originales, aún existen muchos aspectos que podrían ser mejorados para garantizar una reducción mayor del espacio y una mejora en la velocidad de acceso a los datos.
 
-\subsubsection{Reducir la cantidad de vectores \texttt{SDSL4Py} usados.}
+\subsection{Reducir la cantidad de vectores \texttt{SDSL4Py} usados.}
 
 Como se explicó anteriormente en la sección \ref{sec:development:compressed_vector}, la clase \texttt{CompressedVector} utiliza múltiples vectores de SDSL4Py para almacenar los datos. Esto provoca que por cada vector que usaría un espacio $s_{sdsl4py}$ en una estrucutura de SDSL4Py, la clase \texttt{CompressedVector} use un espacio $3s_{sdsl4py}$ en el peor caso. 
 
-Este problema podría ser mitigado eliminando el vector interno \texttt{sign\_part}, que actualmente indica si cada valor es positivo o negativo. En su lugar, se podría aplicar una transformación previa sobre el vector original para asegurar que todos los valores sean no negativos. Una forma común de lograr esto es restar el valor mínimo del conjunto a todos los elementos y almacenar este desplazamiento (\textit{offset}) por separado. Esta técnica es conocida como \textit{offset encoding} y permite reducir el número de vectores requeridos internamente, mejorando el uso de memoria.
+Este problema podría ser mitigado eliminando el vector interno \texttt{sign\_part}, que actualmente indica si cada valor es positivo o negativo. En su lugar, se podría aplicar una transformación previa sobre el vector original para asegurar que todos los valores sean no negativos. Una forma común de lograr esto es restar el valor mínimo del conjunto a todos los elementos y almacenar este desplazamiento (\textit{offset}) por separado. Esta técnica es conocida como \textit{offset encoding} y permite reducir el número de vectores requeridos internamente, mejorando el uso de memoria y el espacio usado en disco.
+
+Esta mejora puede verse en el experimento\ref{comparison_of_space_used}, donde al usar el input de taxis en New York\ref{input_taxi} se ve una mejora considerable del uso del espacio, al no tener la necesidad de usar un vector para almacenar los decimales.
 
 \begin{equation}
 x_i' = x_i - \min(x)
@@ -31,14 +33,25 @@ x_i' = x_i - \min(x)
 
 Donde \( x_i \) representa cada elemento original del vector, y \( x_i' \) el valor transformado. El valor mínimo \(\min(x)\) se almacena de forma externa y puede ser sumado nuevamente al momento de acceder a los datos originales.
 
+También podría explorarse la idea de eliminar el vector interno \texttt{decimal\_part}, que almacena la parte decimal de cada elemento. En su lugar, se puede aplicar un escalamiento global a todos los valores originales multiplicándolos por \(10^d\) (donde \(d\) es la cantidad de decimales que se desea conservar) y redondeando el resultado a enteros:
 
-\subsubsection{Optimizar el acceso secuencial y contiguo a los datos.}
+\begin{equation}
+\tilde{x}_i = \operatorname{round}\!\left( x_i \cdot 10^d \right)
+\end{equation}
 
+De esta forma, toda la información queda unificada en un único vector compacto de enteros, acompañado únicamente por el metadato \(d\) que indica la precisión utilizada. Este enfoque reduce el número de vectores internos y, por lo tanto, el espacio total en disco, a costa de una sobrecarga mínima para revertir la operación durante la reconstrucción de los datos originales.
+
+\subsection{Utilizar ancho de elementos y compactación de forma dinámica.}
+
+Una mejora futura ideal para este proyecto podría ser la capacidad de analizar el input y automáticamente aplicar la mejor estrategia de compactación, posiciones decimales, ancho de los elementos e incluso la técnica de downsampling.
+
+\subsection{Optimizar el acceso secuencial y contiguo a los datos.}
+\label{proyecciones_vlc}
 La clase \texttt{CompressedVector} actualmente accede a los datos mediante una iteración directa sobre los vectores internos, sin considerar el patrón de acceso. Este enfoque puede ser ineficiente en casos donde los accesos se realizan de manera contigua o secuencial, ya que no aprovecha las propiedades de localidad que podrían optimizar el rendimiento.
 
 En particular, las estructuras provistas por SDSL permiten el uso eficiente de operaciones como \texttt{rank} y \texttt{select}, que pueden ser explotadas para acelerar el acceso en escenarios donde se requiere iterar sobre rangos consecutivos de índices. Ya que para visualizar un gráfico se itera sobre todos los datos en orden, se podría implementar un método que aproveche estas operaciones para acceder a los datos de manera más eficiente, reduciendo el tiempo de acceso y mejorando el rendimiento general de la clase.
 
-\subsection{Bibliotecas de Visualización}
+\section{Bibliotecas de Visualización}
 
 Existen diversas bibliotecas de visualización que podrían beneficiarse de las optimizaciones propuestas en esta Memoria de Título. Por ejemplo, bibliotecas como Matplotlib, Seaborn o Plotly en Python, que son ampliamente utilizadas para la creación de gráficos y visualizaciones interactivas, podrían integrar técnicas de compresión y acceso eficiente a los datos para mejorar su rendimiento. Sin embargo, debido a que estas bibliotecas requieren un tipo especifico de vector para graficar, la implementación de la clase \texttt{CompressedVector} no es directamente compatible con ellas.
 

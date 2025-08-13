@@ -1,17 +1,15 @@
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{6}{c|}{\textbf{Number of data points}} \\
+\cline{2-7}
+ & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
 \hline
-option/$n_{size}$ & \textbf{Altair Line Plot} & \textbf{MatPlotlib Line Plot} & \textbf{Plotly Line Plot} & \textbf{Pygal Line Plot}\\
-\hline
-2000 & 1.16e-02 [s] & 1.30e-02 [s] & 7.57e-03 [s] & 3.00e-03 [s] \\
-6000 & 6.65e-03 [s] & 8.00e-03 [s] & 2.59e-03 [s] & 4.91e-04 [s] \\
-12000 & 7.41e-03 [s] & 8.82e-03 [s] & 3.28e-03 [s] & 8.56e-04 [s] \\
-20000 & 8.44e-03 [s] & 9.77e-03 [s] & 4.27e-03 [s] & 1.32e-03 [s] \\
-70000 & 1.24e-02 [s] & 1.38e-02 [s] & 7.89e-03 [s] & 3.12e-03 [s] \\
-100000 & 1.23e-02 [s] & 1.38e-02 [s] & 7.88e-03 [s] & 3.09e-03 [s] \\
-300000 & 1.25e-02 [s] & 1.40e-02 [s] & 8.00e-03 [s] & 3.14e-03 [s] \\
+Altair Line Plot & 6.92e-03 [s] & 7.66e-03 [s] & 8.55e-03 [s] & 1.21e-02 [s] & 1.20e-02 [s] & 1.38e-02 [s] \\
+MatPlotlib Line Plot & 8.07e-03 [s] & 8.71e-03 [s] & 9.56e-03 [s] & 1.29e-02 [s] & 1.30e-02 [s] & 1.31e-02 [s] \\
+Plotly Line Plot & 2.69e-03 [s] & 3.38e-03 [s] & 4.24e-03 [s] & 7.64e-03 [s] & 7.58e-03 [s] & 7.64e-03 [s] \\
+Pygal Line Plot & 5.43e-04 [s] & 8.71e-04 [s] & 1.31e-03 [s] & 3.03e-03 [s] & 3.01e-03 [s] & 3.00e-03 [s] \\
 \hline
 \end{tabular}
 }

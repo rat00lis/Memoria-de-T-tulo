@@ -1,18 +1,18 @@
-\section{Desarrollo}
+\chapter{Desarrollo}
 
 
-\subsection{Uso de \texttt{sdsl4py} para la visualización de datos}
+\section{Uso de \texttt{sdsl4py} para la visualización de datos}
 
 La biblioteca \texttt{sdsl4py} expone en Python diversas estructuras de datos compactas de la librería \texttt{sdsl-lite}, diseñada originalmente para representar secuencias de enteros sin signo de forma eficiente en términos de espacio. El flujo de trabajo básico consiste en construir un \texttt{int\_vector} modificable con un tamaño predefinido, cargar los datos en él, y luego aplicar una estrategia de compresión específica. Una vez comprimido, el vector pasa a ser de solo lectura.
 
-Aunque estas estructuras pueden integrarse con bibliotecas como \texttt{plotly}, presentan una limitación clave: no admiten valores flotantes ni negativos de forma nativa. Esto se debe a que las técnicas de compresión empleadas —como las codificaciones de Elias o Fibonacci— asumen enteros positivos, donde patrones de repetición o crecimiento logarítmico pueden ser aprovechados para reducir el espacio.
+Aunque estas estructuras pueden integrarse con bibliotecas como \texttt{plotly}, presentan una limitación clave: no admiten valores flotantes ni negativos de forma nativa. Esto se debe al tipo de dato esperados por las mismas, detallado en la sección de alternativas\ref{alternatives}.
 
 Cuando se trabaja con series de tiempo u otros datos con decimales, la representación compacta se vuelve más compleja. Los valores flotantes tienden a carecer de regularidad en su representación binaria, dificultando la compresión efectiva. Además, representar signos o fracciones dentro de estructuras diseñadas exclusivamente para enteros sin signo requiere soluciones externas, como escalado previo o codificaciones personalizadas, que introducen sobrecarga adicional y limitan la interoperabilidad con los algoritmos ya existentes.
 
 Por estas razones, aunque \texttt{sdsl4py} puede ser útil para visualizar datos discretos o transformados a enteros, no resulta una opción directa ni eficiente para representar valores reales sin una etapa de preprocesamiento.
 
 
-\subsection{CompressedVector}
+\section{CompressedVector}
 
 Para superar la limitación de que \texttt{sdsl4py} sólo permite almacenar enteros sin signo (\textit{uint}), se propone una estructura llamada \texttt{CompressedVector}, que habilita la representación de números reales (positivos, negativos y \texttt{NaN}) mediante la combinación de varias estructuras compactas para representar vectores de enteros,\texttt{int\_vector<>}. La estrategia consiste en descomponer cada número flotante en tres componentes separados:
 
@@ -94,30 +94,40 @@ Para facilitar su uso dentro del ecosistema Python y su interoperabilidad con bi
 \caption{Operaciones implementadas en la clase \texttt{CompressedVector}}
 \end{table}
 
-\subsection{CompressedVectorDownsampler}
+\section{CompressedVectorDownsampler}
 
-Hasta ahora hemos abordado por separado el uso de estructuras de datos compactas y las técnicas de \textit{downsampling}. La clase \texttt{CompressedVectorDownsampler} combina ambos enfoques en una única solución, permitiendo obtener datos listos para ser graficados tras haber sido comprimidos y reducidos.
+Hasta ahora hemos abordado por separado el uso de estructuras de datos compactas y las técnicas de *downsampling*. La clase \texttt{CompressedVectorDownsampler} combina ambos enfoques en una única solución, permitiendo obtener datos listos para ser graficados tras haber sido comprimidos y reducidos.
 
-Esta clase integra internamente las funcionalidades de \texttt{CompressedVector} y \texttt{TsDownsample}. El usuario puede proporcionar como entrada uno o ambos vectores originales (\texttt{x} e \texttt{y}), junto con los siguientes parámetros:
+Esta clase integra internamente las funcionalidades de \texttt{CompressedVector} y \texttt{TS Downsample}. El usuario puede proporcionar como entrada una o dos series de datos numéricos ordenados:
 
 \begin{itemize}
-    \item Cantidad de decimales a conservar.
-    \item Tamaño del entero a utilizar (8, 16, 32 o 64 bits).
-    \item Método de compresión (como función o identificador en forma de \texttt{string}).
-    \item Estrategia de \textit{downsampling} (también como función o \texttt{string}).
-    \item Número deseado de puntos de salida (\texttt{n\_out}).
+\item $x = (x_1, x_2, \dots, x_n)$: normalmente representa los valores del eje horizontal (por ejemplo, tiempo o índice).
+\item $y = (y_1, y_2, \dots, y_n)$: representa los valores correspondientes del eje vertical (por ejemplo, magnitud, medición u observación).
 \end{itemize}
+
+Ambas secuencias deben tener la misma longitud $n$, de modo que cada par $(x_i, y_i)$ forme un punto de la serie original.
+
+Además, el usuario puede especificar los siguientes parámetros:
+
+\begin{itemize}
+\item Cantidad de decimales a conservar (precisión deseada).
+\item Tamaño del entero a utilizar (8, 16, 32 o 64 bits).
+\item Método de compresión (como función o identificador en forma de \texttt{string}).
+\item Estrategia de \textit{downsampling} (también como función o \texttt{string}).
+\item Número deseado de puntos de salida (\texttt{n\_out}).
+\end{itemize}
+
 
 Como resultado, se obtienen los vectores \texttt{x} y/o \texttt{y} ya procesados, tanto por \textit{downsampling} como por compresión, permitiendo al usuario almacenar información densa en una fracción del espacio original. Esto garantiza una reducción significativa en el uso de almacenamiento y en los tiempos de renderización durante la visualización.
 
 
-\subsection{Librerías de Visualización}
+\section{Librerías de Visualización}
 
 El propósito de esta sección es explorar cómo las herramientas desarrolladas en este trabajo pueden integrarse con bibliotecas de visualización ya existentes. No se contempla la creación de una nueva biblioteca gráfica, sino la adaptación y evaluación de las opciones disponibles para visualizar datos procesados mediante compresión y \textit{downsampling}.
 
 A continuación, se presentan las bibliotecas consideradas en este estudio, agrupadas según su compatibilidad con las estructuras propuestas.
 
-\subsubsection{Bibliotecas Dependientes de NumPy}
+\subsection{Bibliotecas Dependientes de NumPy}
 
 Muchas bibliotecas populares de visualización en Python, como \texttt{matplotlib}~\cite{matplotlib}, \texttt{plotly} y \texttt{plotly-resampler}, ofrecen amplias funcionalidades para construir gráficos interactivos y estáticos. Sin embargo, todas ellas presentan una limitación importante: requieren explícitamente que los datos de entrada sean arreglos de tipo \texttt{numpy.ndarray}, o bien realizan una conversión interna hacia dicho formato.
 
@@ -127,44 +137,52 @@ Como consecuencia, al intentar visualizar los datos comprimidos directamente con
 
 Resolver esta limitación está fuera del alcance de este trabajo. Sería necesario modificar el código fuente de estas bibliotecas para aceptar iteradores genéricos sin forzar una conversión a \texttt{numpy}, o bien desarrollar un nuevo tipo de dato compatible con la infraestructura de \texttt{numpy}. Ambos caminos implican un esfuerzo considerable y una reestructuración profunda del ecosistema.
 
-\subsubsection{PyGal}
+\subsection{PyGal}
 
 \texttt{PyGal} es una biblioteca orientada a la generación de gráficos SVG embebibles para la Web~\cite{pygal}. Aunque ofrece funcionalidades básicas como gráficos de líneas y dispersión, se destaca por una característica clave: acepta cualquier objeto iterable como fuente de datos, sin necesidad de convertirlo a \texttt{numpy}. Gracias a esto, \texttt{PyGal} es plenamente compatible con \texttt{CompressedVector} y \texttt{CompressedVectorDownsampler}.
 
 No obstante, esta flexibilidad tiene un costo. \texttt{PyGal} presenta limitaciones notables en cuanto a interactividad y personalización. No permite acciones como zoom, selección dinámica de puntos o animaciones avanzadas, lo que restringe su utilidad en contextos donde el análisis visual requiere exploración activa y responsiva.
 
-\subsubsection{Vega-Altair}
+\subsection{Vega-Altair}
 
 \texttt{Vega-Altair} es una biblioteca declarativa para la visualización de datos en Python, basada en la gramática de gráficos de \texttt{Vega-Lite}~\cite{altair}. Su API es coherente, legible y potente, permitiendo crear visualizaciones complejas con poco código.
 
-Una de sus principales ventajas es su compatibilidad con estructuras iterables sin requerir conversión explícita a \texttt{numpy}. Esto la hace adecuada para trabajar directamente con \texttt{CompressedVectorDownsampler}, permitiendo visualizar datos comprimidos y downsampleados sin perder eficiencia espacial.
+Una de sus principales ventajas es su compatibilidad con estructuras iterables sin requerir conversión explícita a \texttt{numpy}. Esto la hace adecuada para trabajar directamente con \\ \texttt{CompressedVectorDownsampler}, permitiendo visualizar datos compactos y downsampleados sin perder eficiencia espacial.
 
 \texttt{Altair} combina muchas de las fortalezas de bibliotecas como \texttt{plotly} y \texttt{matplotlib}, ofreciendo soporte para múltiples tipos de gráficos, interactividad avanzada y buena integración con el ecosistema de análisis de datos en Python. Por estas razones, ha sido la herramienta principal utilizada en los experimentos de esta memoria y se recomienda como la opción preferente para trabajos futuros.
 
+No obstante, una limitación importante de \texttt{Altair} es que, al momento de construir la visualización, internamente transforma los datos en un \texttt{DataFrame} de \texttt{pandas}, lo que puede implicar una asignación de memoria considerable. Esto significa que, aunque se utilicen estructuras de datos compactas como \texttt{CompressedVector}, la memoria utilizada durante el proceso de visualización puede ser similar —e incluso levemente superior— a la que se requeriría al usar datos originales en formato estándar. Por lo tanto, la eficiencia espacial obtenida mediante el uso de vectores comprimidos no se aprovecha completamente en esta etapa, lo que constituye una limitación relevante de esta biblioteca para visualización directa desde estructuras compactas.
 
-\subsection{Framework de Experimentación}
+\section{Framework de Experimentación}
 \label{benchmarking}
 %aqui falta hilar un poco estas ideas...
-Benchmarking es el proceso continuo de comparar el desempeño, productos o prácticas de una organización, sistema o componente con referentes externos —como líderes de la industria o soluciones de alto rendimiento— con el objetivo de identificar brechas y oportunidades de mejora. Este proceso no se limita sólo a la recolección de métricas, sino que también implica el análisis crítico y, cuando es pertinente, la adopción o adaptación de ideas y métodos que han demostrado ser eficaces.~\cite{stapenhurst2009benchmarking}
+\textit{Benchmarking} es el proceso continuo de comparar el desempeño, productos o prácticas de una organización, sistema o componente con referentes externos —como líderes de la industria o soluciones de alto rendimiento— con el objetivo de identificar brechas y oportunidades de mejora. Este proceso no se limita sólo a la recolección de métricas, sino que también implica el análisis crítico y, cuando es pertinente, la adopción o adaptación de ideas y métodos que han demostrado ser eficaces.~\cite{stapenhurst2009benchmarking}
 
-En el contexto de la Memoria de Título, el benchmarking se refiere a los experimentos definidos en el anexo\ref{sec:experimentos}, que evalúan distintos aspectos de la implementación propuesta: espacio, memoria, tiempo de renderización y construcción, entre otros.
+En el contexto de esta Memoria de Título, el benchmarking se refiere a los experimentos definidos en su respectiva sección\ref{sec:pruebas-sistema}, que evalúan distintos aspectos de la implementación propuesta: espacio, memoria, tiempo de renderización y construcción, entre otros.
 
 Para ese objetivo, se desarrolló un framework de experimentación que se detalla en las subsecciones a continuación.
 
-\subsubsection{Sacred}
+\subsection{Sacred}
 
-Para llevar a cabo las comparaciones se utilizó la biblioteca \texttt{Sacred}, una herramienta de Python que permite configurar, organizar, registrar y reproducir experimentos computacionales~\cite{greff2017sacred}. Está diseñada para introducir una sobrecarga mínima, fomentando la modularidad y flexibilidad en su implementación.
+Para llevar a cabo el \textit{benchmarking} se utilizó la biblioteca \texttt{Sacred}, una herramienta de Python que permite configurar, organizar, registrar y reproducir experimentos computacionales~\cite{greff2017sacred}. Está diseñada para introducir una sobrecarga mínima, fomentando la modularidad y flexibilidad en su implementación.
 
 Esta biblioteca permite ejecutar experimentos de forma estructurada, manteniendo control sobre los parámetros involucrados. Se definió una configuración base con parámetros comunes, pero cada experimento puede especificar valores propios que reemplazan a los generales cuando corresponde.
 
-Por ejemplo, se estableció globalmente que cada experimento debe ejecutarse 100 veces, con el fin de obtener un promedio representativo. Sin embargo, en ciertos casos —como en las pruebas de espacio, donde los resultados son estables y no requieren repetición— este valor se reemplaza localmente por una sola ejecución. Así, mientras los ensayos de tiempo usan múltiples iteraciones por defecto, los de uso de espacio en disco se realizan solo una vez.
+Por ejemplo, se estableció que cada experimento debe ejecutarse 100 veces para obtener un promedio representativo. Sin embargo, en ciertos casos —como en las pruebas de espacio, donde los resultados son estables y no requieren repetición— este valor se reemplaza por una sola ejecución. Así, mientras los ensayos de tiempo usan múltiples iteraciones por defecto, los de uso de espacio en disco se realizan solo una vez.
 
-\subsubsection{Input Handler}
+\subsection{Input Handler}
 
 \textit{InputHandler} es una clase auxiliar que permite cargar datos desde archivos CSV y convertirlos en diferentes formatos, ya sea sin compresión, con compresión usando \textit{CompressedVector}, o bien aplicando técnicas de reducción de puntos. Su diseño parametrizable permite ajustar el formato de los datos para facilitar su uso en pruebas de benchmarking.
 
 \vspace{0.5em}
-\textbf{Configuración:} mediante el método \textit{set\_width()}, se puede definir el ancho de bits para la parte entera de los datos en los ejes \textit{x} e \textit{y}, lo que incide directamente en la eficiencia del almacenamiento comprimido.
+\textbf{Configuración:} mediante el método \texttt{set\_width()}, se puede definir el número de bits asignado para representar la parte entera de los datos contenidos en los ejes \( x \) y \( y \). Estos ejes corresponden a dos secuencias numéricas de igual longitud \( n \), donde:
+
+\begin{itemize}
+    \item \( x = (x_1, x_2, \dots, x_n) \): típicamente representa los índices, marcas de tiempo u otra variable independiente.
+    \item \( y = (y_1, y_2, \dots, y_n) \): contiene los valores observados correspondientes.
+\end{itemize}
+
+Al ajustar el ancho de bits, se controla cuántos bits se utilizan para codificar cada elemento \( x_i \) o \( y_i \) en la representación comprimida, afectando directamente la precisión y el tamaño del almacenamiento resultante.
 
 \vspace{0.5em}
 \textbf{Extracción de datos:} la función \textit{get\_from\_file()} permite cargar columnas desde archivos CSV, entregando los datos en distintos formatos según el parámetro \textit{option}:
@@ -181,9 +199,9 @@ Por ejemplo, se estableció globalmente que cada experimento debe ejecutarse 100
 \vspace{0.5em}
 \textbf{Índices seleccionados:} luego de aplicar reducción, es posible recuperar los índices de los puntos seleccionados mediante \textit{get\_x\_indices()} y \textit{get\_y\_indices()}, lo que resulta útil para visualizar los puntos elegidos o analizar su distribución.
 
-\subsubsection{Experiment Runner}
+\subsection{Experiment Runner}
 
-Llamamos \textit{Experiment Runner} a una serie de herramientas definidas en el benchmarking que nos permiten ejecutar cualquier experimento previamente definido. Este módulo gestiona las configuraciones globales, aplica los parámetros correspondientes a cada caso, ejecuta la función de evaluación y almacena los resultados mediante la librería \textit{Sacred} en un archivo \textit{.json}.
+Llamamos \textit{Experiment Runner} a una serie de herramientas definidas en el benchmarking que nos permiten ejecutar cualquier experimento previamente definido. Este módulo gestiona las configuraciones globales, aplica los parámetros correspondientes a cada caso, ejecuta la función de evaluación y almacena los resultados mediante la biblioteca \textit{Sacred} en un archivo \textit{.json}.
 
 Por cada experimento, se registra la siguiente información:
 
@@ -204,7 +222,7 @@ Estos datos permiten evaluar de forma cuantitativa el comportamiento de diferent
 
 Además de los resultados cuantitativos de cada experimento, el archivo \textit{.json} generado por \textit{Sacred} incluye información complementaria útil para trazabilidad y reproducibilidad. Por ejemplo, se registra el nombre del experimento, la ruta base de ejecución, las versiones exactas de las dependencias utilizadas, los archivos fuente involucrados, y metadatos del sistema donde se ejecutó (CPU, sistema operativo, versión de Python, etc.). También se incluyen los commits y estado del repositorio \textit{git}, permitiendo asociar los resultados directamente con una versión específica del código. Esta información permite contextualizar los resultados y asegurar que los experimentos puedan ser replicados en el futuro con fidelidad.
 
-\subsubsection{Plantilla De Experimentos}
+\subsection{Plantilla De Experimentos}
 
 Dentro del repositorio, el archivo \textit{template.py} actúa como base para definir cualquier experimento compatible con el framework de benchmarking. Este archivo contiene una estructura mínima y parametrizable que permite registrar, configurar y ejecutar un experimento completo con la ayuda de \textit{Sacred}.
 

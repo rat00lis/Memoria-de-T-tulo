@@ -1,0 +1,17 @@
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline\multicolumn{1}{|c|}{Option} & \multicolumn{6}{c|}{\textbf{Number of data points}} \\
+\cline{2-7}
+ & \textbf{6000} & \textbf{12000} & \textbf{20000} & \textbf{70000} & \textbf{100000} & \textbf{300000} \\
+\hline
+Compressed Vector Downsample - dac_vector & 1.33e+02 [kb] & 1.09e+02 [kb] & 1.09e+02 [kb] & 1.09e+02 [kb] & 1.53e+02 [kb] & 1.52e+02 [kb] \\
+Compressed Vector Downsample - vlc_vector_fibonacci & 1.33e+02 [kb] & 1.09e+02 [kb] & 1.10e+02 [kb] & 1.09e+02 [kb] & 1.53e+02 [kb] & 1.53e+02 [kb] \\
+Original Data & 4.00e+04 [kb] & 7.99e+04 [kb] & 1.33e+05 [kb] & 4.65e+05 [kb] & 6.64e+05 [kb] & 2.00e+06 [kb] \\
+TS Downsample & 1.32e+02 [kb] & 1.09e+02 [kb] & 1.09e+02 [kb] & 1.08e+02 [kb] & 1.53e+02 [kb] & 1.53e+02 [kb] \\
+\hline
+\end{tabular}
+}
+\label{tab:pygal plotting memory allocation-yellow-tripdata-2015-01}
+\end{table}

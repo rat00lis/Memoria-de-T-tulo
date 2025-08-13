@@ -1,9 +1,9 @@
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|c|c|c|}
 \hline
-option/$n_{size}$ & \textbf{dac_vector - 0 - MinMaxLTTBDownsampler} & \textbf{dac_vector - 10 - MinMaxLTTBDownsampler} & \textbf{dac_vector - 5 - MinMaxLTTBDownsampler}\\
+option/$n_{size}$ & \textbf{dac\_vector - 0 - MinMaxLTTBDownsampler} & \textbf{dac\_vector - 10 - MinMaxLTTBDownsampler} & \textbf{dac\_vector - 5 - MinMaxLTTBDownsampler}\\
 \hline
 2000 & 4.64e-03 [s] & 6.60e-03 [s] & 6.54e-03 [s] \\
 6000 & 7.53e-04 [s] & 7.63e-04 [s] & 7.61e-04 [s] \\
